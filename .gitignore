@@ -1,1 +1,5 @@
 *.class
+.vscode
+*.iml
+out
+.idea
