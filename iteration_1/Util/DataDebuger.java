@@ -1,4 +1,4 @@
-package ObjectGeneration;
+package Util;
 
 public class DataDebuger {
     private DataGenerator generator;
