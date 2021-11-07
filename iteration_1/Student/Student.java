@@ -1,5 +1,7 @@
 package Student;
 
+import Course.Course;
+
 public class Student {
     private String id;
     private Transcript transcript;
@@ -22,5 +24,9 @@ public class Student {
 
     public void setTranscript(Transcript transcript) {
         this.transcript = transcript;
+    }
+
+    public void addCourse(Course newCouse) {
+        transcript.addCourse(newCouse);
     }
 }
