@@ -1,6 +1,9 @@
 package Student;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import Course.Course;
 
@@ -16,12 +19,12 @@ public class Transcript {
         this.semesters = semesters;
     }
 
-    public void addSemester(Semester s) {
-        semesters.add(s);
+    public void addSemester(Semester semester) {
+        semesters.add(semester);
     }
 
-    public void addCourse(Course c) { // Waiting for semester class to be completed
-        return;
+    public void addCourse(Course course) {
+        semesters.get(semesters.size() - 1).addNewCourse(course);
     }
 
     public Semester getCurrentSemester() {
@@ -33,15 +36,36 @@ public class Transcript {
     }
 
     public float getGPA() {
-        return getCompletedCredits() / getTotalCourseCredits();
-    }
 
-    public float getTotalCourseCredits() { // Waiting for semester class to be completed
-        return 1;
-    }
+        float point = 0, totalCredits = 0;
+        
+        /* 
+        * Students can take a course more than one time. However only the last 
+        * time they took the course effects the gpa. Traversing the map in the 
+        * reverse order ensures this. Also keeping courses inside a set
+        * prevents a course from effecting gpa twice.
+        */ 
 
-    public float getCompletedCredits() { // Waiting for semester class to be completed
-        return 1;
+        TreeSet<Course> completedCourses = new TreeSet<Course>();
+
+        for (int i = semesters.size() - 1; i >= 0; i--) {
+            TreeMap<Course, Float> courses = semesters.get(i).getNotes();
+
+            for (Map.Entry<Course, Float> course: courses.entrySet()) {
+
+                if (course.getValue() == -2) continue;
+
+                if (completedCourses.contains(course.getKey())) continue;
+
+                completedCourses.add(course.getKey());
+
+                point += 0; // course.getKey().getCredit() * course.getValue();
+
+                totalCredits += 0; // course.getKey().getCredit();
+            }
+        }
+
+        return point / totalCredits;
     }
 
     public ArrayList<Semester> getSemesters() {

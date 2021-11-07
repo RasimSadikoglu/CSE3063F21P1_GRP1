@@ -26,7 +26,7 @@ public class Student {
         this.transcript = transcript;
     }
 
-    public void addCourse(Course newCouse) {
-        transcript.addCourse(newCouse);
+    public void addCourse(Course newCourse) {
+        transcript.addCourse(newCourse);
     }
 }
