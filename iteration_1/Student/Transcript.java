@@ -40,7 +40,7 @@ public class Transcript {
         float point = 0, totalCredits = 0;
         
         /* 
-        * Students can take a course more than one time. However only the last 
+        * Students can take a course more than one time. However, only the last 
         * time they took the course effects the gpa. Traversing the map in the 
         * reverse order ensures this. Also keeping courses inside a set
         * prevents a course from effecting gpa twice.
@@ -64,8 +64,9 @@ public class Transcript {
                 totalCredits += 0; // course.getKey().getCredit();
             }
         }
-
-        return point / totalCredits;
+        
+        // GPA of a student with no completed course is 0.
+        return totalCredits == 0 ? 0 : point / totalCredits;
     }
 
     public ArrayList<Semester> getSemesters() {
