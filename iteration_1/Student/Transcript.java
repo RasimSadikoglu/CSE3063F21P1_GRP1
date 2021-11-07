@@ -2,6 +2,8 @@ package Student;
 
 import java.util.ArrayList;
 
+import Course.Course;
+
 public class Transcript {
     
     private ArrayList<Semester> semesters;
@@ -16,6 +18,10 @@ public class Transcript {
 
     public void addSemester(Semester s) {
         semesters.add(s);
+    }
+
+    public void addCourse(Course c) { // Waiting for semester class to be completed
+        return;
     }
 
     public Semester getCurrentSemester() {
