@@ -5,6 +5,12 @@ import Course.Course;
 public class Student {
     private String id;
     private Transcript transcript;
+
+    public Student() { // Default constructor in order to avade null exceptions
+        this.id = "";
+        this.transcript = new Transcript();
+    }
+
     public Student(String id, Transcript transcript) {
         this.id = id;
         this.transcript = transcript;
