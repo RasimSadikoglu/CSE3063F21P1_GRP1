@@ -10,6 +10,7 @@ import Course.Course;
 public class Transcript {
     
     private ArrayList<Semester> semesters;
+    private ArrayList<Course> courses;
 
     public Transcript() {
         semesters = new ArrayList<Semester>();
@@ -19,12 +20,17 @@ public class Transcript {
         this.semesters = semesters;
     }
 
+    public Transcript(ArrayList<Semester> semesters, ArrayList<Course> courses) {
+        this.semesters = semesters;
+        this.courses = courses;
+    }
+
     public void addSemester(Semester semester) {
         semesters.add(semester);
     }
 
     public void addCourse(Course course) {
-        semesters.get(semesters.size() - 1).addNewCourse(course);
+        semesters.get(semesters.size() - 1).addNewCourse(course.getCourseName());
     }
 
     public Semester getCurrentSemester() {
@@ -46,22 +52,27 @@ public class Transcript {
         * prevents a course from effecting gpa twice.
         */ 
 
-        TreeSet<Course> completedCourses = new TreeSet<Course>();
+        TreeSet<String> completedCourses = new TreeSet<String>();
 
         for (int i = semesters.size() - 1; i >= 0; i--) {
-            TreeMap<Course, Float> courses = semesters.get(i).getNotes();
+            TreeMap<String, Float> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<Course, Float> course: courses.entrySet()) {
+            for (Map.Entry<String, Float> note: notes.entrySet()) {
 
-                if (course.getValue() == -2) continue;
+                String courseName = note.getKey();
+                float courseNote = note.getValue();
 
-                if (completedCourses.contains(course.getKey())) continue;
+                if (courseNote == -2) continue;
 
-                completedCourses.add(course.getKey());
+                if (completedCourses.contains(courseName)) continue;
 
-                point += course.getKey().getCourseCredits() * course.getValue();
+                completedCourses.add(courseName);
 
-                totalCredits += course.getKey().getCourseCredits();
+                float courseCredits = getCourse(courseName).getCourseCredits(); // Need course credit.
+
+                point += courseNote == -1 ? 0 : courseCredits * courseNote;
+
+                totalCredits += courseCredits;
             }
         }
         
@@ -71,5 +82,14 @@ public class Transcript {
 
     public ArrayList<Semester> getSemesters() {
         return semesters;
+    }
+
+    private Course getCourse(String courseName) {
+
+        for (Course course: courses) {
+            if (course.getCourseName().equals(courseName)) return course;
+        }
+
+        return null;
     }
 }
