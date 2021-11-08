@@ -29,12 +29,12 @@ public class Semester {
         this.notes = notes;
     }
 
-    public void addNote(String course, float note){
-        notes.put(course, note);  
+    public void addNote(String courseNgame, float note){
+        notes.put(courseName, note);  
     }
 
-    public void addNewCourse(String course){
-        notes.put(course, (float)-2);
+    public void addNewCourse(String courseName){
+        notes.put(courseName, (float)-2);
     }
 
     public TreeMap<String, Float> getNotes() {
