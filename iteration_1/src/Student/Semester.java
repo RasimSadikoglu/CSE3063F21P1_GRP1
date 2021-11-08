@@ -19,25 +19,25 @@ public class Semester {
     -2  : Not Finalized
     */
 
-    private TreeMap<Course, Float> notes;
+    private TreeMap<String, Float> notes;
 
     public Semester() {
-        notes = new TreeMap<Course, Float>();
+        notes = new TreeMap<String, Float>();
     }
 
-    public Semester(TreeMap<Course, Float> notes) {
+    public Semester(TreeMap<String, Float> notes) {
         this.notes = notes;
     }
 
-    public void addNote(Course course, float note){
+    public void addNote(String course, float note){
         notes.put(course, note);  
     }
 
-    public void addNewCourse(Course course){
+    public void addNewCourse(String course){
         notes.put(course, (float)-2);
     }
 
-    public TreeMap<Course, Float> getNotes() {
+    public TreeMap<String, Float> getNotes() {
         return notes;
     }
 }
