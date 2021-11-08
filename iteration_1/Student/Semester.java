@@ -1,5 +1,6 @@
 package Student;
-import java.util.*;
+
+import java.util.TreeMap;
 import Course.Course;
 
 public class Semester {
@@ -22,6 +23,10 @@ public class Semester {
 
     public Semester() {
         notes = new TreeMap<Course, Float>();
+    }
+
+    public Semester(TreeMap<Course, Float> notes) {
+        this.notes = notes;
     }
 
     public void addNote(Course course, float note){

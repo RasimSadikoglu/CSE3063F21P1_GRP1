@@ -59,9 +59,9 @@ public class Transcript {
 
                 completedCourses.add(course.getKey());
 
-                point += 0; // course.getKey().getCredit() * course.getValue();
+                point += course.getKey().getCourseCredits() * course.getValue();
 
-                totalCredits += 0; // course.getKey().getCredit();
+                totalCredits += course.getKey().getCourseCredits();
             }
         }
         
