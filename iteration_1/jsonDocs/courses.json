@@ -1,0 +1,44 @@
+[
+    {
+        "courseName": "test course 1",
+        "courseCode": "test code 1",
+        "requiredCredits": 0,
+        "prerequisiteCourse": "test prerequisite course 1",
+        "courseCredits": 0,
+        "courseQuota": 0,
+        "courseSchedule": {
+            "timeTable": [
+                "0-10.00-11.20",
+                "3-13.00-14.20"
+            ]
+        }
+    },
+    {
+        "courseName": "test course 2",
+        "courseCode": "test code 2",
+        "requiredCredits": 2,
+        "prerequisiteCourse": "test prerequisite course 2",
+        "courseCredits": 4,
+        "courseQuota": 1,
+        "courseSchedule": {
+            "timeTable": [
+                "3-10.00-11.20",
+                "4-16.00-17.20"
+            ]
+        }
+    },
+    {
+        "courseName": "test course 3",
+        "courseCode": "test code 3",
+        "requiredCredits": 3,
+        "prerequisiteCourse": "test prerequisite course 3",
+        "courseCredits": 7,
+        "courseQuota": 1,
+        "courseSchedule": {
+            "timeTable": [
+                "1-11.00-12.20",
+                "3-17.00-18.20"
+            ]
+        }
+    }
+]
