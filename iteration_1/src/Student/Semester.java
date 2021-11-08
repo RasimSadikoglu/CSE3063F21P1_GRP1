@@ -29,7 +29,7 @@ public class Semester {
         this.notes = notes;
     }
 
-    public void addNote(String courseNgame, float note){
+    public void addNote(String courseName, float note){
         notes.put(courseName, note);  
     }
 
