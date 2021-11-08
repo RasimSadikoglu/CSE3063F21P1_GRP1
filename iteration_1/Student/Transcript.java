@@ -41,8 +41,8 @@ public class Transcript {
         
         /* 
         * Students can take a course more than one time. However, only the last 
-        * time they took the course effects the gpa. Traversing the map in the 
-        * reverse order ensures this. Also keeping courses inside a set
+        * time they took the course effects the gpa. Traversing semesters array
+        * in the reverse order ensures this. Also keeping courses inside a set
         * prevents a course from effecting gpa twice.
         */ 
 
