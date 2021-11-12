@@ -7,7 +7,8 @@ public class Course {
     private float requiredCredits;
     private String prerequisiteCourse;
     private float courseCredits;
-    private int courseQuota;
+    private int maxQuota;
+    private int currentQuota;
     private Schedule courseSchedule;
 
     public Course() {
@@ -16,17 +17,19 @@ public class Course {
         requiredCredits = 0;
         prerequisiteCourse = "";
         courseCredits = 0;
-        courseQuota = 0;
+        maxQuota = 0;
+        currentQuota = 0;
         courseSchedule = new Schedule();
     }
 
-    public Course(String courseName, String courseCode, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, Schedule courseSchedule){
+    public Course(String courseName, String courseCode, float requiredCredits, String prerequisiteCourse, float courseCredits, int maxQuota, int currentQuota, Schedule courseSchedule){
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.requiredCredits = requiredCredits;
         this.prerequisiteCourse = prerequisiteCourse;
         this.courseCredits = courseCredits;
-        this.courseQuota = courseQuota;
+        this.maxQuota = maxQuota;
+        this.currentQuota = currentQuota;
         this.courseSchedule = courseSchedule;
     }
 
@@ -70,12 +73,16 @@ public class Course {
         this.courseCredits = courseCredits;
     }
 
-    public int getCourseQuota() {
-        return courseQuota;
+    public int getMaxQuota() {
+        return maxQuota;
     }
 
-    public void setCourseQuota(int courseQuota) {
-        this.courseQuota = courseQuota;
+    public void setCourseQuota(int maxQuota) {
+        this.maxQuota = maxQuota;
+    }
+
+    public int getCurrentQuota() {
+        return currentQuota;
     }
 
     public Schedule getCourseSchedule() {

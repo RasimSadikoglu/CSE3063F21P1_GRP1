@@ -7,14 +7,13 @@ import Util.DataIOHandler;
 class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello World");
+		
+		// Don't forget to set correct paths for json files (Simulation.getData() method and the line below).
 
-		// Test code snippet for Data IO:
-		// ------------------------------------------------------------------
-		Course[] courses = DataIOHandler.readCourseInfo("C:\\Users\\furka\\Desktop\\oop\\CSE3063F21P1_GRP1\\iteration_1\\jsonDocs\\courses.json");
-		System.out.println(courses[0].getCourseName());
+		Simulation sim = DataIOHandler.readSimulationParameters("/home/rasim/Yandex.Disk/Files/Workspaces/CSE3063F21P1_GRP1/iteration_1/jsonDocs/simulationParameters.json");
 
-		Student testStudent = DataIOHandler.readStudentInfo("C:\\Users\\furka\\Desktop\\oop\\CSE3063F21P1_GRP1\\iteration_1\\jsonDocs\\testStudent.json");
-		System.out.println(testStudent.getId());
-		// ------------------------------------------------------------------
+		sim.getData();
+
+		sim.start();
 	}
 }

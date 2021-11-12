@@ -68,7 +68,7 @@ public class Transcript {
 
                 completedCourses.add(courseName);
 
-                float courseCredits = getCourse(courseName).getCourseCredits(); // Need course credit.
+                float courseCredits = getCourse(courseName).getCourseCredits();
 
                 point += courseNote == -1 ? 0 : courseCredits * courseNote;
 

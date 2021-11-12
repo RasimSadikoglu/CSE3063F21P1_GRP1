@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import com.google.gson.Gson;
 
 import Course.Course;
+import Main.Simulation;
 import Student.Student;
 
 public class DataIOHandler {
@@ -22,6 +23,11 @@ public class DataIOHandler {
 	static public Student readStudentInfo(String studentName) {
 		String studentStr = readFile(studentName);
 		return gson.fromJson(studentStr, Student.class);
+	}
+
+	static public Simulation readSimulationParameters(String path) {
+		String simulation = readFile(path);
+		return gson.fromJson(simulation, Simulation.class);
 	}
 
 	static public void exportStudentInfo(String studentName, String studentData) {
