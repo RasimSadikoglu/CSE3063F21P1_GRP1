@@ -1,5 +1,6 @@
 package Util;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,7 +14,14 @@ import Student.Student;
 public class DataIOHandler {
 
 	static private Gson gson = new Gson();
-
+	public static String currentPath; // relative path to current directory
+	static {
+		try {
+			currentPath = new File("./iteration_1").getCanonicalPath() + "/";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	static public Course[] readCourseInfo(String path) {
 		String coursesStr = readFile(path);
 		Course[] courses = gson.fromJson(coursesStr, Course[].class);
@@ -36,7 +44,7 @@ public class DataIOHandler {
 
 	static private String readFile(String path) {
 		try {
-			Path filePath = Paths.get(path);
+			Path filePath = Paths.get(currentPath + path);
 			byte[] data = Files.readAllBytes(filePath);
 			return new String(data, "UTF-8");
 		} catch (Exception ex) {
@@ -48,7 +56,7 @@ public class DataIOHandler {
 
 	static private void writeFile(String path, String data) {
 		try {
-			Path filePath = Paths.get(path);
+			Path filePath = Paths.get(currentPath + path);
 			Files.write(filePath, data.getBytes());
 		} catch (Exception ex) {
 			System.out.println(ex.toString());

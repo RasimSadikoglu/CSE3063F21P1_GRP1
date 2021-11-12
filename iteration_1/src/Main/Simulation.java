@@ -32,15 +32,15 @@ public class Simulation {
     // }
 
     public void getData() {
-        Course[] courses = DataIOHandler.readCourseInfo("/home/rasim/Yandex.Disk/Files/Workspaces/CSE3063F21P1_GRP1/iteration_1/jsonDocs/courses.json");
+        Course[] courses = DataIOHandler.readCourseInfo("jsonDocs/courses.json");
 		this.courses.addAll(Arrays.asList(courses));
 
 		if (reCreateStudentData) return;
 
-        File[] students = new File("/home/rasim/Yandex.Disk/Files/Workspaces/CSE3063F21P1_GRP1/iteration_1/jsonDocs/students").listFiles();
+        File[] students = new File(DataIOHandler.currentPath + "jsonDocs/students").listFiles();
 
         for (File student: students) {
-            this.students.add(DataIOHandler.readStudentInfo(student.toPath().toString()));
+            this.students.add(DataIOHandler.readStudentInfo("jsonDocs/students/" + student.getName()));
         }
 
         System.out.println("Number of students: " + this.students.size() + "\n");
