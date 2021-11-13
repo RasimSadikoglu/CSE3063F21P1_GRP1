@@ -1,9 +1,11 @@
 package Course;
 
+import java.util.ArrayList;
+
 public class Course {
 
     private String courseName;
-    private String courseCode;
+    private ArrayList<String> courseGroup; // A course can be inside different course groups.
     private float requiredCredits;
     private String prerequisiteCourse;
     private float courseCredits;
@@ -13,7 +15,7 @@ public class Course {
 
     public Course() {
         courseName = "";
-        courseCode = "";
+        courseGroup = new ArrayList<String>();
         requiredCredits = 0;
         prerequisiteCourse = "";
         courseCredits = 0;
@@ -22,9 +24,9 @@ public class Course {
         courseSchedule = new Schedule();
     }
 
-    public Course(String courseName, String courseCode, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
+    public Course(String courseName, ArrayList<String> courseGroup, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
         this.courseName = courseName;
-        this.courseCode = courseCode;
+        this.courseGroup = courseGroup;
         this.requiredCredits = requiredCredits;
         this.prerequisiteCourse = prerequisiteCourse;
         this.courseCredits = courseCredits;
@@ -41,12 +43,12 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getCourseCode() {
-        return courseCode;
+    public ArrayList<String> getcourseGroup() {
+        return courseGroup;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
+    public void setcourseGroup(ArrayList<String> courseGroup) {
+        this.courseGroup = courseGroup;
     }
 
     public float getRequiredCredits() {

@@ -6,11 +6,12 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import Course.Course;
+import Student.Semester.letterNote;
+import Util.DataIOHandler;
 
 public class Transcript {
     
     private ArrayList<Semester> semesters;
-    private ArrayList<Course> courses;
 
     public Transcript() {
         semesters = new ArrayList<Semester>();
@@ -18,11 +19,6 @@ public class Transcript {
 
     public Transcript(ArrayList<Semester> semesters) {
         this.semesters = semesters;
-    }
-
-    public Transcript(ArrayList<Semester> semesters, ArrayList<Course> courses) {
-        this.semesters = semesters;
-        this.courses = courses;
     }
 
     public void addSemester(Semester semester) {
@@ -55,12 +51,13 @@ public class Transcript {
         TreeSet<String> completedCourses = new TreeSet<String>();
 
         for (int i = semesters.size() - 1; i >= 0; i--) {
-            TreeMap<String, Float> notes = semesters.get(i).getNotes();
+            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<String, Float> note: notes.entrySet()) {
+            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
 
                 String courseName = note.getKey();
-                float courseNote = note.getValue();
+
+                float courseNote = note.getValue().getNote();
 
                 if (courseNote == -2) continue;
 
@@ -86,14 +83,18 @@ public class Transcript {
 
     private Course getCourse(String courseName) {
 
-        for (Course course: courses) {
+        for (Course course: DataIOHandler.courses) {
             if (course.getCourseName().equals(courseName)) return course;
         }
 
         return null;
     }
 
-    public float getCourseNote(String courseName) {
+    public float getCourseNote(String courseName) { // ERKAM
         return 0;
+    }
+
+    public ArrayList<Course> getfailedCourses() { // RASIM
+        return null;
     }
 }

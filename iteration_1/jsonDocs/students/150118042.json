@@ -4,20 +4,20 @@
         "semesters": [
             {
                 "notes": {
-                    "course1": 2.0,
-                    "course2": 1.5
+                    "course1": "FF",
+                    "course2": "FD"
                 }
             },
             {
                 "notes": {
-                    "course3": 2.0,
-                    "course4": 1.0
+                    "course3": "DD",
+                    "course4": "BB"
                 }
             },
             {
                 "notes": {
-                    "course5": 1.0,
-                    "course6": 1.5
+                    "course5": "DC",
+                    "course6": "DZ"
                 }
             }
         ]

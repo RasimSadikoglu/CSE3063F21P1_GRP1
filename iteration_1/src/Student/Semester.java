@@ -4,39 +4,35 @@ import java.util.TreeMap;
 
 public class Semester {
 
-    /* Note Format:
-    4.0 : AA
-    3.5 : BA
-    3.0 : BB
-    2.5 : CB
-    2.0 : CC
-    1.5 : DC
-    1.0 : DD
-    0.5 : FD
-    0.0 : FF
-    -1  : DZ
-    -2  : Not Finalized
-    */
+    public static enum letterNote {
+		AA(4f), BA(3.5f), BB(3f), CB(2.5f),
+        CC(2f), DC(1.5f), DD(1f), FD(0.5f),
+        FF(0f), DZ(-1f), NF(-2f); // NF = Not Finalized
 
-    private TreeMap<String, Float> notes;
+		private final float note;
+		private letterNote(float note) { this.note = note; }
+		public float getNote() { return note; } 
+	}
+
+    private TreeMap<String, letterNote> notes;
 
     public Semester() {
-        notes = new TreeMap<String, Float>();
+        notes = new TreeMap<String, letterNote>();
     }
 
-    public Semester(TreeMap<String, Float> notes) {
+    public Semester(TreeMap<String, letterNote> notes) {
         this.notes = notes;
     }
 
-    public void addNote(String courseName, float note){
+    public void addNote(String courseName, letterNote note){
         notes.put(courseName, note);  
     }
 
     public void addNewCourse(String courseName){
-        notes.put(courseName, (float)-2);
+        notes.put(courseName, letterNote.NF);
     }
 
-    public TreeMap<String, Float> getNotes() {
+    public TreeMap<String, letterNote> getNotes() {
         return notes;
     }
 }

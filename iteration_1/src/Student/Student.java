@@ -1,15 +1,19 @@
 package Student;
 
+import java.util.ArrayList;
+
 import Course.Course;
 
 public class Student {
     private String id;
+    private float gpa; // For json files
     private Transcript transcript;
-    private int currentSemester;
+    private transient int currentSemester;
 
     public Student() { // Default constructor in order to avade null exceptions
         this.id = "";
         this.transcript = new Transcript();
+        gpa = 0;
         currentSemester = 1;
     }
 
@@ -45,5 +49,17 @@ public class Student {
 
     public int getCurrentSemester() {
         return currentSemester;
+    }
+
+    public void updateGPA() {
+        gpa = transcript.getGPA();
+    }
+
+    public ArrayList<Course> getfailedCourses() {
+        return transcript.getfailedCourses();
+    }
+
+    public void increaseSemesterCount() {
+        currentSemester++;
     }
 }
