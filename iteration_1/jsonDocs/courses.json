@@ -1,7 +1,7 @@
 [
     {
         "courseName": "test course 1",
-        "courseCode": "test code 1",
+        "courseCode": "SME1",
         "requiredCredits": 0,
         "prerequisiteCourse": "test prerequisite course 1",
         "courseCredits": 0,
@@ -15,7 +15,7 @@
     },
     {
         "courseName": "test course 2",
-        "courseCode": "test code 2",
+        "courseCode": "NTE",
         "requiredCredits": 2,
         "prerequisiteCourse": "test prerequisite course 2",
         "courseCredits": 4,

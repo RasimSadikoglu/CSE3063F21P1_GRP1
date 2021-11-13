@@ -1,7 +1,6 @@
 package Student;
 
 import java.util.TreeMap;
-import Course.Course;
 
 public class Semester {
 

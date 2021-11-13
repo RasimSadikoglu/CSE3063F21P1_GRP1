@@ -7,8 +7,8 @@ public class Course {
     private float requiredCredits;
     private String prerequisiteCourse;
     private float courseCredits;
-    private int maxQuota;
-    private int currentQuota;
+    private int courseQuota;
+    private int numberOfStudent;
     private Schedule courseSchedule;
 
     public Course() {
@@ -17,19 +17,19 @@ public class Course {
         requiredCredits = 0;
         prerequisiteCourse = "";
         courseCredits = 0;
-        maxQuota = 0;
-        currentQuota = 0;
+        courseQuota = 0;
+        numberOfStudent = 0;
         courseSchedule = new Schedule();
     }
 
-    public Course(String courseName, String courseCode, float requiredCredits, String prerequisiteCourse, float courseCredits, int maxQuota, int currentQuota, Schedule courseSchedule){
+    public Course(String courseName, String courseCode, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.requiredCredits = requiredCredits;
         this.prerequisiteCourse = prerequisiteCourse;
         this.courseCredits = courseCredits;
-        this.maxQuota = maxQuota;
-        this.currentQuota = currentQuota;
+        this.courseQuota = courseQuota;
+        this.numberOfStudent = numberOfStudent;
         this.courseSchedule = courseSchedule;
     }
 
@@ -73,16 +73,16 @@ public class Course {
         this.courseCredits = courseCredits;
     }
 
-    public int getMaxQuota() {
-        return maxQuota;
+    public int getcourseQuota() {
+        return courseQuota;
     }
 
-    public void setCourseQuota(int maxQuota) {
-        this.maxQuota = maxQuota;
+    public void setCourseQuota(int courseQuota) {
+        this.courseQuota = courseQuota;
     }
 
-    public int getCurrentQuota() {
-        return currentQuota;
+    public int getnumberOfStudent() {
+        return numberOfStudent;
     }
 
     public Schedule getCourseSchedule() {

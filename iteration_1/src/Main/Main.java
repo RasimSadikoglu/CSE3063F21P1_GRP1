@@ -1,7 +1,5 @@
 package Main;
 
-import Course.Course;
-import Student.Student;
 import Util.DataIOHandler;
 
 class Main {

@@ -1,4 +1,5 @@
 {
     "simulatedSemester": "Fall",
-    "reCreateStudentData": false
+    "reCreateStudentData": 0,
+    "yearlyStudentCount": 70
 }

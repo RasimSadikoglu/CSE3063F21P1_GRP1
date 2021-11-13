@@ -92,4 +92,8 @@ public class Transcript {
 
         return null;
     }
+
+    public float getCourseNote(String courseName) {
+        return 0;
+    }
 }

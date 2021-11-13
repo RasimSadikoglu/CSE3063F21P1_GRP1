@@ -11,16 +11,16 @@ import java.io.File;
 public class Simulation {
     private ArrayList<Student> students;
     private ArrayList<Course> courses;
-    private int currentSemester;
+    private boolean currentSemester;
     private String simulatedSemester;
-    private boolean reCreateStudentData;
+    private int reCreateStudentData;
 
     public Simulation(){
         students = new ArrayList<Student>();
         courses = new ArrayList<Course>();
-        currentSemester = 0;
+        currentSemester = true; // true = "Fall", false = "Spring"
         simulatedSemester = "";
-        reCreateStudentData = false;
+        reCreateStudentData = 0;
     }
 
     // public Simulation(ArrayList<Student> students, ArrayList<Course> courses, String simulatedSemester, boolean reCreateStudentData){
@@ -35,7 +35,7 @@ public class Simulation {
         Course[] courses = DataIOHandler.readCourseInfo("jsonDocs/courses.json");
 		this.courses.addAll(Arrays.asList(courses));
 
-		if (reCreateStudentData) return;
+		if (reCreateStudentData == 0) return;
 
         File[] students = new File(DataIOHandler.currentPath + "jsonDocs/students").listFiles();
 
@@ -48,8 +48,8 @@ public class Simulation {
 
     public void start() {
         // if (reCreateStudentData) createStudentData();
-
-        // if (continue) this.start();
+        
+        // loop this.start();
     }
 
     private void advisorCheck(ArrayList<Course> currentCourses){
@@ -100,6 +100,8 @@ public class Simulation {
                 Semester s = new Semester(currentCourses);
 
                 student.addSemester(s);
+
+                student.increaseSemesterCount();
             }
 
         */
@@ -107,22 +109,34 @@ public class Simulation {
     }
 
     private void createNewStudents(int numberOfStudent) {
-
+        // this.students.addAll(giveMeSomeStudents(numberOfStudent));
     }
 
     private void finalPoints() {
+
+        /*
+
+            loop students {
+                student.currentSemester;
+
+                for course in currentSemester {
+                    note = rand()
+                }
+            }
+
+        */
 
     }
 
     private void SimulationLoop(){
 
-        // if (currentSemester % 2 == 1) createNewStudents(); - the students registered the school that year
+        // if (currentSemester) createNewStudents(); - the students registered the school that year
 
         // courseRegistiration();
 
         // finalPoints();
 
-        // this.currentSemester++;
+        // this.currentSemester ^= true;
     }
 }
 

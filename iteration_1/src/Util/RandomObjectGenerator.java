@@ -1,7 +1,6 @@
 package Util;
 
 import java.util.ArrayList;
-import java.util.Random;
 import Student.*;
 
 
@@ -50,6 +49,8 @@ public class RandomObjectGenerator {
             studentIds.set(i, studentIds.get(replaceIndex));
             studentIds.set(replaceIndex, temp);
         }
+
+        // Return studens arraylist
     }
 
     // x: between 0 and 1
@@ -72,14 +73,6 @@ public class RandomObjectGenerator {
 
 
     public int getBellDataSize() {
-        // even
-        if (bellDataSize % 2 == 1){
-            return bellDataSize;
-        }
-        // odd
-        else{
-            // makes sure middle input is always 0.5
-            return bellDataSize + 1;
-        }
+        return bellDataSize + (bellDataSize % 2);
     }
 }

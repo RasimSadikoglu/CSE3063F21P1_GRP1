@@ -5,15 +5,18 @@ import Course.Course;
 public class Student {
     private String id;
     private Transcript transcript;
+    private int currentSemester;
 
     public Student() { // Default constructor in order to avade null exceptions
         this.id = "";
         this.transcript = new Transcript();
+        currentSemester = 1;
     }
 
-    public Student(String id, Transcript transcript) {
+    public Student(String id) {
         this.id = id;
-        this.transcript = transcript;
+        transcript = new Transcript();
+        currentSemester = 1;
     }
 
     public String getId() {
@@ -34,5 +37,13 @@ public class Student {
 
     public void addCourse(Course newCourse) {
         transcript.addCourse(newCourse);
+    }
+    
+    public float getCourseNote(String courseName) {
+        return transcript.getCourseNote(courseName);
+    }
+
+    public int getCurrentSemester() {
+        return currentSemester;
     }
 }
