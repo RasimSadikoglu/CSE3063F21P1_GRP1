@@ -94,7 +94,33 @@ public class Transcript {
         return 0;
     }
 
-    public ArrayList<Course> getfailedCourses() { // RASIM
-        return null;
+    public ArrayList<Course> getfailedCourses() {
+
+        ArrayList<Course> failedCourses = new ArrayList<Course>();
+        
+        TreeSet<String> allCourses = new TreeSet<String>();
+
+        for (int i = semesters.size() - 1; i >= 0; i--) {
+
+            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+
+            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+
+                String courseName = note.getKey();
+
+                float courseNote = note.getValue().getNote();
+
+                if (allCourses.contains(courseName)) continue;
+
+                if (courseNote < 1) failedCourses.add(getCourse(courseName));
+
+                allCourses.add(courseName);
+
+            }
+
+        }
+
+        return failedCourses;
+
     }
 }
