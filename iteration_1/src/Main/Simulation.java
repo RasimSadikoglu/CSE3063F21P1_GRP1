@@ -167,15 +167,18 @@ public class Simulation {
 
         return null;
     }
-
-    private ArrayList<Course> getAllCourses(String courseCode) { // HASAN
+    
+    private ArrayList<Course> getAllCourses(String courseCode) {
         Course[] courses = DataIOHandler.courses;
+        
+        ArrayList<Course> matchedCourses = new ArrayList<>();
+        for (Course course : courses) {
+            course.getcourseGroup().forEach(entityCode -> {
+                if (entityCode == courseCode) matchedCourses.add(course);
+            });
+        }
 
-        /*
-            Write a method that returns all courses in given course group.
-        */
-
-        return null;
+        return matchedCourses;
     }
 
     private void createNewStudents(int numberOfStudent) {
