@@ -1,6 +1,9 @@
 package Student;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
+
+import Course.Course;
 
 public class Semester {
 
@@ -22,6 +25,13 @@ public class Semester {
 
     public Semester(TreeMap<String, letterNote> notes) {
         this.notes = notes;
+    } 
+    
+    public Semester(ArrayList<Course> courses) {
+        notes = new TreeMap<String, letterNote>();
+        courses.forEach(course -> {
+            notes.put(course.getCourseName(), letterNote.NF);
+        });
     }
 
     public void addNote(String courseName, letterNote note){

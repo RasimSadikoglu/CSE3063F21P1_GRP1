@@ -36,10 +36,12 @@ public class Transcript {
 
         return semesters.get(semesters.size() - 1);
     }
+    /**
+     * @return [gpa, total points, completed credits]
+     */
+    public float[] getGPA() {
 
-    public float getGPA() {
-
-        float point = 0, totalCredits = 0;
+        float points = 0, totalCredits = 0;
         
         /* 
         * Students can take a course more than one time. However, only the last 
@@ -67,14 +69,15 @@ public class Transcript {
 
                 float courseCredits = getCourse(courseName).getCourseCredits();
 
-                point += courseNote == -1 ? 0 : courseCredits * courseNote;
+                points += courseNote == -1 ? 0 : courseCredits * courseNote;
 
                 totalCredits += courseCredits;
             }
         }
         
         // GPA of a student with no completed course is 0.
-        return totalCredits == 0 ? 0 : point / totalCredits;
+        float gpa = totalCredits == 0 ? 0 : points / totalCredits;
+        return new float[]{gpa, points, totalCredits};
     }
 
     public ArrayList<Semester> getSemesters() {

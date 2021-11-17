@@ -87,6 +87,10 @@ public class Course {
         return numberOfStudent;
     }
 
+    public void setNumberOfStudent(int numberOfStudent) {
+        this.numberOfStudent = numberOfStudent;
+    }
+
     public Schedule getCourseSchedule() {
         return courseSchedule;
     }

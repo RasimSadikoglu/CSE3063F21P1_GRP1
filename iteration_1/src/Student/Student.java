@@ -51,8 +51,13 @@ public class Student {
         return currentSemester;
     }
 
+    public void addSemester(Semester semester) {
+        transcript.addSemester(semester);
+        increaseSemesterCount();
+    }
+
     public void updateGPA() {
-        gpa = transcript.getGPA();
+        gpa = transcript.getGPA()[0];
     }
 
     public ArrayList<Course> getfailedCourses() {

@@ -3,6 +3,7 @@ package Main;
 import java.util.ArrayList;
 
 import Course.Course;
+import Student.Semester;
 import Student.Student;
 import Util.*;
 import java.io.File;
@@ -13,7 +14,16 @@ public class Simulation {
     private String simulatedSemester;
     private int reCreateStudentData;
     private int yearlyStudentCount;
-
+    private String[][] semesterCourses = {
+        { /* 1 */ },
+        { /* 2 */ "NTE1" },
+        { /* 3 */ "NTE2" },
+        { /* 4 */ },
+        { /* 5 */ },
+        { /* 6 */ },
+        { /* 7 */ "UE", "TE1", "TE2" },
+        { /* 8 */ "NTE3", "FTE", "TE3", "TE4", "TE5" }
+    };
     public Simulation(){
         students = new ArrayList<Student>();
         currentSemester = true; // true = "Fall", false = "Spring"
@@ -84,9 +94,6 @@ public class Simulation {
     private void courseRegistiration() { // NAZMI
 
         // Add course depending on the "courseCode"
-
-        // Possible course codes: SME{1,2,3,4,5,6,7,8}, NTE{1,2,3}, TE{1,2,3,4,5}, UE, FTE
-
         /*
             1. Semester Course Groups = SME1
             2. Semester Course Groups = SME2, NTE1
@@ -97,34 +104,27 @@ public class Simulation {
             7. Semester Course Groups = SME7, UE, TE1, TE2
             8. Semester Course Groups = SME8, NTE3, FTE, TE3, TE4, TE5
         */
+        
+        this.students.forEach(student -> { // iterate through students
+            int currentSemester = student.getCurrentSemester();
+            ArrayList<Course> addableCourses = new ArrayList<>();
+            addableCourses.addAll(getAllCourses("SME" + currentSemester)); // add mandatory courses
+            addableCourses.addAll(student.getfailedCourses()); // add failed courses
 
-        // Also try to add old courses that student failed.
-
-        /*
-            loop students as student {
-
-                ArrayList currentCourses = new ArrayList;
-
-                addebleCourses = [course.courseCode == SME2 or NTE1 for course in courses]; // It can also be a method;
-
-                loop addebleCourses as course {
-
-                    if (systemCheck(course)) currentCourses.add(course);
-                    course.numberOfStudent++;
-
-                }
-
-                advisorCheck(currentCourses);
-
-                Semester s = new Semester(currentCourses);
-
-                student.addSemester(s);
-
-                student.increaseSemesterCount();
+            for (int i = 0; i < semesterCourses[currentSemester - 1].length; i++) {
+                addableCourses.add(getRandomCourse(semesterCourses[currentSemester - 1][i])); // TE and NTE course selection   
             }
-
-        */
-
+            
+            ArrayList<Course> validCourses = new ArrayList<>();
+            addableCourses.forEach(course -> {
+                if (systemCheck(course)){ 
+                    validCourses.add(course);
+                    course.setNumberOfStudent(course.getnumberOfStudent() + 1);
+                }
+            });
+            advisorCheck(validCourses);
+            student.addSemester(new Semester(validCourses));
+        });
     }
 
     private Course getRandomCourse(String courseCode) { // BERK
