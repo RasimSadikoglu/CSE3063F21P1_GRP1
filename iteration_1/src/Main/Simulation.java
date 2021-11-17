@@ -1,6 +1,7 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import Course.Course;
 import Student.Semester;
@@ -9,6 +10,8 @@ import Util.*;
 import java.io.File;
 
 public class Simulation {
+    private RandomObjectGenerator randomObjectGenerator;
+
     private ArrayList<Student> students;
     private boolean currentSemester;
     private String simulatedSemester;
@@ -30,6 +33,11 @@ public class Simulation {
         simulatedSemester = "";
         reCreateStudentData = 0;
         yearlyStudentCount = 0;
+    }
+
+    // call after reading data
+    public void setRandomObjectGenerator(){
+        this.randomObjectGenerator = new RandomObjectGenerator(yearlyStudentCount);
     }
 
     public void getData() {
@@ -74,8 +82,21 @@ public class Simulation {
         // remove necesssary courses.
     }
 
-    private void collisionCheck(ArrayList<Course> currentCourses) { // MUCAHIT
-        // remove necessary courses.
+    private void collisionCheck(ArrayList<Course> currentCourses) {
+        // holds index of the course to remove
+        ArrayList<Course> courseRemoveQueue = new ArrayList<Course>();
+
+        for (int i = 0; i < currentCourses.size(); i++){
+            for (int j = i + 1; j < currentCourses.size(); j++){
+                if (currentCourses.get(i) == currentCourses.get(j)){
+                    courseRemoveQueue.add(currentCourses.get(i));
+                }
+            }
+        }
+
+        for (Course course : courseRemoveQueue){
+            currentCourses.remove(course);
+        }
     }
 
     private boolean systemCheck(Course newCourse){ // ERKAM
@@ -155,8 +176,8 @@ public class Simulation {
         return null;
     }
 
-    private void createNewStudents(int numberOfStudent) { // MUCAHIT
-        // this.students.addAll(giveMeSomeStudents(numberOfStudent)); 
+    private void createNewStudents(int numberOfStudent) {
+        this.students.addAll(randomObjectGenerator.getRandomStudents(18)); 
     }
 
     private void finalPoints() { // BURAK
@@ -167,6 +188,7 @@ public class Simulation {
                 student.currentSemester.notes;
 
                 for note in notes {
+                    // use randomObjectGenerator's getBellRandom function
                     note = rand() // Random method MUCAHIT
                 }
             }
