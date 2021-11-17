@@ -1,7 +1,9 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 import Course.Course;
 import Student.Semester;
@@ -112,7 +114,7 @@ public class Simulation {
         return true;
     }
 
-    private void courseRegistiration() { // NAZMI
+    private void courseRegistiration() {
 
         // Add course depending on the "courseCode"
         /*
@@ -180,21 +182,16 @@ public class Simulation {
         this.students.addAll(randomObjectGenerator.getRandomStudents(18)); 
     }
 
-    private void finalPoints() { // BURAK
+    private void finalPoints() {
 
-        /*
+        for (int i = 0; i < students.size(); i++){
+        
+            TreeMap<String, Semester.letterNote> notes = students.get(i).getTranscript().getCurrentSemester().getNotes();
 
-            loop students {
-                student.currentSemester.notes;
-
-                for note in notes {
-                    // use randomObjectGenerator's getBellRandom function
-                    note = rand() // Random method MUCAHIT
-                }
+            for (Map.Entry<String, Semester.letterNote> note: notes.entrySet()){
+                note.setValue(Semester.letterNote.values()[randomObjectGenerator.getBellRandom(0, 11)]);
             }
-
-        */
-
+        }         
     }
 
     private void simulationLoop(){
