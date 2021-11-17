@@ -18,6 +18,14 @@ public class RandomObjectGenerator {
         sharpness = 2.5;
     }
 
+    public RandomObjectGenerator() {
+        this(0);
+    }
+
+    public void setNumOfStudents(int numOfStudents){
+        this.numOfStudents = numOfStudents;
+    }
+
     public void setBell(double shift, double sharpness){
         this.shift = shift;
         this.sharpness = sharpness;
