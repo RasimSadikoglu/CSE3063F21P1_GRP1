@@ -43,11 +43,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public ArrayList<String> getcourseGroup() {
+    public ArrayList<String> getCourseGroup() {
         return courseGroup;
     }
 
-    public void setcourseGroup(ArrayList<String> courseGroup) {
+    public void setCourseGroup(ArrayList<String> courseGroup) {
         this.courseGroup = courseGroup;
     }
 

@@ -1,25 +1,26 @@
 {
-    "id": "150118009",
-    "transcript": {
-        "semesters": [
-            {
-                "notes": {
-                    "course1": "AA",
-                    "course2": "BA"
-                }
-            },
-            {
-                "notes": {
-                    "course3": "CB",
-                    "course4": "DD"
-                }
-            },
-            {
-                "notes": {
-                    "course5": "BA",
-                    "course6": "CB"
-                }
-            }
-        ]
-    }
+  "id": "150118009",
+  "gpa": 2.515625,
+  "transcript": {
+    "semesters": [
+      {
+        "notes": {
+          "course1": "AA",
+          "course2": "BA"
+        }
+      },
+      {
+        "notes": {
+          "course3": "CB",
+          "course4": "DD"
+        }
+      },
+      {
+        "notes": {
+          "course5": "BA",
+          "course6": "CB"
+        }
+      }
+    ]
+  }
 }

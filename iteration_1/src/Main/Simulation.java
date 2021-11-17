@@ -142,7 +142,7 @@ public class Simulation {
             addableCourses.addAll(student.getfailedCourses()); // add failed courses
 
             for (int i = 0; i < semesterCourses[currentSemester - 1].length; i++) {
-                addableCourses.add(getRandomCourse(semesterCourses[currentSemester - 1][i])); // TE and NTE course selection   
+                addableCourses.add(getRandomCourse(semesterCourses[currentSemester - 1][i], student)); // TE and NTE course selection   
             }
             
             ArrayList<Course> validCourses = new ArrayList<>();
@@ -169,7 +169,7 @@ public class Simulation {
 				filledUpCourseCount++;
 				continue;
 			}
-			else if (student.getCourseNote(courses[randomIndex].getCourseName()) <= 1) {
+			else if (student.getCourseNote(courses[randomIndex].getCourseName()) >= 1) {
 				filledUpCourseCount++;
 				continue;
 			}
@@ -190,7 +190,7 @@ public class Simulation {
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
-            course.getcourseGroup().forEach(entityCode -> {
+            course.getCourseGroup().forEach(entityCode -> {
                 if (entityCode == courseCode) matchedCourses.add(course);
             });
         }
@@ -209,7 +209,7 @@ public class Simulation {
             TreeMap<String, Semester.letterNote> notes = students.get(i).getTranscript().getCurrentSemester().getNotes();
 
             for (Map.Entry<String, Semester.letterNote> note: notes.entrySet()){
-                note.setValue(Semester.letterNote.values()[randomObjectGenerator.getBellRandom(0, 11)]);
+                note.setValue(Semester.letterNote.values()[randomObjectGenerator.getBellRandom(1, 11)]);
             }
         }         
     }

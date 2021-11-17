@@ -56,7 +56,7 @@ public class DataIOHandler {
 		try {
 			for (Student s: students) {
 
-				FileWriter f = new FileWriter(currentPath + "jsonDocs/students/" + s.getId() + "t.json");
+				FileWriter f = new FileWriter(currentPath + "jsonDocs/students/" + s.getId() + ".json");
 	
 				Gson g = new GsonBuilder().setPrettyPrinting().create();
 	

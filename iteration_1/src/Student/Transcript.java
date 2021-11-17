@@ -93,8 +93,23 @@ public class Transcript {
         return null;
     }
 
-    public float getCourseNote(String courseName) { // ERKAM
-        return 0;
+    public float getCourseNote(String courseName) {
+        
+        for (int i = semesters.size() - 1; i >= 0; i--) {
+            
+            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+
+            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+
+                String cName = note.getKey();
+
+                float courseNote = note.getValue().getNote();
+
+                if (cName.equals(courseName)) return courseNote;
+            }
+        }
+
+        return -2;
     }
 
     public ArrayList<Course> getfailedCourses() {
