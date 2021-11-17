@@ -6,3 +6,5 @@ out
 Test.java
 .project
 /bin/
+.classpath
+.project

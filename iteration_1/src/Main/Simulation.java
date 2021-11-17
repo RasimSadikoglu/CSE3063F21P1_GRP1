@@ -1,15 +1,16 @@
 package Main;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.TreeMap;
 
 import Course.Course;
 import Student.Semester;
 import Student.Student;
-import Util.*;
-import java.io.File;
+import Util.DataIOHandler;
+import Util.RandomObjectGenerator;
 
 public class Simulation {
     private RandomObjectGenerator randomObjectGenerator;
@@ -29,6 +30,12 @@ public class Simulation {
         { /* 7 */ "UE", "TE1", "TE2" },
         { /* 8 */ "NTE3", "FTE", "TE3", "TE4", "TE5" }
     };
+
+	/*
+	 * private enum semesters{ Fall, Spring }
+	 * 
+	 */
+
     public Simulation(){
         students = new ArrayList<Student>();
         currentSemester = true; // true = "Fall", false = "Spring"
@@ -150,22 +157,32 @@ public class Simulation {
         });
     }
 
-    private Course getRandomCourse(String courseCode) { // BERK
-        Course[] courses = DataIOHandler.courses;
+	private Course getRandomCourse(String courseCode, Student student) {
+		Course[] courses = (Course[]) getAllCourses(courseCode).toArray();
 
-        /*
-            Suggested Way:
-            1. Get all courses in that group
-            2. Shuffle the array
-            3. Return first match
-        */
+		HashMap<Integer, Boolean> filledUpCourseIndexes = new HashMap<Integer, Boolean>();
+		int filledUpCourseCount = 0;
 
-        /*
-            Write a method that returns a random course in given course group,
-            that it has not filled up yet.
-        */
+		while (filledUpCourseCount < courses.length) {
+			int randomIndex = this.randomObjectGenerator.getLinearRandom(0, courses.length - 1);
+			if (filledUpCourseIndexes.get(randomIndex) == true) {
+				filledUpCourseCount++;
+				continue;
+			}
+			else if (student.getCourseNote(courses[randomIndex].getCourseName()) <= 1) {
+				filledUpCourseCount++;
+				continue;
+			}
 
-        return null;
+			if (courses[randomIndex].getcourseQuota() > courses[randomIndex].getnumberOfStudent()) {
+				return courses[randomIndex];
+			} else {
+				filledUpCourseIndexes.put(randomIndex, true);
+			}
+		}
+
+		return null;
+
     }
     
     private ArrayList<Course> getAllCourses(String courseCode) {
