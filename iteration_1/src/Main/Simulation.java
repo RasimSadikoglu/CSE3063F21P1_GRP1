@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import Course.Course;
+import Course.Schedule;
 import Student.Semester;
 import Student.Student;
 import Util.DataIOHandler;
@@ -91,20 +92,72 @@ public class Simulation {
         // remove necesssary courses.
     }
 
-    private void collisionCheck(ArrayList<Course> currentCourses) {
-        // holds index of the course to remove
-        ArrayList<Course> courseRemoveQueue = new ArrayList<Course>();
+    // 
+    private ArrayList<int[]> getScheduleTimes(Schedule schedule){
+        ArrayList<int[]> times = new ArrayList<int[]>();
+            
+        for (String str : schedule.getTimeTable()){
+            // { startMinute, endMinute } (minute starts counting from beginning of the week)
+            int[] courseTimes = new int[2];
+            String[] splitedTime = str.split("-", 3);
 
-        for (int i = 0; i < currentCourses.size(); i++){
-            for (int j = i + 1; j < currentCourses.size(); j++){
-                if (currentCourses.get(i) == currentCourses.get(j)){
-                    courseRemoveQueue.add(currentCourses.get(i));
+            String[] splitedStartTime = splitedTime[1].split("\\.", 2);
+            String[] splitedEndTime = splitedTime[2].split("\\.", 2);
+
+            int day = Integer.parseInt(splitedTime[0]);
+            courseTimes[0] = day * 24 * 60 + Integer.parseInt(splitedStartTime[0]) * 60 + Integer.parseInt(splitedStartTime[1]);
+            courseTimes[1] = day * 24 * 60 + Integer.parseInt(splitedEndTime  [0]) * 60 + Integer.parseInt(splitedEndTime  [1]);
+
+            times.add(courseTimes);
+        }
+
+        return times;
+    }
+
+    private int getTotalCollisionMinutes(Schedule firstSchedule, Schedule secondSchedule){
+        ArrayList<int[]> firstTimes = getScheduleTimes(firstSchedule);
+        ArrayList<int[]> secondTimes = getScheduleTimes(secondSchedule);
+
+        int totalCollisionMinute = 0;
+
+        for (int[] time1 : firstTimes){
+            for (int[] time2 : secondTimes){
+                // | ......1.............2..........................2............1........ |
+                if      (time1[0] <= time2[0] && time1[1] >= time2[1]){
+                    totalCollisionMinute += time1[1] - time1[0];
+                }
+                // | ......1.............2..........................1............2........ |
+                else if (time1[0] <= time2[0] && time1[1] >= time2[0] && time1[1] <= time2[1]){
+                    totalCollisionMinute += time1[1] - time2[0];
+                }
+                // | ......2.............1..........................1............2........ |
+                else if (time1[0] >= time2[0] && time1[0] <= time2[1]){
+                    totalCollisionMinute += time1[1] - time1[0];
+                }
+                // | ......2.............1..........................2............1........ |
+                else if (time1[0] >= time2[0] && time1[0] <= time2[1] && time1[1] >= time2[1]){
+                    totalCollisionMinute += time2[1] - time1[0];
                 }
             }
         }
 
-        for (Course course : courseRemoveQueue){
-            currentCourses.remove(course);
+        return totalCollisionMinute;
+    }
+
+    public void collisionCheck(ArrayList<Course> currentCourses) {
+        for (int i = 0; i < currentCourses.size(); i++){            
+            for (int j = i + 1; j < currentCourses.size(); j++){
+                int totalCollisionMinute = getTotalCollisionMinutes
+                (
+                    currentCourses.get(i).getCourseSchedule(), 
+                    currentCourses.get(j).getCourseSchedule()
+                );
+
+                // if there is any collision remove the course
+                if (totalCollisionMinute > 0){
+                    currentCourses.remove(currentCourses.get(j--));
+                }
+            }
         }
     }
 
