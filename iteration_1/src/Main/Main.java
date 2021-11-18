@@ -14,7 +14,5 @@ class Main {
 		sim.getData();
 
 		sim.start();
-
-		sim.end();
 	}
 }

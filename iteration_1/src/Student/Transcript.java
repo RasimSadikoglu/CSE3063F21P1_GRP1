@@ -86,7 +86,11 @@ public class Transcript {
 
     private Course getCourse(String courseName) {
 
-        for (Course course: DataIOHandler.courses) {
+        for (Course course: DataIOHandler.fallCourses) {
+            if (course.getCourseName().equals(courseName)) return course;
+        }
+
+        for (Course course: DataIOHandler.springCourses) {
             if (course.getCourseName().equals(courseName)) return course;
         }
 

@@ -75,7 +75,7 @@ public class Course {
         this.courseCredits = courseCredits;
     }
 
-    public int getcourseQuota() {
+    public int getCourseQuota() {
         return courseQuota;
     }
 
@@ -83,7 +83,7 @@ public class Course {
         this.courseQuota = courseQuota;
     }
 
-    public int getnumberOfStudent() {
+    public int getNumberOfStudent() {
         return numberOfStudent;
     }
 

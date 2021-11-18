@@ -51,12 +51,10 @@ public class Simulation {
 
     public void getData() {
 
-		if (reCreateStudentData != 0) return;
-
-        File[] students = new File(DataIOHandler.currentPath + "jsonDocs/students").listFiles();
+        File[] students = new File(DataIOHandler.currentPath + "jsonDocs/students/after/").listFiles();
 
         for (File student: students) {
-            this.students.add(DataIOHandler.readStudentInfo("jsonDocs/students/" + student.getName()));
+            this.students.add(DataIOHandler.readStudentInfo("jsonDocs/students/after/" + student.getName()));
             this.students.get(this.students.size() - 1).updateGPA();
         }
 
@@ -70,14 +68,19 @@ public class Simulation {
         else if (simulatedSemester.equals("Spring")) reCreateStudentData += (reCreateStudentData + 1) % 2;
         else return; // Exception can be added.
 
+
+        // Student data creation
         for (int i = 0; i < reCreateStudentData; i++) {
             simulationLoop();
         }
 
-    }
+        // Save student data before simulation
+        DataIOHandler.writeStudentsData(students, "jsonDocs/students/before/");
 
-    public void end() {
-        DataIOHandler.writeStudentsData(students);
+        simulationLoop();
+
+        // Save student data after simulation
+        DataIOHandler.writeStudentsData(students, "jsonDocs/students/after/");
     }
 
     private void advisorCheck(ArrayList<Course> currentCourses){ // BAHADIR
@@ -189,7 +192,7 @@ public class Simulation {
             addableCourses.forEach(course -> {
                 if (systemCheck(course)){ 
                     validCourses.add(course);
-                    course.setNumberOfStudent(course.getnumberOfStudent() + 1);
+                    course.setNumberOfStudent(course.getNumberOfStudent() + 1);
                 }
             });
             advisorCheck(validCourses);
@@ -216,12 +219,12 @@ public class Simulation {
 				continue;
             }
 
-            if (courses.get(randomIndex).getcourseQuota() == 0) {
+            if (courses.get(randomIndex).getCourseQuota() == 0) {
                 randomCourse.add(courses.get(randomIndex));
 				return randomCourse;
             }
 
-			if (courses.get(randomIndex).getcourseQuota() > courses.get(randomIndex).getnumberOfStudent()) {
+			if (courses.get(randomIndex).getCourseQuota() > courses.get(randomIndex).getNumberOfStudent()) {
                 randomCourse.add(courses.get(randomIndex));
 				return randomCourse;
 			} else {
@@ -234,12 +237,15 @@ public class Simulation {
     }
     
     private ArrayList<Course> getAllCourses(String courseCode) {
-        Course[] courses = DataIOHandler.courses;
+        Course[] courses;
+        
+        if (currentSemester) courses = DataIOHandler.fallCourses;
+        else courses = DataIOHandler.springCourses;
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
             course.getCourseGroup().forEach(entityCode -> {
-                if (entityCode == courseCode) matchedCourses.add(course);
+                if (entityCode.equals(courseCode)) matchedCourses.add(course);
             });
         }
 
@@ -257,8 +263,10 @@ public class Simulation {
             TreeMap<String, Semester.letterNote> notes = students.get(i).getTranscript().getCurrentSemester().getNotes();
 
             for (Map.Entry<String, Semester.letterNote> note: notes.entrySet()){
-                note.setValue(Semester.letterNote.values()[randomObjectGenerator.getBellRandom(1, 11)]);
+                note.setValue(Semester.letterNote.values()[randomObjectGenerator.getBellRandom(0, 10)]);
             }
+
+            students.get(i).updateGPA();
         }         
     }
 

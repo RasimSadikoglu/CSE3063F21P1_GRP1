@@ -17,7 +17,8 @@ import Student.Student;
 public class DataIOHandler {
 
 	static private Gson gson = new Gson();
-	static public Course[] courses;
+	static public Course[] fallCourses;
+	static public Course[] springCourses;
 	public static String currentPath; // relative path to current directory
 	static {
 		try {
@@ -25,8 +26,9 @@ public class DataIOHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		fallCourses = readCourseInfo("jsonDocs/fallCourses.json");
+		springCourses = readCourseInfo("jsonDocs/springCourses.json");
 	}
-	static { courses = readCourseInfo("jsonDocs/courses.json"); }
 
 	static public Course[] readCourseInfo(String path) {
 		String coursesStr = readFile(path);
@@ -51,12 +53,12 @@ public class DataIOHandler {
 	/*
 		Written for testing, reformat is needed. (BERK)
 	*/
-	static public void writeStudentsData(ArrayList<Student> students) {
+	static public void writeStudentsData(ArrayList<Student> students, String path) {
 
 		try {
 			for (Student s: students) {
 
-				FileWriter f = new FileWriter(currentPath + "jsonDocs/students/" + s.getId() + ".json");
+				FileWriter f = new FileWriter(currentPath + path + s.getId() + ".json");
 	
 				Gson g = new GsonBuilder().setPrettyPrinting().create();
 	
