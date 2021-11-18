@@ -1,0 +1,20 @@
+{
+  "id": "150120003",
+  "gpa": 0.7419355,
+  "transcript": {
+    "semesters": [
+      {
+        "notes": {
+          "ATA121": "AA",
+          "CSE1200": "DZ",
+          "CSE1241": "DZ",
+          "MATH1001": "DZ",
+          "MBG1201": "DZ",
+          "PHYS1101": "BB",
+          "PHYS1103": "DC",
+          "TRD121": "FF"
+        }
+      }
+    ]
+  }
+}
