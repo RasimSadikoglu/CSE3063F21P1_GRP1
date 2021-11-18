@@ -2,7 +2,6 @@ package Main;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -22,13 +21,13 @@ public class Simulation {
     private int yearlyStudentCount;
     private String[][] semesterCourses = {
         { /* 1 */ },
-        { /* 2 */ "NTE1" },
-        { /* 3 */ "NTE2" },
+        { /* 2 */ "NTE" },
+        { /* 3 */ "NTE" },
         { /* 4 */ },
         { /* 5 */ },
         { /* 6 */ },
-        { /* 7 */ "UE", "TE1", "TE2" },
-        { /* 8 */ "NTE3", "FTE", "TE3", "TE4", "TE5" }
+        { /* 7 */ "NTE", "TE", "EP1" },
+        { /* 8 */ "NTE", "TE", "TE", "TE", "TE", "EP2" }
     };
 
 	/*
@@ -122,18 +121,6 @@ public class Simulation {
     }
 
     private void courseRegistiration() {
-
-        // Add course depending on the "courseCode"
-        /*
-            1. Semester Course Groups = SME1
-            2. Semester Course Groups = SME2, NTE1
-            3. Semester Course Groups = SME3, NTE2
-            4. Semester Course Groups = SME4
-            5. Semester Course Groups = SME5
-            6. Semester Course Groups = SME6
-            7. Semester Course Groups = SME7, UE, TE1, TE2
-            8. Semester Course Groups = SME8, NTE3, FTE, TE3, TE4, TE5
-        */
         
         this.students.forEach(student -> { // iterate through students
             int currentSemester = student.getCurrentSemester();
@@ -142,7 +129,7 @@ public class Simulation {
             addableCourses.addAll(student.getfailedCourses()); // add failed courses
 
             for (int i = 0; i < semesterCourses[currentSemester - 1].length; i++) {
-                addableCourses.add(getRandomCourse(semesterCourses[currentSemester - 1][i], student)); // TE and NTE course selection   
+                addableCourses.addAll(getRandomCourse(semesterCourses[currentSemester - 1][i], student, addableCourses)); // TE and NTE course selection   
             }
             
             ArrayList<Course> validCourses = new ArrayList<>();
@@ -157,31 +144,39 @@ public class Simulation {
         });
     }
 
-	private Course getRandomCourse(String courseCode, Student student) {
-		Course[] courses = (Course[]) getAllCourses(courseCode).toArray();
+	private ArrayList<Course> getRandomCourse(String courseCode, Student student, ArrayList<Course> currentCourses) {
+		ArrayList<Course> courses = getAllCourses(courseCode);
 
-		HashMap<Integer, Boolean> filledUpCourseIndexes = new HashMap<Integer, Boolean>();
-		int filledUpCourseCount = 0;
+        // This will prevent null objects from being returned.
+        ArrayList<Course> randomCourse = new ArrayList<Course>();
 
-		while (filledUpCourseCount < courses.length) {
-			int randomIndex = this.randomObjectGenerator.getLinearRandom(0, courses.length - 1);
-			if (filledUpCourseIndexes.get(randomIndex) == true) {
-				filledUpCourseCount++;
-				continue;
-			}
-			else if (student.getCourseNote(courses[randomIndex].getCourseName()) >= 1) {
-				filledUpCourseCount++;
+		while (!courses.isEmpty()) {
+			int randomIndex = this.randomObjectGenerator.getLinearRandom(0, courses.size());
+
+			if (student.getCourseNote(courses.get(randomIndex).getCourseName()) >= 1) {
+				courses.remove(randomIndex);
 				continue;
 			}
 
-			if (courses[randomIndex].getcourseQuota() > courses[randomIndex].getnumberOfStudent()) {
-				return courses[randomIndex];
+            if (currentCourses.contains(courses.get(randomIndex))) {
+                courses.remove(randomIndex);
+				continue;
+            }
+
+            if (courses.get(randomIndex).getcourseQuota() == 0) {
+                randomCourse.add(courses.get(randomIndex));
+				return randomCourse;
+            }
+
+			if (courses.get(randomIndex).getcourseQuota() > courses.get(randomIndex).getnumberOfStudent()) {
+                randomCourse.add(courses.get(randomIndex));
+				return randomCourse;
 			} else {
-				filledUpCourseIndexes.put(randomIndex, true);
+				courses.remove(randomIndex);
 			}
 		}
 
-		return null;
+		return randomCourse;
 
     }
     
