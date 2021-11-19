@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Course {
 
     private String courseName;
-    private ArrayList<String> courseGroup; // A course can be inside different course groups.
+    private String courseGroup;
     private float requiredCredits;
     private String prerequisiteCourse;
     private float courseCredits;
@@ -15,7 +15,7 @@ public class Course {
 
     public Course() {
         courseName = "";
-        courseGroup = new ArrayList<String>();
+        courseGroup = "";
         requiredCredits = 0;
         prerequisiteCourse = "";
         courseCredits = 0;
@@ -24,7 +24,7 @@ public class Course {
         courseSchedule = new Schedule();
     }
 
-    public Course(String courseName, ArrayList<String> courseGroup, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
+    public Course(String courseName, String courseGroup, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
         this.courseName = courseName;
         this.courseGroup = courseGroup;
         this.requiredCredits = requiredCredits;
@@ -43,11 +43,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public ArrayList<String> getCourseGroup() {
+    public String getCourseGroup() {
         return courseGroup;
     }
 
-    public void setCourseGroup(ArrayList<String> courseGroup) {
+    public void setCourseGroup(String courseGroup) {
         this.courseGroup = courseGroup;
     }
 

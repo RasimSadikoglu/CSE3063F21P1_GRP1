@@ -27,8 +27,8 @@ public class Simulation {
         { /* 4 */ },
         { /* 5 */ },
         { /* 6 */ },
-        { /* 7 */ "NTE", "TE", "EP1" },
-        { /* 8 */ "NTE", "TE", "TE", "TE", "TE", "EP2" }
+        { /* 7 */ "NTE", "TE" },
+        { /* 8 */ "NTE", "TE", "TE", "TE", "TE" }
     };
 
     public Simulation(){
@@ -97,7 +97,6 @@ public class Simulation {
         // remove necesssary courses.
     }
 
-    //
     private ArrayList<int[]> getScheduleTimes(Schedule schedule) {
         ArrayList<int[]> times = new ArrayList<int[]>();
 
@@ -159,7 +158,7 @@ public class Simulation {
                         currentCourses.get(j).getCourseSchedule());
 
                 // if there is any collision remove the course
-                if (totalCollisionMinute > 0) {
+                if (totalCollisionMinute >= 50) {
                     currentCourses.remove(currentCourses.get(j--));
                 }
             }
@@ -171,7 +170,6 @@ public class Simulation {
         String prerequisiteCourse = newCourse.getPrerequisiteCourse();
 
         if (!prerequisiteCourse.equals("")) { // if there is a prerequisite course
-            System.out.println(prerequisiteCourse);
             if (student.getTranscript().getCourseNote(prerequisiteCourse) < 1) { // if student could not pass prerequisite course
                 return false;
             }
@@ -183,27 +181,43 @@ public class Simulation {
 
     }
 
-    private void courseRegistiration() {
+    private void courseRegistration() {
         this.students.forEach(student -> { // iterate through students
+            if (student.getIsGraduate()) return;
+
             System.out.println("Add courses for student " + student.getId() + "!");
 
             int currentSemester = student.getCurrentSemester();
             ArrayList<Course> addableCourses = new ArrayList<>();
-            addableCourses.addAll(getAllCourses("SME" + currentSemester)); // add mandatory courses
+
+            // add mandatory courses
+            for (int i = 1; i <= currentSemester; i++) {
+                addableCourses.addAll(getAllCourses("SME" + currentSemester));
+            }
+
             addableCourses.addAll(student.getfailedCourses()); // add failed courses
 
-            for (int i = 0; i < semesterCourses[currentSemester - 1].length; i++) {
+            for (int i = 0; currentSemester < 8 && i < semesterCourses[currentSemester - 1].length; i++) {
                 addableCourses.addAll(getRandomCourse(semesterCourses[currentSemester - 1][i], student, addableCourses)); // TE and NTE course selection   
             }
 
             ArrayList<Course> validCourses = new ArrayList<>();
             addableCourses.forEach(course -> {
+                if (validCourses.contains(course)) return;
+                if (validCourses.size() == 10) return;
                 if (systemCheck(course, student)) { // student parameter added 
                     validCourses.add(course);
                     course.setNumberOfStudent(course.getNumberOfStudent() + 1);
                 }
             });
             advisorCheck(validCourses);
+
+            if (validCourses.isEmpty()) {
+                if (student.setIsGradute()) return;
+                
+                validCourses.addAll(student.getConditionalCourses());
+            }
+            
             student.addSemester(new Semester(validCourses));
         });
     }
@@ -252,9 +266,7 @@ public class Simulation {
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
-            course.getCourseGroup().forEach(entityCode -> {
-                if (entityCode.equals(courseCode)) matchedCourses.add(course);
-            });
+            if (courseCode.equals(course.getCourseGroup())) matchedCourses.add(course);
         }
 
         return matchedCourses;
@@ -280,11 +292,20 @@ public class Simulation {
         }         
     }
 
+    private void resetCourseQuotas() {
+
+        for (Course course: DataIOHandler.fallCourses) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.springCourses) course.setNumberOfStudent(0);
+
+    }
+
     private void simulationLoop() {
 
         if (currentSemester % 2 == 1) createNewStudents(yearlyStudentCount);
 
-        courseRegistiration();
+        resetCourseQuotas();
+
+        courseRegistration();
 
         finalPoints();
 

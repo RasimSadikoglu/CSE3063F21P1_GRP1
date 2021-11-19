@@ -7,6 +7,7 @@ import Course.Course;
 public class Student {
     private String id;
     private float gpa; // For json files
+    private boolean isGraduate;
     private Transcript transcript;
     private transient int currentSemester;
 
@@ -14,6 +15,7 @@ public class Student {
         this.id = "";
         this.transcript = new Transcript();
         gpa = 0;
+        isGraduate = false;
         currentSemester = 1;
     }
 
@@ -64,7 +66,22 @@ public class Student {
         return transcript.getfailedCourses();
     }
 
+    public ArrayList<Course> getConditionalCourses() {
+        return transcript.getConditionalCourses();
+    }
+
     public void increaseSemesterCount() {
         currentSemester++;
+    }
+
+    public boolean getIsGraduate() {
+        return isGraduate;
+    }
+
+    public boolean setIsGradute() {
+
+        if (transcript.getGPA()[0] < 2) return false;
+
+        return isGraduate = true;
     }
 }

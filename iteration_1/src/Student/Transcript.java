@@ -113,10 +113,15 @@ public class Transcript {
             }
         }
 
-        return -2;
+        return -3;
     }
 
     public ArrayList<Course> getfailedCourses() {
+
+        Course[] courses;
+
+        if (semesters.size() % 2 == 0) courses = DataIOHandler.fallCourses;
+        else courses = DataIOHandler.springCourses;
 
         ArrayList<Course> failedCourses = new ArrayList<Course>();
         
@@ -134,6 +139,17 @@ public class Transcript {
 
                 if (allCourses.contains(courseName)) continue;
 
+                boolean isOpen = false;
+
+                for (Course course: courses) {
+                    if (course.getCourseName().equals(courseName)) {
+                        isOpen = true;
+                        break;
+                    }
+                }
+
+                if (!isOpen) continue;
+
                 if (courseNote < 1) failedCourses.add(getCourse(courseName));
 
                 allCourses.add(courseName);
@@ -143,6 +159,52 @@ public class Transcript {
         }
 
         return failedCourses;
+
+    }
+
+    public ArrayList<Course> getConditionalCourses() {
+
+        Course[] courses;
+
+        if (semesters.size() % 2 == 0) courses = DataIOHandler.fallCourses;
+        else courses = DataIOHandler.springCourses;
+
+        ArrayList<Course> conditionalCourses = new ArrayList<Course>();
+        
+        TreeSet<String> allCourses = new TreeSet<String>();
+
+        for (int i = semesters.size() - 1; i >= 0; i--) {
+
+            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+
+            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+
+                String courseName = note.getKey();
+
+                letterNote courseNote = note.getValue();
+
+                if (allCourses.contains(courseName)) continue;
+
+                boolean isOpen = false;
+
+                for (Course course: courses) {
+                    if (course.getCourseName().equals(courseName)) {
+                        isOpen = true;
+                        break;
+                    }
+                }
+
+                if (!isOpen) continue;
+
+                if (courseNote == letterNote.DC || courseNote == letterNote.DD) conditionalCourses.add(getCourse(courseName));
+
+                allCourses.add(courseName);
+
+            }
+
+        }
+
+        return conditionalCourses;
 
     }
 }

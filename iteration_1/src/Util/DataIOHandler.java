@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import Course.Course;
 import Main.Simulation;
@@ -14,7 +15,7 @@ import Student.Student;
 
 public class DataIOHandler {
 
-	static private Gson gson = new Gson();
+	static private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	static public Course[] fallCourses;
 	static public Course[] springCourses;
 	public static String currentPath; // relative path to current directory
@@ -79,7 +80,7 @@ public class DataIOHandler {
 
 	static private void writeFile(String path, String data) {
 		try {
-			Path filePath = Paths.get(currentPath + path);
+			Path filePath = Paths.get(path);
 			Files.write(filePath, data.getBytes());
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
