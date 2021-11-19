@@ -1,14 +1,12 @@
 package Util;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import Course.Course;
 import Main.Simulation;
@@ -46,30 +44,25 @@ public class DataIOHandler {
 		return gson.fromJson(simulation, Simulation.class);
 	}
 
-	static public void exportStudentInfo(String studentName, String studentData) {
-		writeFile(studentName, studentData);
+	static public void exportStudentInfo(Student student, String path) {
+		String studentData = gson.toJson(student);
+		writeStudentInfo(path, studentData);
 	}
 
-	/*
-		Written for testing, reformat is needed. (BERK)
-	*/
+	static private void writeStudentInfo(String path, String studentData) {
+		writeFile(path, studentData);
+	}
+
 	static public void writeStudentsData(ArrayList<Student> students, String path) {
 
 		try {
-			for (Student s: students) {
-
-				FileWriter f = new FileWriter(currentPath + path + s.getId() + ".json");
-	
-				Gson g = new GsonBuilder().setPrettyPrinting().create();
-	
-				g.toJson(s, f);
-	
-				f.close();
+			for (Student student : students) {
+				exportStudentInfo(student, currentPath + path + student.getId() + ".json");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	static private String readFile(String path) {
