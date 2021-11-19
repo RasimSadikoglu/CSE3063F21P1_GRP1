@@ -120,16 +120,19 @@
         }
     },
     {
-        "courseName": "ATA122",
+        "courseName": "CSE1242",
         "courseGroup": "SME2",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 2.0,
+        "courseCredits": 4.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
-                "6-13.00-13.50",
-                "6-14.00-14.50"
+                "0-11.00-11.50",
+                "0-12.00-12.50",
+                "1-11.00-11.50",
+                "2-15.00-15.50",
+                "2-16.00-16.50"
             ]
         }
     },
@@ -175,20 +178,6 @@
             "timeTable": [
                 "0-14.00-14.50",
                 "0-15.00-15.50"
-            ]
-        }
-    },
-    {
-        "courseName": "TRD122",
-        "courseGroup": "SME2",
-        "requiredCredits": 0,
-        "prerequisiteCourse": "",
-        "courseCredits": 2.0,
-        "courseQuota": 0,
-        "courseSchedule": {
-            "timeTable": [
-                "5-09.00-09.50",
-                "5-10.00-10.50"
             ]
         }
     },
@@ -284,23 +273,7 @@
         }
     },
     {
-        "courseName": "EE2032",
-        "courseGroup": "SME4",
-        "requiredCredits": 0,
-        "prerequisiteCourse": "",
-        "courseCredits": 5.0,
-        "courseQuota": 0,
-        "courseSchedule": {
-            "timeTable": [
-                "2-14.00-14.50",
-                "2-15.00-15.50",
-                "3-17.00-17.50",
-                "3-18.00-18.50"
-            ]
-        }
-    },
-    {
-        "courseName": "STAT2253",
+        "courseName": "CSE2138",
         "courseGroup": "SME4",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
@@ -308,9 +281,10 @@
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
-                "0-16.00-16.50",
-                "1-14.00-14.50",
-                "1-15.00-15.50"
+                "0-14.00-14.50",
+                "1-13.00-13.50",
+                "2-10.00-10.50",
+                "2-11.00-11.50"
             ]
         }
     },
@@ -471,6 +445,20 @@
         }
     },
     {
+        "courseName": "CSE4298",
+        "courseGroup": "SME8",
+        "requiredCredits": 0,
+        "prerequisiteCourse": "",
+        "courseCredits": 2.0,
+        "courseQuota": 0,
+        "courseSchedule": {
+            "timeTable": [
+                "5-12.00-12.50",
+                "5-13.00-13.50"
+            ]
+        }
+    },
+    {
         "courseName": "ISG122",
         "courseGroup": "SME8",
         "requiredCredits": 0,
@@ -507,8 +495,8 @@
         "courseQuota": 65,
         "courseSchedule": {
             "timeTable": [
-                "5-17.00-17.50",
-                "5-18.00-18.50"
+                "4-17.00-17.50",
+                "4-18.00-18.50"
             ]
         }
     },
@@ -549,8 +537,8 @@
         "courseQuota": 61,
         "courseSchedule": {
             "timeTable": [
-                "5-17.00-17.50",
-                "5-18.00-18.50"
+                "4-17.00-17.50",
+                "4-18.00-18.50"
             ]
         }
     },
@@ -605,8 +593,8 @@
         "courseQuota": 55,
         "courseSchedule": {
             "timeTable": [
-                "4-10.30-11.20",
-                "4-11.30-12.20"
+                "3-10.30-11.20",
+                "3-11.30-12.20"
             ]
         }
     },
@@ -647,8 +635,8 @@
         "courseQuota": 55,
         "courseSchedule": {
             "timeTable": [
-                "4-13.00-13.50",
-                "4-14.00-14.50"
+                "3-13.00-13.50",
+                "3-14.00-14.50"
             ]
         }
     },
@@ -661,8 +649,8 @@
         "courseQuota": 70,
         "courseSchedule": {
             "timeTable": [
-                "3-17.00-17.50",
-                "3-18.00-18.50"
+                "2-17.00-17.50",
+                "2-18.00-18.50"
             ]
         }
     },
@@ -675,9 +663,9 @@
         "courseQuota": 40,
         "courseSchedule": {
             "timeTable": [
-                "3-09.30-10.20",
-                "5-14.00-14.50",
-                "5-15.00-15.50"
+                "2-09.30-10.20",
+                "4-14.00-14.50",
+                "4-15.00-15.50"
             ]
         }
     },
@@ -691,8 +679,8 @@
         "courseSchedule": {
             "timeTable": [
                 "0-13.00-13.50",
-                "3-16.00-16.50",
-                "3-17.00-17.50"
+                "2-16.00-16.50",
+                "2-17.00-17.50"
             ]
         }
     },
@@ -722,7 +710,7 @@
             "timeTable": [
                 "0-16.00-16.50",
                 "0-17.00-17.50",
-                "4-13.00-13.50"
+                "3-13.00-13.50"
             ]
         }
     },
@@ -735,9 +723,9 @@
         "courseQuota": 80,
         "courseSchedule": {
             "timeTable": [
-                "4-10.30-11.20",
-                "4-11.30-12.20",
-                "4-13.00-13.50"
+                "3-10.30-11.20",
+                "3-11.30-12.20",
+                "3-13.00-13.50"
             ]
         }
     },
@@ -750,9 +738,9 @@
         "courseQuota": 80,
         "courseSchedule": {
             "timeTable": [
-                "5-14.00-14.50",
-                "5-15.00-15.50",
-                "5-16.00-16.50"
+                "4-14.00-14.50",
+                "4-15.00-15.50",
+                "4-16.00-16.50"
             ]
         }
     },
@@ -765,9 +753,9 @@
         "courseQuota": 80,
         "courseSchedule": {
             "timeTable": [
-                "3-09.30-10.20",
-                "3-10.30-11.20",
-                "3-11.30-12.20"
+                "2-09.30-10.20",
+                "2-10.30-11.20",
+                "2-11.30-12.20"
             ]
         }
     }

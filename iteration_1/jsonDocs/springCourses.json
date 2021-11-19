@@ -1,15 +1,18 @@
-[   
+[
     {
-        "courseName": "ATA121",
+        "courseName": "CSE1241",
         "courseGroup": "SME1",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 2.0,
+        "courseCredits": 6.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
-                "1-22.00-22.50",
-                "1-23.00-23.50"
+                "0-10.30-11.20",
+                "0-11.30-12.20",
+                "2-14.00-14.50",
+                "1-13.00-13.50",
+                "1-14.00-14.50"
             ]
         }
     },
@@ -55,20 +58,6 @@
             "timeTable": [
                 "0-08.30-09.20",
                 "0-09.30-10.20"
-            ]
-        }
-    },
-    {
-        "courseName": "TRD121",
-        "courseGroup": "SME1",
-        "requiredCredits": 0,
-        "prerequisiteCourse": "",
-        "courseCredits": 2.0,
-        "courseQuota": 0,
-        "courseSchedule": {
-            "timeTable": [
-                "6-15.00-15.50",
-                "6-16.00-16.50"
             ]
         }
     },
@@ -178,6 +167,21 @@
         }
     },
     {
+        "courseName": "CSE2023",
+        "courseGroup": "SME3",
+        "requiredCredits": 0,
+        "prerequisiteCourse": "",
+        "courseCredits": 6.0,
+        "courseQuota": 0,
+        "courseSchedule": {
+            "timeTable": [
+                "0-13.00-13.50",
+                "0-14.00-14.50",
+                "2-16.00-16.50"
+            ]
+        }
+    },
+    {
         "courseName": "ECON2004",
         "courseGroup": "SME3",
         "requiredCredits": 0,
@@ -207,17 +211,17 @@
         }
     },
     {
-        "courseName": "EE2031",
+        "courseName": "MATH2059",
         "courseGroup": "SME3",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 5.0,
+        "courseCredits": 4.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
-                "1-13.00-13.50",
-                "1-14.00-14.50",
-                "3-14.00-14.50"
+                "1-15.00-15.50",
+                "1-16.00-16.50",
+                "3-15.00-15.50"
             ]
         }
     },
@@ -297,21 +301,6 @@
                 "0-16.00-16.50",
                 "1-14.00-14.50",
                 "1-15.00-15.50"
-            ]
-        }
-    },
-    {
-        "courseName": "IE3081",
-        "courseGroup": "SME5",
-        "requiredCredits": 0,
-        "prerequisiteCourse": "",
-        "courseCredits": 4.0,
-        "courseQuota": 0,
-        "courseSchedule": {
-            "timeTable": [
-                "3-10.30-11.20",
-                "3-11.30-12.20",
-                "4-09.30-10.20"
             ]
         }
     },
@@ -426,7 +415,7 @@
         "courseName": "CSE4298",
         "courseGroup": "SME8",
         "requiredCredits": 0,
-        "prerequisiteCourse": "CSE4297",
+        "prerequisiteCourse": "",
         "courseCredits": 2.0,
         "courseQuota": 0,
         "courseSchedule": {
@@ -459,8 +448,8 @@
         "courseQuota": 60,
         "courseSchedule": {
             "timeTable": [
-                "3-09.00-09.50",
-                "3-10.00-10.50"
+                "2-09.00-09.50",
+                "2-10.00-10.50"
             ]
         }
     },
@@ -473,8 +462,8 @@
         "courseQuota": 60,
         "courseSchedule": {
             "timeTable": [
-                "5-18.00-18.50",
-                "5-19.00-19.50"
+                "4-18.00-18.50",
+                "4-19.00-19.50"
             ]
         }
     },
@@ -501,8 +490,8 @@
         "courseQuota": 70,
         "courseSchedule": {
             "timeTable": [
-                "3-17.00-17.50",
-                "3-18.00-18.50"
+                "2-17.00-17.50",
+                "2-18.00-18.50"
             ]
         }
     },
@@ -529,8 +518,8 @@
         "courseQuota": 90,
         "courseSchedule": {
             "timeTable": [
-                "4-11.00-11.50",
-                "4-12.00-12.50"
+                "3-11.00-11.50",
+                "3-12.00-12.50"
             ]
         }
     },
@@ -543,8 +532,8 @@
         "courseQuota": 90,
         "courseSchedule": {
             "timeTable": [
-                "4-15.00-15.50",
-                "4-16.00-16.50"
+                "3-15.00-15.50",
+                "3-16.00-16.50"
             ]
         }
     },
@@ -557,8 +546,8 @@
         "courseQuota": 70,
         "courseSchedule": {
             "timeTable": [
-                "5-10.00-10.50",
-                "5-11.00-11.50"
+                "4-10.00-10.50",
+                "4-11.00-11.50"
             ]
         }
     },
@@ -571,8 +560,8 @@
         "courseQuota": 71,
         "courseSchedule": {
             "timeTable": [
-                "6-15.00-15.50",
-                "6-16.00-16.50"
+                "5-15.00-15.50",
+                "5-16.00-16.50"
             ]
         }
     },
@@ -613,8 +602,8 @@
         "courseQuota": 105,
         "courseSchedule": {
             "timeTable": [
-                "4-13.00-13.50",
-                "4-14.00-14.50"
+                "3-13.00-13.50",
+                "3-14.00-14.50"
             ]
         }
     },
@@ -627,8 +616,8 @@
         "courseQuota": 60,
         "courseSchedule": {
             "timeTable": [
-                "3-13.00-13.50",
-                "3-14.00-14.50"
+                "2-13.00-13.50",
+                "2-14.00-14.50"
             ]
         }
     },
@@ -686,8 +675,8 @@
         "courseSchedule": {
             "timeTable": [
                 "0-16.00-16.50",
-                "3-17.00-17.50",
-                "3-18.00-18.50"
+                "2-17.00-17.50",
+                "2-18.00-18.50"
             ]
         }
     },
@@ -702,7 +691,7 @@
             "timeTable": [
                 "0-13.00-13.50",
                 "0-14.00-14.50",
-                "5-16.00-16.50"
+                "4-16.00-16.50"
             ]
         }
     },
@@ -730,9 +719,9 @@
         "courseQuota": 126,
         "courseSchedule": {
             "timeTable": [
-                "5-09.00-09.50",
-                "5-10.00-10.50",
-                "5-11.00-11.50"
+                "4-09.00-09.50",
+                "4-10.00-10.50",
+                "4-11.00-11.50"
             ]
         }
     },
@@ -745,9 +734,9 @@
         "courseQuota": 30,
         "courseSchedule": {
             "timeTable": [
-                "5-14.00-14.50",
-                "5-15.00-15.50",
-                "5-16.00-16.50"
+                "4-14.00-14.50",
+                "4-15.00-15.50",
+                "4-16.00-16.50"
             ]
         }
     },
@@ -777,7 +766,7 @@
             "timeTable": [
                 "1-13.00-13.50",
                 "1-14.00-14.50",
-                "4-14.00-14.50"
+                "3-14.00-14.50"
             ]
         }
     },
@@ -790,9 +779,9 @@
         "courseQuota": 45,
         "courseSchedule": {
             "timeTable": [
-                "3-15.00-15.50",
-                "3-16.00-16.50",
-                "4-11.00-11.50"
+                "2-15.00-15.50",
+                "2-16.00-16.50",
+                "3-11.00-11.50"
             ]
         }
     },
@@ -805,9 +794,9 @@
         "courseQuota": 48,
         "courseSchedule": {
             "timeTable": [
-                "4-14.00-14.50",
-                "4-15.00-15.50",
-                "5-16.00-16.50"
+                "3-14.00-14.50",
+                "3-15.00-15.50",
+                "4-16.00-16.50"
             ]
         }
     },
@@ -821,8 +810,8 @@
         "courseSchedule": {
             "timeTable": [
                 "1-11.00-11.50",
-                "3-10.00-10.50",
-                "3-11.00-11.50"
+                "2-10.00-10.50",
+                "2-11.00-11.50"
             ]
         }
     },
@@ -831,13 +820,13 @@
         "courseGroup": "TE",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 3.0,
-        "courseQuota": 3,
+        "courseCredits": 5.0,
+        "courseQuota": 60,
         "courseSchedule": {
             "timeTable": [
                 "1-17.00-17.50",
-                "5-14.00-14.50",
-                "5-15.00-15.50"
+                "4-14.00-14.50",
+                "4-15.00-15.50"
             ]
         }
     }
