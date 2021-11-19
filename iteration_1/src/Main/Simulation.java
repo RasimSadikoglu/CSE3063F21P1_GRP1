@@ -92,23 +92,16 @@ public class Simulation {
         DataIOHandler.writeStudentsData(students, "jsonDocs/students/after/");
     }
 
-    private void advisorCheck(ArrayList<Course> currentCourses, Student student) { // BAHADIR
+    private void advisorCheck(ArrayList<Course> currentCourses, Student student) {
     	
     	for(int i=0; i<currentCourses.size(); i++) {
             float requiredCredit = currentCourses.get(i).getRequiredCredits();
             if(student.getTranscript().getGPA()[1] < requiredCredit) {
-                currentCourses.remove(currentCourses.get(i));
+                currentCourses.remove(currentCourses.get(i--));
             }
         }
 
         collisionCheck(currentCourses);
-        // Check after all courses had been added.
-
-        /*
-         * 1. credit check 2. collision check // Seperate method might be necessary.
-         */
-
-        // remove necesssary courses.
 
     }
 
@@ -290,6 +283,8 @@ public class Simulation {
     private void finalPoints() {
 
         for (int i = 0; i < students.size(); i++) {
+
+            if (students.get(i).getIsGraduate()) continue;
 
             System.out.println("Add notes for student " + students.get(i).getId() + "!");
 

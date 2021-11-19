@@ -166,7 +166,7 @@ public class Transcript {
 
         Course[] courses;
 
-        if (semesters.size() % 2 == 0) courses = DataIOHandler.fallCourses;
+        if (semesters.size() % 2 == 1) courses = DataIOHandler.fallCourses;
         else courses = DataIOHandler.springCourses;
 
         ArrayList<Course> conditionalCourses = new ArrayList<Course>();

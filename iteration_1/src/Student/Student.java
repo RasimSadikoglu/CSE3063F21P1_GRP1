@@ -80,13 +80,15 @@ public class Student {
 
     public boolean setIsGradute() {
 
-        if (currentSemester < 8) return false;
+        if (currentSemester < 9) return false;
 
         if (transcript.getGPA()[0] < 2) return false;
 
         if (!getfailedCourses(true).isEmpty()) return false;
 
-        return isGraduate = true;
+        isGraduate = true;
+
+        return true;
     }
 
     public void updateCurrentSemester() {

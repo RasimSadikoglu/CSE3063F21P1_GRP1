@@ -1,6 +1,6 @@
 {
   "id": "150120001",
-  "gpa": 2.848901,
+  "gpa": 2.6703296,
   "isGraduate": false,
   "transcript": {
     "semesters": [
@@ -102,15 +102,6 @@
           "ISG122": "FF",
           "MATH1001": "CB",
           "MBG1201": "BA"
-        }
-      },
-      {
-        "notes": {
-          "CSE1242": "DC",
-          "EE2031": "DZ",
-          "IE3235": "BA",
-          "ISG122": "DC",
-          "PHYS1104": "BB"
         }
       }
     ]
