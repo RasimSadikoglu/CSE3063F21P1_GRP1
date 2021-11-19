@@ -87,7 +87,16 @@ public class Simulation {
         DataIOHandler.writeStudentsData(students, "jsonDocs/students/after/");
     }
 
-    private void advisorCheck(ArrayList<Course> currentCourses) { // BAHADIR
+    private void advisorCheck(ArrayList<Course> currentCourses, Student student) { // BAHADIR
+    	
+    	for(int i=0; i<currentCourses.size(); i++) {
+            float requiredCredit = currentCourses.get(i).getRequiredCredits();
+            if(student.getTranscript().getGPA()[1] < requiredCredit) {
+                currentCourses.remove(currentCourses.get(i));
+            }
+        }
+
+        collisionCheck(currentCourses);
         // Check after all courses had been added.
 
         /*
@@ -95,6 +104,7 @@ public class Simulation {
          */
 
         // remove necesssary courses.
+
     }
 
     private ArrayList<int[]> getScheduleTimes(Schedule schedule) {
@@ -210,7 +220,7 @@ public class Simulation {
                     course.setNumberOfStudent(course.getNumberOfStudent() + 1);
                 }
             });
-            advisorCheck(validCourses);
+            advisorCheck(validCourses, student);
 
             if (validCourses.isEmpty()) {
                 if (student.setIsGradute()) return;
