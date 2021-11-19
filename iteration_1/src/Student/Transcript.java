@@ -37,7 +37,7 @@ public class Transcript {
         return semesters.get(semesters.size() - 1);
     }
     /**
-     * @return [gpa, total points, completed credits]
+     * @return [gpa, total points]
      */
     public float[] getGPA() {
 
@@ -77,7 +77,7 @@ public class Transcript {
         
         // GPA of a student with no completed course is 0.
         float gpa = totalCredits == 0 ? 0 : points / totalCredits;
-        return new float[]{gpa, points, totalCredits};
+        return new float[]{gpa, points};
     }
 
     public ArrayList<Semester> getSemesters() {
@@ -116,7 +116,7 @@ public class Transcript {
         return -3;
     }
 
-    public ArrayList<Course> getfailedCourses() {
+    public ArrayList<Course> getfailedCourses(boolean getAll) {
 
         Course[] courses;
 
@@ -139,9 +139,9 @@ public class Transcript {
 
                 if (allCourses.contains(courseName)) continue;
 
-                boolean isOpen = false;
+                boolean isOpen = getAll;
 
-                for (Course course: courses) {
+                if (!isOpen) for (Course course: courses) {
                     if (course.getCourseName().equals(courseName)) {
                         isOpen = true;
                         break;
@@ -150,7 +150,7 @@ public class Transcript {
 
                 if (!isOpen) continue;
 
-                if (courseNote < 1) failedCourses.add(getCourse(courseName));
+                if (courseNote < 1f) failedCourses.add(getCourse(courseName));
 
                 allCourses.add(courseName);
 

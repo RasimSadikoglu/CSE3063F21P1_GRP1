@@ -53,10 +53,18 @@ public class Simulation {
         if (students == null) return;
 
         for (File student: students) {
-            this.students.add(DataIOHandler.readStudentInfo("jsonDocs/students/before/" + student.getName()));
+            Student newStudent = DataIOHandler.readStudentInfo("jsonDocs/students/before/" + student.getName());
+
+            newStudent.updateCurrentSemester();
+
+            this.students.add(newStudent);
 
             System.out.println(student.getName() + " has been read!");
         }
+
+        String lastID = students[students.length - 1].getName();
+
+        currentSemester = (Integer.parseInt(lastID.substring(4, 6)) - 19) * 2 + 1;
 
     }
 
@@ -65,12 +73,9 @@ public class Simulation {
         System.out.println("Simulation has been started!");
 
         // This will ensure last semester simulated will be match the parameter.
-        if (simulatedSemester.equals("Fall"))
-            reCreateStudentData += reCreateStudentData % 2;
-        else if (simulatedSemester.equals("Spring"))
-            reCreateStudentData += (reCreateStudentData + 1) % 2;
-        else
-            return; // Exception can be added.
+        if (simulatedSemester.equals("Fall")) reCreateStudentData += reCreateStudentData % 2;
+        else if (simulatedSemester.equals("Spring")) reCreateStudentData += (reCreateStudentData + 1) % 2;
+        else return; // Exception can be added.
 
 
         // Student data creation
@@ -195,7 +200,7 @@ public class Simulation {
                 addableCourses.addAll(getAllCourses("SME" + currentSemester));
             }
 
-            addableCourses.addAll(student.getfailedCourses()); // add failed courses
+            addableCourses.addAll(student.getfailedCourses(false)); // add failed courses
 
             for (int i = 0; currentSemester < 8 && i < semesterCourses[currentSemester - 1].length; i++) {
                 addableCourses.addAll(getRandomCourse(semesterCourses[currentSemester - 1][i], student, addableCourses)); // TE and NTE course selection   
@@ -212,11 +217,7 @@ public class Simulation {
             });
             advisorCheck(validCourses);
 
-            if (validCourses.isEmpty()) {
-                if (student.setIsGradute()) return;
-                
-                validCourses.addAll(student.getConditionalCourses());
-            }
+            if (validCourses.isEmpty() && student.getGPA() < 2) validCourses.addAll(student.getConditionalCourses());
             
             student.addSemester(new Semester(validCourses));
         });
@@ -289,6 +290,7 @@ public class Simulation {
             }
 
             students.get(i).updateGPA();
+            students.get(i).setIsGradute();
         }         
     }
 

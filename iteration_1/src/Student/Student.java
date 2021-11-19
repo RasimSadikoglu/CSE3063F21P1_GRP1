@@ -62,8 +62,8 @@ public class Student {
         gpa = transcript.getGPA()[0];
     }
 
-    public ArrayList<Course> getfailedCourses() {
-        return transcript.getfailedCourses();
+    public ArrayList<Course> getfailedCourses(boolean getAll) {
+        return transcript.getfailedCourses(getAll);
     }
 
     public ArrayList<Course> getConditionalCourses() {
@@ -80,8 +80,20 @@ public class Student {
 
     public boolean setIsGradute() {
 
+        if (currentSemester < 8) return false;
+
         if (transcript.getGPA()[0] < 2) return false;
 
+        if (!getfailedCourses(true).isEmpty()) return false;
+
         return isGraduate = true;
+    }
+
+    public void updateCurrentSemester() {
+        currentSemester = transcript.getSemesters().size() + 1;
+    }
+
+    public float getGPA() {
+        return gpa;
     }
 }
