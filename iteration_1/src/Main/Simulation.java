@@ -114,8 +114,6 @@ public class Simulation {
 
     private void simulationLoop() {
 
-        System.out.println(currentSemester);
-
         if (currentSemester % 2 == 1) {
             students.addAll(randomObjectGenerator.getRandomStudents(20 + currentSemester / 2));
         }
@@ -132,7 +130,6 @@ public class Simulation {
     }
 
     public void end() {
-
         Logger.end();
     }
 }
