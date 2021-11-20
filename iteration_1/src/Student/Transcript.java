@@ -37,11 +37,11 @@ public class Transcript {
         return semesters.get(semesters.size() - 1);
     }
     /**
-     * @return [gpa, total points]
+     * @return [gpa, points, completedCredits, totalCredits]
      */
     public float[] getGPA() {
 
-        float points = 0, totalCredits = 0;
+        float points = 0, completedCredits = 0, totalCredits = 0;
         
         /* 
         * Students can take a course more than one time. However, only the last 
@@ -53,6 +53,8 @@ public class Transcript {
         TreeSet<String> completedCourses = new TreeSet<String>();
 
         for (int i = semesters.size() - 1; i >= 0; i--) {
+            semesters.get(i).updateSemesterInfo();
+
             TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
 
             for (Map.Entry<String, letterNote> note: notes.entrySet()) {
@@ -67,34 +69,23 @@ public class Transcript {
 
                 completedCourses.add(courseName);
 
-                float courseCredits = getCourse(courseName).getCourseCredits();
+                float courseCredits = DataIOHandler.getCourse(courseName).getCourseCredits();
 
-                points += courseNote == -1 ? 0 : courseCredits * courseNote;
+                if (courseNote >= 1) completedCredits += courseCredits;
 
                 totalCredits += courseCredits;
+
+                points += courseNote == -1 ? 0 : courseCredits * courseNote;
             }
         }
         
         // GPA of a student with no completed course is 0.
         float gpa = totalCredits == 0 ? 0 : points / totalCredits;
-        return new float[]{gpa, points};
+        return new float[]{gpa, points, completedCredits, totalCredits};
     }
 
     public ArrayList<Semester> getSemesters() {
         return semesters;
-    }
-
-    private Course getCourse(String courseName) {
-
-        for (Course course: DataIOHandler.fallCourses) {
-            if (course.getCourseName().equals(courseName)) return course;
-        }
-
-        for (Course course: DataIOHandler.springCourses) {
-            if (course.getCourseName().equals(courseName)) return course;
-        }
-
-        return null;
     }
 
     public float getCourseNote(String courseName) {
@@ -103,63 +94,10 @@ public class Transcript {
             
             TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
-
-                String cName = note.getKey();
-
-                float courseNote = note.getValue().getNote();
-
-                if (cName.equals(courseName)) return courseNote;
-            }
+            if (notes.get(courseName) != null) return notes.get(courseName).getNote();
         }
 
         return -3;
-    }
-
-    public ArrayList<Course> getfailedCourses(boolean getAll) {
-
-        Course[] courses;
-
-        if (semesters.size() % 2 == 0) courses = DataIOHandler.fallCourses;
-        else courses = DataIOHandler.springCourses;
-
-        ArrayList<Course> failedCourses = new ArrayList<Course>();
-        
-        TreeSet<String> allCourses = new TreeSet<String>();
-
-        for (int i = semesters.size() - 1; i >= 0; i--) {
-
-            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
-
-            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
-
-                String courseName = note.getKey();
-
-                float courseNote = note.getValue().getNote();
-
-                if (allCourses.contains(courseName)) continue;
-
-                boolean isOpen = getAll;
-
-                if (!isOpen) for (Course course: courses) {
-                    if (course.getCourseName().equals(courseName)) {
-                        isOpen = true;
-                        break;
-                    }
-                }
-
-                if (!isOpen) continue;
-
-                if (courseNote < 1f) failedCourses.add(getCourse(courseName));
-
-                allCourses.add(courseName);
-
-            }
-
-        }
-
-        return failedCourses;
-
     }
 
     public ArrayList<Course> getConditionalCourses() {
@@ -196,7 +134,7 @@ public class Transcript {
 
                 if (!isOpen) continue;
 
-                if (courseNote == letterNote.DC || courseNote == letterNote.DD) conditionalCourses.add(getCourse(courseName));
+                if (courseNote == letterNote.DC || courseNote == letterNote.DD) conditionalCourses.add(DataIOHandler.getCourse(courseName));
 
                 allCourses.add(courseName);
 
@@ -206,5 +144,32 @@ public class Transcript {
 
         return conditionalCourses;
 
+    }
+
+    public int getCourseCount(String courseGroup) {
+
+        int count = 0;
+
+        TreeSet<Course> allCourses = new TreeSet<Course>();
+
+        for (int i = semesters.size() - 1; i >= 0; i--) {
+
+            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+
+            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+
+                Course course = DataIOHandler.getCourse(note.getKey());
+
+                if (allCourses.contains(course)) continue;
+
+                if (note.getValue().getNote() < 1) continue;
+
+                if (course.getCourseGroup().equals(courseGroup)) count++;
+
+            }
+
+        }
+
+        return count;
     }
 }

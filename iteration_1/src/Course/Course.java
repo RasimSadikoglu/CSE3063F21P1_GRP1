@@ -1,6 +1,6 @@
 package Course;
 
-public class Course {
+public class Course implements Comparable<Course> {
 
     private String courseName;
     private String courseGroup;
@@ -77,10 +77,6 @@ public class Course {
         return courseQuota;
     }
 
-    public void setCourseQuota(int courseQuota) {
-        this.courseQuota = courseQuota;
-    }
-
     public int getNumberOfStudent() {
         return numberOfStudent;
     }
@@ -96,4 +92,9 @@ public class Course {
     public void setCourseSchedule(Schedule courseSchedule) {
         this.courseSchedule = courseSchedule;
     }
+
+    @Override
+    public int compareTo(Course course) {
+        return this.courseName.compareTo(course.getCourseName());
+    } 
 }

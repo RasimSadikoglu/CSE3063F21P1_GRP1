@@ -6,13 +6,13 @@ class Main {
 	public static void main(String[] args) throws Exception {
 	
 		// Don't forget to set correct paths for json files (Simulation.getData() method and the line below).
-		Simulation sim = DataIOHandler.readSimulationParameters("jsonDocs/simulationParameters.json");
+		Simulation simulation = DataIOHandler.readSimulationParameters("jsonDocs/simulationParameters.json");
 
-		sim.setRandomObjectGenerator();
+		simulation.setRandomObjectGenerator();
 
-		sim.getData();
+		simulation.getData();
 
-		sim.start();
+		simulation.start();
 
 		System.out.println("Simulation has been ended!");
 	}

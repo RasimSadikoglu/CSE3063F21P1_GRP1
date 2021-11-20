@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import Course.Course;
 import Course.Schedule;
@@ -13,28 +14,31 @@ import Util.DataIOHandler;
 import Util.RandomObjectGenerator;
 
 public class Simulation {
+    private enum semesterName {Fall, Spring} 
+
     private RandomObjectGenerator randomObjectGenerator;
 
     private ArrayList<Student> students;
     private int currentSemester;
-    private String simulatedSemester;
+    private semesterName simulatedSemester;
     private int reCreateStudentData;
     private int yearlyStudentCount;
-    private String[][] semesterCourses = {
-        { /* 1 */ },
-        { /* 2 */ "NTE" },
-        { /* 3 */ "NTE" },
-        { /* 4 */ },
-        { /* 5 */ },
-        { /* 6 */ },
-        { /* 7 */ "NTE", "TE" },
-        { /* 8 */ "NTE", "TE", "TE", "TE", "TE" }
+    private final int[][] electiveCourses = {
+    /*  NTE TE FTE*/
+        {0, 0, 0},
+        {1, 0, 0},
+        {0, 0, 0},
+        {0, 0, 0},
+        {0, 0, 0},
+        {0, 0, 0},
+        {2, 1, 0},
+        {3, 4, 1},
     };
 
     public Simulation(){
         students = new ArrayList<Student>();
-        currentSemester = 1; // true = "Fall", false = "Spring"
-        simulatedSemester = "";
+        currentSemester = 1;
+        simulatedSemester = null;
         reCreateStudentData = 0;
         yearlyStudentCount = 0;
     }
@@ -50,7 +54,7 @@ public class Simulation {
 
         File[] students = new File(DataIOHandler.currentPath + "jsonDocs/students/before/").listFiles();
 
-        if (students == null) return;
+        if (students == null || students.length == 0) return;
 
         for (File student: students) {
             Student newStudent = DataIOHandler.readStudentInfo("jsonDocs/students/before/" + student.getName());
@@ -62,9 +66,7 @@ public class Simulation {
             System.out.println(student.getName() + " has been read!");
         }
 
-        String lastID = students[students.length - 1].getName();
-
-        currentSemester = (Integer.parseInt(lastID.substring(4, 6)) - 19) * 2 + 1;
+        currentSemester = this.students.get(this.students.size() - 1).getCurrentSemester();
 
     }
 
@@ -72,11 +74,14 @@ public class Simulation {
 
         System.out.println("Simulation has been started!");
 
-        // This will ensure last semester simulated will be match the parameter.
-        if (simulatedSemester.equals("Fall")) reCreateStudentData += reCreateStudentData % 2;
-        else if (simulatedSemester.equals("Spring")) reCreateStudentData += (reCreateStudentData + 1) % 2;
-        else return; // Exception can be added.
-
+        if (simulatedSemester == semesterName.Fall) {
+            reCreateStudentData += ((currentSemester + reCreateStudentData + 1) % 2);
+        } else if (simulatedSemester == semesterName.Spring) {
+            reCreateStudentData += ((currentSemester + reCreateStudentData) % 2);
+        } else {
+            System.out.println("There is no such semester!");
+            System.exit(1);
+        }
 
         // Student data creation
         for (int i = 0; i < reCreateStudentData; i++) {
@@ -96,12 +101,12 @@ public class Simulation {
     	
     	for(int i=0; i<currentCourses.size(); i++) {
             float requiredCredit = currentCourses.get(i).getRequiredCredits();
-            if(student.getTranscript().getGPA()[1] < requiredCredit) {
+            if(student.getGPA()[1] < requiredCredit) {
                 currentCourses.remove(currentCourses.get(i--));
             }
         }
 
-        collisionCheck(currentCourses);
+        collisionCheck(currentCourses, student);
 
     }
 
@@ -159,14 +164,21 @@ public class Simulation {
         return totalCollisionMinute;
     }
 
-    public void collisionCheck(ArrayList<Course> currentCourses) {
+    public void collisionCheck(ArrayList<Course> currentCourses, Student student) {
         for (int i = 0; i < currentCourses.size(); i++) {
+            
+            // Exclude NTE courses
+            if (currentCourses.get(i).getCourseGroup().equals("NTE")) continue;
+
+            // There is no 
+            if (student.getCourseNote(currentCourses.get(i).getCourseName()) >= 0) continue;
+
             for (int j = i + 1; j < currentCourses.size(); j++) {
                 int totalCollisionMinute = getTotalCollisionMinutes(currentCourses.get(i).getCourseSchedule(),
                         currentCourses.get(j).getCourseSchedule());
 
                 // if there is any collision remove the course
-                if (totalCollisionMinute >= 50) {
+                if (totalCollisionMinute > 60) {
                     currentCourses.remove(currentCourses.get(j--));
                 }
             }
@@ -174,6 +186,8 @@ public class Simulation {
     }
 
     private boolean systemCheck(Course newCourse, Student student) { // ERKAM
+
+        if (student.getCourseNote(newCourse.getCourseName()) >= 1) return false;
         
         String prerequisiteCourse = newCourse.getPrerequisiteCourse();
 
@@ -185,6 +199,7 @@ public class Simulation {
         if (newCourse.getCourseQuota() != 0 && newCourse.getCourseQuota() <= newCourse.getNumberOfStudent()) { // if quota is not full
             return false;
         }
+
         return true;
 
     }
@@ -193,46 +208,49 @@ public class Simulation {
         this.students.forEach(student -> { // iterate through students
             if (student.getIsGraduate()) return;
 
-            System.out.println("Add courses for student " + student.getId() + "!");
+            int currentSemester = Math.min(student.getCurrentSemester(), 8);
 
-            int currentSemester = student.getCurrentSemester();
-            ArrayList<Course> addableCourses = new ArrayList<>();
+            TreeSet<Course> addableCourses = new TreeSet<Course>();
 
             // add mandatory courses
             for (int i = 1; i <= currentSemester; i++) {
-                addableCourses.addAll(getAllCourses("SME" + currentSemester));
+                addableCourses.addAll(getAllCourses("SME" + i));
             }
+            
+            int nteCount = electiveCourses[currentSemester - 1][0] - student.getCourseCount("NTE");
+            int teCount = electiveCourses[currentSemester - 1][1] - student.getCourseCount("TE");
+            int fteCount = electiveCourses[currentSemester - 1][2] - student.getCourseCount("FTE");
 
-            addableCourses.addAll(student.getfailedCourses(false)); // add failed courses
+            addableCourses.addAll(getRandomCourses("NTE", student, addableCourses, nteCount));
+            addableCourses.addAll(getRandomCourses("TE", student, addableCourses, teCount));
+            addableCourses.addAll(getRandomCourses("FTE", student, addableCourses, fteCount));
 
-            for (int i = 0; currentSemester < 8 && i < semesterCourses[currentSemester - 1].length; i++) {
-                addableCourses.addAll(getRandomCourse(semesterCourses[currentSemester - 1][i], student, addableCourses)); // TE and NTE course selection   
-            }
-
+            int totalCredits = 0;
             ArrayList<Course> validCourses = new ArrayList<>();
-            addableCourses.forEach(course -> {
-                if (validCourses.contains(course)) return;
-                if (validCourses.size() == 10) return;
+            for (Course course: addableCourses) {
+                if (validCourses.size() == 10) continue;
+                if (totalCredits + course.getCourseCredits() > 40) continue;
                 if (systemCheck(course, student)) { // student parameter added 
                     validCourses.add(course);
                     course.setNumberOfStudent(course.getNumberOfStudent() + 1);
+                    totalCredits += course.getCourseCredits();
                 }
-            });
+            }
             advisorCheck(validCourses, student);
 
-            if (validCourses.isEmpty() && student.getGPA() < 2) validCourses.addAll(student.getConditionalCourses());
+            if (validCourses.isEmpty() && student.getGPA()[0] < 2) validCourses.addAll(student.getConditionalCourses());
             
             student.addSemester(new Semester(validCourses));
         });
     }
 
-	private ArrayList<Course> getRandomCourse(String courseCode, Student student, ArrayList<Course> currentCourses) {
+	private TreeSet<Course> getRandomCourses(String courseCode, Student student, TreeSet<Course> currentCourses, int count) {
 		ArrayList<Course> courses = getAllCourses(courseCode);
 
         // This will prevent null objects from being returned.
-        ArrayList<Course> randomCourse = new ArrayList<Course>();
+        TreeSet<Course> randomCourses = new TreeSet<Course>();
 
-		while (!courses.isEmpty()) {
+		while (!courses.isEmpty() && randomCourses.size() < count) {
 			int randomIndex = this.randomObjectGenerator.getLinearRandom(0, courses.size());
 
 			if (student.getCourseNote(courses.get(randomIndex).getCourseName()) >= 1) {
@@ -246,23 +264,22 @@ public class Simulation {
             }
 
             if (courses.get(randomIndex).getCourseQuota() == 0) {
-                randomCourse.add(courses.get(randomIndex));
-				return randomCourse;
+                randomCourses.add(courses.get(randomIndex));
+				continue;
             }
 
 			if (courses.get(randomIndex).getCourseQuota() > courses.get(randomIndex).getNumberOfStudent()) {
-                randomCourse.add(courses.get(randomIndex));
-				return randomCourse;
+                randomCourses.add(courses.get(randomIndex));
 			} else {
 				courses.remove(randomIndex);
 			}
 		}
 
-		return randomCourse;
+		return randomCourses;
 
     }
 
-    private ArrayList<Course> getAllCourses(String courseCode) {
+    private ArrayList<Course> getAllCourses(String courseGroup) {
         Course[] courses;
         
         if (currentSemester % 2 == 1) courses = DataIOHandler.fallCourses;
@@ -270,7 +287,7 @@ public class Simulation {
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
-            if (courseCode.equals(course.getCourseGroup())) matchedCourses.add(course);
+            if (courseGroup.equals(course.getCourseGroup())) matchedCourses.add(course);
         }
 
         return matchedCourses;
@@ -285,8 +302,6 @@ public class Simulation {
         for (int i = 0; i < students.size(); i++) {
 
             if (students.get(i).getIsGraduate()) continue;
-
-            System.out.println("Add notes for student " + students.get(i).getId() + "!");
 
             TreeMap<String, Semester.letterNote> notes = students.get(i).getTranscript().getCurrentSemester().getNotes();
 

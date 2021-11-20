@@ -124,7 +124,7 @@
         "courseGroup": "SME2",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 4.0,
+        "courseCredits": 6.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
@@ -277,7 +277,7 @@
         "courseGroup": "SME4",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 3.0,
+        "courseCredits": 7.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [
@@ -449,7 +449,7 @@
         "courseGroup": "SME8",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
-        "courseCredits": 2.0,
+        "courseCredits": 5.0,
         "courseQuota": 0,
         "courseSchedule": {
             "timeTable": [

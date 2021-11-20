@@ -35,6 +35,19 @@ public class DataIOHandler {
 		return courses;
 	}
 
+	static public Course getCourse(String courseName) {
+
+        for (Course course: DataIOHandler.fallCourses) {
+            if (course.getCourseName().equals(courseName)) return course;
+        }
+
+        for (Course course: DataIOHandler.springCourses) {
+            if (course.getCourseName().equals(courseName)) return course;
+        }
+
+        return null;
+    }
+
 	static public Student readStudentInfo(String studentName) {
 		String studentStr = readFile(studentName);
 		return gson.fromJson(studentStr, Student.class);
