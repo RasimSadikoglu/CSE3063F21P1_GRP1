@@ -1,5 +1,5 @@
 {
-    "simulatedSemester": "Fall",
-    "reCreateStudentData": 30,
+    "simulatedSemester": "Spring",
+    "recreationLoopCount": 15,
     "yearlyStudentCount": 5
 }

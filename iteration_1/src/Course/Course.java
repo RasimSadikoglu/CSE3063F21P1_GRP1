@@ -37,40 +37,20 @@ public class Course implements Comparable<Course> {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
     public String getCourseGroup() {
         return courseGroup;
-    }
-
-    public void setCourseGroup(String courseGroup) {
-        this.courseGroup = courseGroup;
     }
 
     public float getRequiredCredits() {
         return requiredCredits;
     }
 
-    public void setRequiredCredits(float requiredCredits) {
-        this.requiredCredits = requiredCredits;
-    }
-
     public String getPrerequisiteCourse() {
         return prerequisiteCourse;
     }
 
-    public void setPrerequisiteCourse(String prerequisiteCourse) {
-        this.prerequisiteCourse = prerequisiteCourse;
-    }
-
     public float getCourseCredits() {
         return courseCredits;
-    }
-
-    public void setCourseCredits(float courseCredits) {
-        this.courseCredits = courseCredits;
     }
 
     public int getCourseQuota() {
@@ -88,11 +68,7 @@ public class Course implements Comparable<Course> {
     public Schedule getCourseSchedule() {
         return courseSchedule;
     }
-
-    public void setCourseSchedule(Schedule courseSchedule) {
-        this.courseSchedule = courseSchedule;
-    }
-
+    
     @Override
     public int compareTo(Course course) {
         return this.courseName.compareTo(course.getCourseName());

@@ -11,23 +11,7 @@ public class Schedule {
         timeTable = new ArrayList<String>();
     }
 
-    public Schedule(ArrayList<String> timeTable) {
-        this.timeTable = timeTable;
-    }
-
-    public void addTime(String time) {
-        timeTable.add(time);
-    }
-
-    // public void deleteTime(String time) {
-    //     timeTable.remove(time);
-    // }
-
-    // public void deleteTime(int index) {
-    //     timeTable.remove(index);
-    // }
-
     public ArrayList<String> getTimeTable() {
         return timeTable;
-    } 
+    }
 }

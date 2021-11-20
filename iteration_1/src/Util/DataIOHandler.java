@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -18,7 +19,7 @@ public class DataIOHandler {
 	static private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	static public Course[] fallCourses;
 	static public Course[] springCourses;
-	public static String currentPath; // relative path to current directory
+	static public String currentPath; // relative path to current directory
 	static {
 		try {
 			currentPath = new File("./iteration_1").getCanonicalPath() + "/";
@@ -64,7 +65,27 @@ public class DataIOHandler {
 	}
 
 	static private void writeStudentInfo(String path, String studentData) {
-		writeFile(path, studentData);
+		writeFile(path, studentData, false);
+	}
+
+	static public ArrayList<Student> readStudentsData(String path) {
+
+		ArrayList<Student> students = new ArrayList<Student>();
+
+		File[] studentFiles = new File(DataIOHandler.currentPath + path).listFiles();
+
+        if (students == null || studentFiles.length == 0) return students;
+
+        for (File student: studentFiles) {
+            Student newStudent = DataIOHandler.readStudentInfo(path + student.getName());
+
+            newStudent.updateCurrentSemester();
+
+            students.add(newStudent);
+        }
+
+		return students;
+
 	}
 
 	static public void writeStudentsData(ArrayList<Student> students, String path) {
@@ -91,10 +112,10 @@ public class DataIOHandler {
 		return null;
 	}
 
-	static private void writeFile(String path, String data) {
+	static public void writeFile(String path, String data, boolean append) {
 		try {
 			Path filePath = Paths.get(path);
-			Files.write(filePath, data.getBytes());
+			Files.write(filePath, data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, append ? StandardOpenOption.APPEND : StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
 		}

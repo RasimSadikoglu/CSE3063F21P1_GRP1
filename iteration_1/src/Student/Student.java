@@ -23,9 +23,8 @@ public class Student {
     }
 
     public Student(String id) {
+        this();
         this.id = id;
-        transcript = new Transcript();
-        currentSemester = 1;
     }
 
     public String getId() {
@@ -34,18 +33,6 @@ public class Student {
 
     public Transcript getTranscript() {
         return transcript;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setTranscript(Transcript transcript) {
-        this.transcript = transcript;
-    }
-
-    public void addCourse(Course newCourse) {
-        transcript.addCourse(newCourse);
     }
     
     public float getCourseNote(String courseName) {
@@ -58,7 +45,7 @@ public class Student {
 
     public void addSemester(Semester semester) {
         transcript.addSemester(semester);
-        increaseSemesterCount();
+        currentSemester++;
     }
 
     public void updateGPA() {
@@ -71,10 +58,6 @@ public class Student {
 
     public ArrayList<Course> getConditionalCourses() {
         return transcript.getConditionalCourses();
-    }
-
-    public void increaseSemesterCount() {
-        currentSemester++;
     }
 
     public boolean getIsGraduate() {

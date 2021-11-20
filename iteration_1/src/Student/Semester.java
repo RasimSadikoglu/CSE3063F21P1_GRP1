@@ -9,17 +9,17 @@ import Util.DataIOHandler;
 
 public class Semester {
 
-    public static enum letterNote {
+    public static enum LetterNote {
 		AA(4f), BA(3.5f), BB(3f), CB(2.5f),
         CC(2f), DC(1.5f), DD(1f), FD(0.5f),
         FF(0f), DZ(-1f), NF(-2f); // NF = Not Finalized
 
 		private final float note;
-		private letterNote(float note) { this.note = note; }
+		private LetterNote(float note) { this.note = note; }
 		public float getNote() { return note; } 
 	}
 
-    private TreeMap<String, letterNote> notes;
+    private TreeMap<String, LetterNote> notes;
     private float semesterGPA;
     private float points;
     private float completedCredits;
@@ -30,29 +30,17 @@ public class Semester {
         points = 0;
         completedCredits = 0;
         totalCredits = 0;
-        notes = new TreeMap<String, letterNote>();
+        notes = new TreeMap<String, LetterNote>();
     }
 
-    public Semester(TreeMap<String, letterNote> notes) {
-        this.notes = notes;
-    } 
-    
     public Semester(ArrayList<Course> courses) {
-        notes = new TreeMap<String, letterNote>();
+        notes = new TreeMap<String, LetterNote>();
         courses.forEach(course -> {
-            notes.put(course.getCourseName(), letterNote.NF);
+            notes.put(course.getCourseName(), LetterNote.NF);
         });
     }
 
-    public void addNote(String courseName, letterNote note){
-        notes.put(courseName, note);  
-    }
-
-    public void addNewCourse(String courseName){
-        notes.put(courseName, letterNote.NF);
-    }
-
-    public TreeMap<String, letterNote> getNotes() {
+    public TreeMap<String, LetterNote> getNotes() {
         return notes;
     }
 
@@ -65,7 +53,7 @@ public class Semester {
         completedCredits = 0;
         totalCredits = 0;
 
-        for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+        for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
             
             float courseCredits = DataIOHandler.getCourse(note.getKey()).getCourseCredits();
 

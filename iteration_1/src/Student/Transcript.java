@@ -6,7 +6,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import Course.Course;
-import Student.Semester.letterNote;
+import Student.Semester.LetterNote;
 import Util.DataIOHandler;
 
 public class Transcript {
@@ -17,16 +17,8 @@ public class Transcript {
         semesters = new ArrayList<Semester>();
     }
 
-    public Transcript(ArrayList<Semester> semesters) {
-        this.semesters = semesters;
-    }
-
     public void addSemester(Semester semester) {
         semesters.add(semester);
-    }
-
-    public void addCourse(Course course) {
-        semesters.get(semesters.size() - 1).addNewCourse(course.getCourseName());
     }
 
     public Semester getCurrentSemester() {
@@ -36,6 +28,7 @@ public class Transcript {
 
         return semesters.get(semesters.size() - 1);
     }
+
     /**
      * @return [gpa, points, completedCredits, totalCredits]
      */
@@ -55,9 +48,9 @@ public class Transcript {
         for (int i = semesters.size() - 1; i >= 0; i--) {
             semesters.get(i).updateSemesterInfo();
 
-            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+            TreeMap<String, LetterNote> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+            for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
 
                 String courseName = note.getKey();
 
@@ -84,15 +77,11 @@ public class Transcript {
         return new float[]{gpa, points, completedCredits, totalCredits};
     }
 
-    public ArrayList<Semester> getSemesters() {
-        return semesters;
-    }
-
     public float getCourseNote(String courseName) {
         
         for (int i = semesters.size() - 1; i >= 0; i--) {
             
-            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+            TreeMap<String, LetterNote> notes = semesters.get(i).getNotes();
 
             if (notes.get(courseName) != null) return notes.get(courseName).getNote();
         }
@@ -113,13 +102,13 @@ public class Transcript {
 
         for (int i = semesters.size() - 1; i >= 0; i--) {
 
-            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+            TreeMap<String, LetterNote> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+            for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
 
                 String courseName = note.getKey();
 
-                letterNote courseNote = note.getValue();
+                LetterNote courseNote = note.getValue();
 
                 if (allCourses.contains(courseName)) continue;
 
@@ -134,7 +123,7 @@ public class Transcript {
 
                 if (!isOpen) continue;
 
-                if (courseNote == letterNote.DC || courseNote == letterNote.DD) conditionalCourses.add(DataIOHandler.getCourse(courseName));
+                if (courseNote == LetterNote.DC || courseNote == LetterNote.DD) conditionalCourses.add(DataIOHandler.getCourse(courseName));
 
                 allCourses.add(courseName);
 
@@ -154,9 +143,9 @@ public class Transcript {
 
         for (int i = semesters.size() - 1; i >= 0; i--) {
 
-            TreeMap<String, letterNote> notes = semesters.get(i).getNotes();
+            TreeMap<String, LetterNote> notes = semesters.get(i).getNotes();
 
-            for (Map.Entry<String, letterNote> note: notes.entrySet()) {
+            for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
 
                 Course course = DataIOHandler.getCourse(note.getKey());
 
@@ -171,5 +160,9 @@ public class Transcript {
         }
 
         return count;
+    }
+
+    public ArrayList<Semester> getSemesters() {
+        return semesters;
     }
 }

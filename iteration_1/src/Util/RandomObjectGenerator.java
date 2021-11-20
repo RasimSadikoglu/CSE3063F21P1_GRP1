@@ -3,13 +3,11 @@ package Util;
 import java.util.ArrayList;
 import Student.*;
 
-
 public class RandomObjectGenerator {
-    private int numOfStudents;
 
+    private int numOfStudents;
     private double shift;
     private double sharpness;
-
     ArrayList<Double> bellShape;
 
     public RandomObjectGenerator(int numOfStudents) {
@@ -20,10 +18,6 @@ public class RandomObjectGenerator {
 
     public RandomObjectGenerator() {
         this(0);
-    }
-
-    public void setNumOfStudents(int numOfStudents){
-        this.numOfStudents = numOfStudents;
     }
 
     public void setBell(double shift, double sharpness){
@@ -40,9 +34,7 @@ public class RandomObjectGenerator {
         ArrayList<String> studentIds = generateStudentIds(entranceYear);
 
         for (int i = 0; i < numOfStudents; i++){
-            Student student = new Student();
-            student.setId(studentIds.get(i));
-            studentList.add(student);
+            studentList.add(new Student(studentIds.get(i)));
         }
 
         return studentList;
