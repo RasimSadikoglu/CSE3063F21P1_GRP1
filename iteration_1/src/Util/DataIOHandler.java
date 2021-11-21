@@ -121,4 +121,26 @@ public class DataIOHandler {
 		}
 	}
 
+	static public void resetStudentData(boolean deleteBefore) {
+
+		if (new File(DataIOHandler.currentPath + "jsonDocs/students/").listFiles() == null) {
+			new File(DataIOHandler.currentPath + "jsonDocs/students/").mkdir();
+		}
+
+		File[] afterDirectory = new File(DataIOHandler.currentPath + "jsonDocs/students/after/").listFiles();
+
+		if (afterDirectory == null) new File(DataIOHandler.currentPath + "jsonDocs/students/after/").mkdir();
+		else for (File student: afterDirectory) {
+			student.delete();
+		}
+
+		File[] beforeDirectory = new File(DataIOHandler.currentPath + "jsonDocs/students/before/").listFiles();
+
+		if (beforeDirectory == null) new File(DataIOHandler.currentPath + "jsonDocs/students/before/").mkdir();
+		else if (deleteBefore) for (File student: beforeDirectory) {
+			student.delete();
+		}
+
+	}
+
 }
