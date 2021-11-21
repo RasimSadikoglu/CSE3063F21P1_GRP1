@@ -56,11 +56,23 @@ public class ManagementSystem {
             Course currentCourse = validCourses.get(i);
 
             if (i > 9) {
+                Logger.addNewLog("SYSTEM-FAIL-MAX COURSE-" + student.getId(), 
+                    "Student couldn't take the course " + currentCourse.getCourseName() + 
+                    " beacuse he/she already took 10 course in this semester.");
+
+                Logger.addNewSummary(String.format("%s-they already took maximum number of courses can be taken in a semester", currentCourse.getCourseName()));
+
                 validCourses.remove(i--);
                 continue;
             }
 
             if (totalCredits + currentCourse.getCourseCredits() > 40) {
+                Logger.addNewLog("SYSTEM-FAIL-MAX CREDITS-" + student.getId(), 
+                    "Student couldn't take the course " + currentCourse.getCourseName() + 
+                    " beacuse total of the credits of courses that he/she took exceeds 40.");
+
+                Logger.addNewSummary(String.format("%s-they already took total of 40 credits worth courses in a semester", currentCourse.getCourseName()));
+
                 validCourses.remove(i--);
                 continue;
             }

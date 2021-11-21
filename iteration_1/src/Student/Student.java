@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Course.Course;
 import Course.Course.CourseGroup;
 
+@SuppressWarnings("unused")
 public class Student {
     private String name;
     private String id;

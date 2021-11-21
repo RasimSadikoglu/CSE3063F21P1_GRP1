@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import Course.Course;
 import Util.DataIOHandler;
 
+@SuppressWarnings("unused")
 public class Semester {
 
     public static enum LetterNote {
