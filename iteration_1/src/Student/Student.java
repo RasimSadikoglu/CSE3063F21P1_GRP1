@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Course.Course;
 
 public class Student {
+    private String name;
     private String id;
     private float gpa;
     private float points;
@@ -14,7 +15,8 @@ public class Student {
     private Transcript transcript;
     private transient int currentSemester;
 
-    public Student() { // Default constructor in order to avade null exceptions
+    public Student() {
+        name = "";
         this.id = "";
         this.transcript = new Transcript();
         gpa = 0;
@@ -25,6 +27,11 @@ public class Student {
     public Student(String id) {
         this();
         this.id = id;
+    }
+
+    public Student(String name, String id) {
+        this(id);
+        this.name = name;
     }
 
     public String getId() {

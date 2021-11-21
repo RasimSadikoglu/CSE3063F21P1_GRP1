@@ -268,8 +268,8 @@
                 "4-13.00-13.50",
                 "2-16.00-16.50",
                 "2-17.00-17.50",
-                "4-14.00-14.50",
-                "4-15.00-15.50"
+                "4-16.00-16.50",
+                "4-17.00-17.50"
             ]
         }
     },
@@ -412,9 +412,23 @@
         }
     },
     {
+        "courseName": "CSE4297",
+        "courseGroup": "SME7",
+        "requiredCredits": 165,
+        "prerequisiteCourse": "",
+        "courseCredits": 5.0,
+        "courseQuota": 0,
+        "courseSchedule": {
+            "timeTable": [
+                "5-08.30-09.20",
+                "5-09.30-10.20"
+            ]
+        }
+    },
+    {
         "courseName": "CSE4298",
         "courseGroup": "SME8",
-        "requiredCredits": 0,
+        "requiredCredits": 165,
         "prerequisiteCourse": "",
         "courseCredits": 5.0,
         "courseQuota": 0,

@@ -1,191 +1,135 @@
 {
+  "name": "",
   "id": "150120001",
-  "gpa": 2.6835938,
-  "points": 687.0,
-  "completedCredits": 240.0,
-  "totalCredits": 256.0,
-  "isGraduate": true,
+  "gpa": 2.5306604,
+  "points": 536.5,
+  "completedCredits": 176.0,
+  "totalCredits": 212.0,
+  "isGraduate": false,
   "transcript": {
     "semesters": [
       {
         "notes": {
-          "ATA121": "DZ",
-          "CSE1200": "BB",
-          "CSE1241": "AA",
-          "MATH1001": "DZ",
-          "MBG1201": "FF",
+          "ATA121": "CC",
+          "CSE1200": "FF",
+          "CSE1241": "BA",
+          "MATH1001": "BB",
+          "MBG1201": "FD",
           "PHYS1101": "DZ",
-          "PHYS1103": "BA",
-          "TRD121": "BB"
+          "PHYS1103": "DZ",
+          "TRD121": "FF"
         },
-        "semesterGPA": 1.5806452,
-        "points": 49.0,
+        "semesterGPA": 1.467742,
+        "points": 45.5,
         "completedCredits": 14.0,
         "totalCredits": 31.0
       },
       {
         "notes": {
-          "ATA122": "DD",
+          "ATA122": "BA",
           "CSE1242": "BA",
-          "MATH1001": "CC",
-          "MATH2256": "AA",
-          "PHYS1101": "BA",
-          "PHYS1104": "DZ",
-          "TRD122": "AA",
-          "YDIS1002": "CC"
+          "MATH1002": "DZ",
+          "MATH2256": "BA",
+          "PHYS1101": "FF",
+          "PHYS1103": "AA",
+          "PHYS1104": "BA",
+          "TRD122": "BA",
+          "YDA1002": "DC"
         },
-        "semesterGPA": 2.7666667,
-        "points": 83.0,
-        "completedCredits": 28.0,
-        "totalCredits": 30.0
-      },
-      {
-        "notes": {
-          "ATA121": "DZ",
-          "CSE2023": "BB",
-          "CSE2225": "FF",
-          "ECON2004": "DD",
-          "EE2031": "AA",
-          "MATH1002": "DD",
-          "MATH2055": "DZ",
-          "MATH2059": "BB",
-          "PHYS1104": "DC"
-        },
-        "semesterGPA": 1.575,
-        "points": 63.0,
-        "completedCredits": 27.0,
-        "totalCredits": 40.0
-      },
-      {
-        "notes": {
-          "CSE2138": "BA",
-          "CSE2260": "FF",
-          "EE2032": "CB",
-          "MATH2055": "DZ",
-          "PHYS1102": "BA",
-          "STAT2253": "AA"
-        },
-        "semesterGPA": 2.2903225,
-        "points": 71.0,
-        "completedCredits": 21.0,
-        "totalCredits": 31.0
-      },
-      {
-        "notes": {
-          "ATA121": "CB",
-          "CSE2225": "CC",
-          "CSE3033": "DZ",
-          "CSE3055": "CB",
-          "CSE3063": "DZ",
-          "CSE3215": "FF",
-          "IE3081": "BA"
-        },
-        "semesterGPA": 1.3289474,
-        "points": 50.5,
-        "completedCredits": 20.0,
-        "totalCredits": 38.0
-      },
-      {
-        "notes": {
-          "COMM2202": "FD",
-          "CSE2246": "BA",
-          "CSE3038": "AA",
-          "CSE3044": "BB",
-          "CSE3048": "CC",
-          "CSE3264": "CB"
-        },
-        "semesterGPA": 2.921875,
-        "points": 93.5,
-        "completedCredits": 30.0,
+        "semesterGPA": 2.25,
+        "points": 72.0,
+        "completedCredits": 22.0,
         "totalCredits": 32.0
       },
       {
         "notes": {
-          "CSE3033": "CB",
-          "CSE3063": "DZ",
-          "CSE3215": "DD",
-          "CSE4074": "BA",
-          "CSE4219": "FD",
-          "CSE4288": "BA"
+          "CSE1200": "FD",
+          "CSE2023": "DZ",
+          "CSE2225": "CB",
+          "ECON2004": "BA",
+          "EE2031": "DZ",
+          "MATH1002": "DD",
+          "MATH2055": "DZ",
+          "MATH2059": "BA"
         },
-        "semesterGPA": 1.8088236,
-        "points": 61.5,
-        "completedCredits": 23.0,
-        "totalCredits": 34.0
+        "semesterGPA": 1.3375,
+        "points": 53.5,
+        "completedCredits": 21.0,
+        "totalCredits": 40.0
       },
       {
         "notes": {
-          "COMM2202": "BA",
-          "CSE2260": "DZ",
-          "CSE4053": "BB",
-          "CSE4057": "AA",
-          "CSE4062": "DZ",
-          "CSE4075": "FF",
-          "CSE4298": "DZ",
-          "IE3235": "AA",
-          "ISG121": "DC"
+          "CSE2023": "DZ",
+          "CSE2138": "FD",
+          "CSE2246": "AA",
+          "CSE2260": "AA",
+          "EE2032": "BB",
+          "MATH2055": "BB",
+          "PHYS1101": "BB"
         },
-        "semesterGPA": 1.5641025,
-        "points": 61.0,
-        "completedCredits": 18.0,
-        "totalCredits": 39.0
+        "semesterGPA": 2.381579,
+        "points": 90.5,
+        "completedCredits": 25.0,
+        "totalCredits": 38.0
       },
       {
         "notes": {
-          "CSE3063": "DC",
-          "CSE4083": "BB",
-          "CSE4217": "DZ",
-          "CSE4297": "BA",
-          "CSE4298": "DC",
-          "ISG122": "DZ",
-          "MATH2055": "DC",
-          "NTE1014": "DD"
+          "CSE1200": "AA",
+          "CSE2023": "FF",
+          "CSE2138": "CB",
+          "CSE3033": "BA",
+          "CSE3055": "AA",
+          "CSE3063": "AA",
+          "IE3081": "DD"
         },
-        "semesterGPA": 1.6617647,
-        "points": 56.5,
-        "completedCredits": 27.0,
-        "totalCredits": 34.0
+        "semesterGPA": 2.75,
+        "points": 110.0,
+        "completedCredits": 34.0,
+        "totalCredits": 40.0
       },
       {
         "notes": {
-          "BIOE4072": "BB",
-          "CSE2260": "BB",
-          "ISG122": "BA",
-          "YDA1002": "DZ"
+          "COMM2202": "CC",
+          "CSE2023": "DC",
+          "CSE3038": "AA",
+          "CSE3044": "CC",
+          "CSE3048": "AA",
+          "CSE3264": "FD",
+          "IE3235": "CB",
+          "PHYS1102": "FF"
         },
-        "semesterGPA": 2.5,
-        "points": 40.0,
-        "completedCredits": 13.0,
-        "totalCredits": 16.0
+        "semesterGPA": 2.1875,
+        "points": 87.5,
+        "completedCredits": 31.0,
+        "totalCredits": 40.0
       },
       {
         "notes": {
-          "CSE4217": "AA",
-          "MBG1201": "BB",
-          "YDA1001": "DZ"
+          "CSE3215": "FD",
+          "CSE4074": "AA",
+          "CSE4219": "DZ",
+          "EE2031": "AA",
+          "ISG121": "BA"
         },
-        "semesterGPA": 2.6923077,
-        "points": 35.0,
-        "completedCredits": 10.0,
-        "totalCredits": 13.0
+        "semesterGPA": 2.0833333,
+        "points": 50.0,
+        "completedCredits": 12.0,
+        "totalCredits": 24.0
       },
       {
         "notes": {
-          "COMM2060": "BB"
+          "CSE3264": "DZ",
+          "CSE4053": "FF",
+          "CSE4057": "BA",
+          "CSE4062": "CC",
+          "CSE4075": "DD",
+          "ISG122": "DC",
+          "NTE1015": "FF"
         },
-        "semesterGPA": 3.0,
-        "points": 9.0,
-        "completedCredits": 3.0,
-        "totalCredits": 3.0
-      },
-      {
-        "notes": {
-          "CSE4219": "BB"
-        },
-        "semesterGPA": 3.0,
-        "points": 18.0,
-        "completedCredits": 6.0,
-        "totalCredits": 6.0
+        "semesterGPA": 1.1833333,
+        "points": 35.5,
+        "completedCredits": 17.0,
+        "totalCredits": 30.0
       }
     ]
   }

@@ -53,8 +53,6 @@ public class Simulation {
 
     public void start() {
 
-        Logger.setup();
-
         if (simulatedSemester == semesterName.Fall) {
             recreationLoopCount += ((currentSemester + recreationLoopCount + 1) % 2);
         } else if (simulatedSemester == semesterName.Spring) {
@@ -71,6 +69,8 @@ public class Simulation {
 
         // Save student data before simulation
         DataIOHandler.writeStudentsData(students, "jsonDocs/students/before/");
+
+        Logger.setup();
 
         simulationLoop();
 
@@ -104,7 +104,7 @@ public class Simulation {
 
             for (Map.Entry<String, LetterNote> note: notes.entrySet()){
                 note.setValue(LetterNote.values()[randomObjectGenerator.getBellRandom(0, 10)]);
-                Logger.addNewLog("SIMULATION-SET NOTE-" + student.getId(), "Generated random note for course " + note.getKey() + ".");
+                // Logger.addNewLog("SIMULATION-SET NOTE-" + student.getId(), "Generated random note for course " + note.getKey() + ".");
             }
 
             student.updateGPA();

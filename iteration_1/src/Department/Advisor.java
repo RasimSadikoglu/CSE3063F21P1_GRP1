@@ -15,16 +15,20 @@ public class Advisor {
     	
     	for(int i=0; i<currentCourses.size(); i++) {
             float requiredCredit = currentCourses.get(i).getRequiredCredits();
-            if(student.getGPA()[1] < requiredCredit) {
+            if(student.getGPA()[2] < requiredCredit) {
                 Logger.addNewLog("ADVISOR-REJECT-CREDITS-" + student.getId(), 
-                    "Student couldn't take the course " + currentCourses.get(i).getCourseName() + ".");
+                    "Student couldn't take the course " + currentCourses.get(i).getCourseName()
+                     + " because student's completed credits < " + currentCourses.get(i).getRequiredCredits());
+
+                Logger.addNewStatus(String.format("%s-not enough credits", currentCourses.get(i).getCourseName()));
+
                 currentCourses.remove(currentCourses.get(i--));
             }
         }
 
         collisionCheck(currentCourses, student);
 
-        Logger.addNewLog("ADVISOR-APPROVE-" + student.getId(), "Student's course registration is completed.");
+        // Logger.addNewLog("ADVISOR-APPROVE-" + student.getId(), "Student's course registration is completed.");
 
     }
 
@@ -96,9 +100,13 @@ public class Advisor {
                         currentCourses.get(j).getCourseSchedule());
 
                 // if there is any collision remove the course
-                if (totalCollisionMinute > 60) {
+                if (totalCollisionMinute > 99) {
                     Logger.addNewLog("ADVISOR-REJECT-COLLISION-" + student.getId(), 
-                        "Student couldn't take the course " + currentCourses.get(i).getCourseName() + ".");
+                        "Student couldn't take the course " + currentCourses.get(j).getCourseName() + " because "
+                            + totalCollisionMinute / 50 + " hour collision with " + currentCourses.get(i).getCourseName() + ".");
+
+                    Logger.addNewStatus(String.format("%s-collision", currentCourses.get(j).getCourseName()));
+
                     currentCourses.remove(currentCourses.get(j--));
                 }
             }

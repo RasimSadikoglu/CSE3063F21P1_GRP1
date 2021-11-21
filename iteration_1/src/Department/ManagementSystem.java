@@ -47,14 +47,14 @@ public class ManagementSystem {
             if (validCourses.size() == 10) continue;
             if (totalCredits + course.getCourseCredits() > 40) continue;
             if (check(course, student)) { // student parameter added
-                Logger.addNewLog("SYSTEM-ADD COURSE-" + student.getId(), course.getCourseName() + " has been added to the course list.");
+                // Logger.addNewLog("SYSTEM-ADD COURSE-" + student.getId(), course.getCourseName() + " has been added to the course list.");
                 validCourses.add(course);
                 course.setNumberOfStudent(course.getNumberOfStudent() + 1);
                 totalCredits += course.getCourseCredits();
             }
         }
 
-        Logger.addNewLog("SYSTEM-APPROVE-" + student.getId(), "Course list has been sent to advisor approval.");
+        // Logger.addNewLog("SYSTEM-APPROVE-" + student.getId(), "Course list has been sent to advisor approval.");
 
         return validCourses;
     }
@@ -67,12 +67,18 @@ public class ManagementSystem {
 
         if (!prerequisiteCourse.equals("")) { // if there is a prerequisite course
             if (student.getTranscript().getCourseNote(prerequisiteCourse) < 1) { // if student could not pass prerequisite course
-                Logger.addNewLog("SYSTEM-FAIL PREREQUISITE-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
+                Logger.addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
+                    newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse + ".");
+
+                Logger.addNewStatus(String.format("%s-prerequisite course", newCourse.getCourseName()));
                 return false;
             }
         }
         if (newCourse.getCourseQuota() != 0 && newCourse.getCourseQuota() <= newCourse.getNumberOfStudent()) { // if quota is not full
-            Logger.addNewLog("SYSTEM-FAIL QUOTA-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
+            Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
+
+            Logger.addNewStatus(String.format("%s-quota problem", newCourse.getCourseName()));
+
             return false;
         }
 
@@ -82,7 +88,7 @@ public class ManagementSystem {
 
     public TreeSet<Course> getAddebleCourses(Student student) {
 
-        Logger.addNewLog("SYSTEM-GET COURSE-" + student.getId(), "Get available courses.");
+        // Logger.addNewLog("SYSTEM-GET COURSE-" + student.getId(), "Get available courses.");
 
         TreeSet<Course> addableCourses = new TreeSet<Course>();
 
@@ -135,6 +141,11 @@ public class ManagementSystem {
                 randomCourses.add(courses.get(randomIndex));
                 courses.remove(randomIndex);
 			} else {
+                Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + 
+                    courses.get(randomIndex).getCourseName() + " because of the quota.");
+
+                Logger.addNewStatus(String.format("%s-quota problem", courses.get(randomIndex).getCourseName()));
+
 				courses.remove(randomIndex);
 			}
 		}
@@ -159,7 +170,7 @@ public class ManagementSystem {
 
     public void resetCourseQuotas() {
 
-        Logger.addNewLog("SYSTEM-RESET-QUOTA", "Resetting course quotas.");
+        // Logger.addNewLog("SYSTEM-RESET-QUOTA", "Resetting course quotas.");
 
         for (Course course: DataIOHandler.fallCourses) course.setNumberOfStudent(0);
         for (Course course: DataIOHandler.springCourses) course.setNumberOfStudent(0);

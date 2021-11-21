@@ -20,14 +20,14 @@ public class RandomObjectGenerator {
         this(0);
     }
 
-    public void setBell(double shift, double sharpness){
+    public void setBell(double shift, double sharpness) {
         this.shift = shift;
         this.sharpness = sharpness;
     }
 
     // entrance year example 2018=18, 2000=00, 2023=23
     // input should be the shortened version of the year
-    public ArrayList<Student> getRandomStudents(int entranceYear){
+    public ArrayList<Student> getRandomStudents(int entranceYear) {
         // Student array to be returned
         ArrayList<Student> studentList = new ArrayList<Student>();
         
@@ -41,7 +41,7 @@ public class RandomObjectGenerator {
     }
 
     // get a random double. '[randMin, randMax)'
-    public double getLinearRandom(double randMin, double randMax){
+    public double getLinearRandom(double randMin, double randMax) {
         double randomValue = Math.random();
         double minMaxDiff = randMax - randMin;
 
@@ -52,7 +52,7 @@ public class RandomObjectGenerator {
     }
 
     // get a random integer. '[randMin, randMax)'
-    public int getLinearRandom(int randMin, int randMax){
+    public int getLinearRandom(int randMin, int randMax) {
         return (int)getLinearRandom((double)randMin, (double)randMax);
     }
 
@@ -70,7 +70,7 @@ public class RandomObjectGenerator {
         return bellRandom;
     }
 
-    public int getBellRandom(int randMin, int randMax){
+    public int getBellRandom(int randMin, int randMax) {
         return (int)getBellRandom((double)randMin, (double)randMax);
     }
 
@@ -82,7 +82,7 @@ public class RandomObjectGenerator {
     }
 
     // entrance year example 2018=18, 2000=00, 2023=23
-    private ArrayList<String> generateStudentIds(int entranceYear){
+    private ArrayList<String> generateStudentIds(int entranceYear) {
         ArrayList<String> studentIds = new ArrayList<String>();
 
         // creates id array with increasing ids
