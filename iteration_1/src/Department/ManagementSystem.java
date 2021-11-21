@@ -1,9 +1,12 @@
 package Department;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.TreeSet;
 
 import Course.*;
+import Course.Course.CourseGroup;
 import Student.*;
 import Util.*;
 
@@ -33,21 +36,37 @@ public class ManagementSystem {
 
     public ArrayList<Course> submitCourseList(Student student, TreeSet<Course> courses) {
 
-        int totalCredits = 0;
         ArrayList<Course> validCourses = new ArrayList<>();
 
         for (Course course: courses) {
-            if (validCourses.size() == 10) continue;
-            if (totalCredits + course.getCourseCredits() > 40) continue;
             if (check(course, student)) { // student parameter added
-                // Logger.addNewLog("SYSTEM-ADD COURSE-" + student.getId(), course.getCourseName() + " has been added to the course list.");
                 validCourses.add(course);
                 course.setNumberOfStudent(course.getNumberOfStudent() + 1);
-                totalCredits += course.getCourseCredits();
             }
         }
 
-        // Logger.addNewLog("SYSTEM-APPROVE-" + student.getId(), "Course list has been sent to advisor approval.");
+        Collections.sort(validCourses, new Comparator<Course>() {
+            public int compare(Course c1, Course c2) {
+                return c2.getCourseGroup().getPriority() - c1.getCourseGroup().getPriority();
+            }
+        });
+
+        int totalCredits = 0;
+        for (int i = 0; i < validCourses.size(); i++) {
+            Course currentCourse = validCourses.get(i);
+
+            if (i > 9) {
+                validCourses.remove(i--);
+                continue;
+            }
+
+            if (totalCredits + currentCourse.getCourseCredits() > 40) {
+                validCourses.remove(i--);
+                continue;
+            }
+
+            totalCredits += currentCourse.getCourseCredits();
+        }
 
         return validCourses;
     }
@@ -63,14 +82,14 @@ public class ManagementSystem {
                 Logger.addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
                     newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse + ".");
 
-                Logger.addNewStatus(String.format("%s-prerequisite course", newCourse.getCourseName()));
+                Logger.addNewSummary(String.format("%s-prerequisite course", newCourse.getCourseName()));
                 return false;
             }
         }
         if (newCourse.getCourseQuota() != 0 && newCourse.getCourseQuota() <= newCourse.getNumberOfStudent()) { // if quota is not full
             Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
 
-            Logger.addNewStatus(String.format("%s-quota problem", newCourse.getCourseName()));
+            Logger.addNewSummary(String.format("%s-quota problem", newCourse.getCourseName()));
 
             return false;
         }
@@ -89,23 +108,23 @@ public class ManagementSystem {
 
         // add mandatory courses
         for (int i = 1; i <= currentSemester; i++) {
-            addableCourses.addAll(getAllCourses("SME" + i));
+            addableCourses.addAll(getAllCourses(CourseGroup.values()[i - 1]));
         }
         
-        int nteCount = electiveCourses[currentSemester - 1][0] - student.getCourseCount("NTE");
-        int teCount = electiveCourses[currentSemester - 1][1] - student.getCourseCount("TE");
-        int fteCount = electiveCourses[currentSemester - 1][2] - student.getCourseCount("FTE");
+        int nteCount = electiveCourses[currentSemester - 1][0] - student.getCourseCount(CourseGroup.NTE);
+        int teCount = electiveCourses[currentSemester - 1][1] - student.getCourseCount(CourseGroup.TE);
+        int fteCount = electiveCourses[currentSemester - 1][2] - student.getCourseCount(CourseGroup.FTE);
 
-        addableCourses.addAll(getRandomCourses("NTE", student, addableCourses, nteCount, randomObjectGenerator));
-        addableCourses.addAll(getRandomCourses("TE", student, addableCourses, teCount, randomObjectGenerator));
-        addableCourses.addAll(getRandomCourses("FTE", student, addableCourses, fteCount, randomObjectGenerator));
+        addableCourses.addAll(getRandomCourses(CourseGroup.NTE, student, addableCourses, nteCount, randomObjectGenerator));
+        addableCourses.addAll(getRandomCourses(CourseGroup.TE, student, addableCourses, teCount, randomObjectGenerator));
+        addableCourses.addAll(getRandomCourses(CourseGroup.FTE, student, addableCourses, fteCount, randomObjectGenerator));
 
         return addableCourses;
     }
 
-    private TreeSet<Course> getRandomCourses(String courseCode, Student student, TreeSet<Course> currentCourses, int count, RandomObjectGenerator randomObjectGenerator) {
+    private TreeSet<Course> getRandomCourses(CourseGroup courseGroup, Student student, TreeSet<Course> currentCourses, int count, RandomObjectGenerator randomObjectGenerator) {
 
-		ArrayList<Course> courses = getAllCourses(courseCode);
+		ArrayList<Course> courses = getAllCourses(courseGroup);
 
         // This will prevent null objects from being returned.
         TreeSet<Course> randomCourses = new TreeSet<Course>();
@@ -137,7 +156,7 @@ public class ManagementSystem {
                 Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + 
                     courses.get(randomIndex).getCourseName() + " because of the quota.");
 
-                Logger.addNewStatus(String.format("%s-quota problem", courses.get(randomIndex).getCourseName()));
+                Logger.addNewSummary(String.format("%s-quota problem", courses.get(randomIndex).getCourseName()));
 
 				courses.remove(randomIndex);
 			}
@@ -147,7 +166,7 @@ public class ManagementSystem {
 
     }
 
-    private ArrayList<Course> getAllCourses(String courseGroup) {
+    private ArrayList<Course> getAllCourses(CourseGroup courseGroup) {
         Course[] courses;
         
         if (currentSemester % 2 == 1) courses = DataIOHandler.fallCourses;
@@ -155,7 +174,7 @@ public class ManagementSystem {
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
-            if (courseGroup.equals(course.getCourseGroup())) matchedCourses.add(course);
+            if (courseGroup == course.getCourseGroup()) matchedCourses.add(course);
         }
 
         return matchedCourses;

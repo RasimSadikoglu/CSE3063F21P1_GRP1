@@ -448,7 +448,7 @@
         "courseName": "CSE4298",
         "courseGroup": "SME8",
         "requiredCredits": 165,
-        "prerequisiteCourse": "",
+        "prerequisiteCourse": "CSE4297",
         "courseCredits": 5.0,
         "courseQuota": 0,
         "courseSchedule": {
@@ -715,7 +715,7 @@
         }
     },
     {
-        "courseName": "MGT4082.1",
+        "courseName": "MGT4082",
         "courseGroup": "FTE",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
@@ -730,7 +730,7 @@
         }
     },
     {
-        "courseName": "MGT4084.1",
+        "courseName": "MGT4084",
         "courseGroup": "FTE",
         "requiredCredits": 0,
         "prerequisiteCourse": "",
@@ -745,7 +745,7 @@
         }
     },
     {
-        "courseName": "MGT4088.1",
+        "courseName": "MGT4088",
         "courseGroup": "FTE",
         "requiredCredits": 0,
         "prerequisiteCourse": "",

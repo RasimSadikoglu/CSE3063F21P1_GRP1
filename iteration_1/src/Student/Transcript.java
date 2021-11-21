@@ -6,6 +6,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import Course.Course;
+import Course.Course.CourseGroup;
 import Student.Semester.LetterNote;
 import Util.DataIOHandler;
 
@@ -135,7 +136,7 @@ public class Transcript {
 
     }
 
-    public int getCourseCount(String courseGroup) {
+    public int getCourseCount(CourseGroup courseGroup) {
 
         int count = 0;
 
@@ -153,8 +154,11 @@ public class Transcript {
 
                 if (note.getValue().getNote() < 1) continue;
 
-                if (course.getCourseGroup().equals(courseGroup)) count++;
-
+                if (course.getCourseGroup() == courseGroup){ 
+                    allCourses.add(course);
+                    count++;
+                }
+                
             }
 
         }

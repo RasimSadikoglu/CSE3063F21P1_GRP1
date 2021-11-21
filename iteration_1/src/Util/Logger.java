@@ -30,7 +30,7 @@ public class Logger {
         DataIOHandler.writeFile(PATH, formattedLog + "\n", true);
     }
 
-    static public void addNewStatus(String cause) {
+    static public void addNewSummary(String cause) {
 
         if (!write) return;
 
@@ -46,7 +46,7 @@ public class Logger {
 
         for (int i = 0; i < actions.length; i++) actions[i] = "[" + actions[i] + "]";
 
-        return String.format("%-9s : %-8s : %-15s : %-11s : \"%s\"", actions[0], actions[1], actions[2], actions[3], log);
+        return String.format("%-9s : %-8s : %-14s : %-11s : \"%s\"", actions[0], actions[1], actions[2], actions[3], log);
     }
 
     static public void end() {

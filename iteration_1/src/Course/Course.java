@@ -2,8 +2,18 @@ package Course;
 
 public class Course implements Comparable<Course> {
 
+    public enum CourseGroup {
+        SME1(11), SME2(10), SME3(9), SME4(8),
+        SME5(7), SME6(6), SME7(5), SME8(4),
+        TE(3), FTE(2), NTE(1);
+
+        private int priority;
+        private CourseGroup(int p) { priority = p; }
+        public int getPriority() { return priority; }
+    }
+
     private String courseName;
-    private String courseGroup;
+    private CourseGroup courseGroup;
     private float requiredCredits;
     private String prerequisiteCourse;
     private float courseCredits;
@@ -13,7 +23,7 @@ public class Course implements Comparable<Course> {
 
     public Course() {
         courseName = "";
-        courseGroup = "";
+        courseGroup = null;
         requiredCredits = 0;
         prerequisiteCourse = "";
         courseCredits = 0;
@@ -22,22 +32,11 @@ public class Course implements Comparable<Course> {
         courseSchedule = new Schedule();
     }
 
-    public Course(String courseName, String courseGroup, float requiredCredits, String prerequisiteCourse, float courseCredits, int courseQuota, int numberOfStudent, Schedule courseSchedule){
-        this.courseName = courseName;
-        this.courseGroup = courseGroup;
-        this.requiredCredits = requiredCredits;
-        this.prerequisiteCourse = prerequisiteCourse;
-        this.courseCredits = courseCredits;
-        this.courseQuota = courseQuota;
-        this.numberOfStudent = numberOfStudent;
-        this.courseSchedule = courseSchedule;
-    }
-
     public String getCourseName() {
         return courseName;
     }
 
-    public String getCourseGroup() {
+    public CourseGroup getCourseGroup() {
         return courseGroup;
     }
 

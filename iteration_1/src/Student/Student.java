@@ -3,6 +3,7 @@ package Student;
 import java.util.ArrayList;
 
 import Course.Course;
+import Course.Course.CourseGroup;
 
 public class Student {
     private String name;
@@ -11,7 +12,7 @@ public class Student {
     private float points;
     private float completedCredits;
     private float totalCredits;
-    private boolean isGraduate;
+    private boolean isGraduated;
     private Transcript transcript;
     private transient int currentSemester;
 
@@ -20,7 +21,7 @@ public class Student {
         this.id = "";
         this.transcript = new Transcript();
         gpa = 0;
-        isGraduate = false;
+        isGraduated = false;
         currentSemester = 1;
     }
 
@@ -68,7 +69,7 @@ public class Student {
     }
 
     public boolean getIsGraduate() {
-        return isGraduate;
+        return isGraduated;
     }
 
     public boolean setIsGradute() {
@@ -77,14 +78,14 @@ public class Student {
 
         if (completedCredits < 240) return false;
 
-        return isGraduate = true;
+        return isGraduated = true;
     }
 
     public void updateCurrentSemester() {
         currentSemester = transcript.getSemesters().size() + 1;
     }
 
-    public int getCourseCount(String courseGroup) {
+    public int getCourseCount(CourseGroup courseGroup) {
         return transcript.getCourseCount(courseGroup);
     }
 

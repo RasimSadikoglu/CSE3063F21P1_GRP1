@@ -40,6 +40,8 @@ public class Simulation {
         this.randomObjectGenerator = new RandomObjectGenerator(yearlyStudentCount);
         managementSystem = new ManagementSystem();
 
+        DataIOHandler.resetStudentData(recreationLoopCount != 0);
+
         if (recreationLoopCount != 0) return;
 
         students = DataIOHandler.readStudentsData("jsonDocs/students/before/");

@@ -429,7 +429,7 @@
         "courseName": "CSE4298",
         "courseGroup": "SME8",
         "requiredCredits": 165,
-        "prerequisiteCourse": "",
+        "prerequisiteCourse": "CSE4297",
         "courseCredits": 5.0,
         "courseQuota": 0,
         "courseSchedule": {
@@ -787,7 +787,7 @@
     {
         "courseName": "CSE4053",
         "courseGroup": "TE",
-        "requiredCredits": 0,
+        "requiredCredits": 155,
         "prerequisiteCourse": "",
         "courseCredits": 5.0,
         "courseQuota": 45,
@@ -802,7 +802,7 @@
     {
         "courseName": "CSE4057",
         "courseGroup": "TE",
-        "requiredCredits": 0,
+        "requiredCredits": 155,
         "prerequisiteCourse": "",
         "courseCredits": 5.0,
         "courseQuota": 48,
@@ -817,7 +817,7 @@
     {
         "courseName": "CSE4062",
         "courseGroup": "TE",
-        "requiredCredits": 0,
+        "requiredCredits": 155,
         "prerequisiteCourse": "",
         "courseCredits": 5.0,
         "courseQuota": 68,
@@ -832,7 +832,7 @@
     {
         "courseName": "CSE4075",
         "courseGroup": "TE",
-        "requiredCredits": 0,
+        "requiredCredits": 155,
         "prerequisiteCourse": "",
         "courseCredits": 5.0,
         "courseQuota": 60,
