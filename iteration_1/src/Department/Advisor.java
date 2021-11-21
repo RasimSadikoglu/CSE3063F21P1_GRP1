@@ -21,7 +21,7 @@ public class Advisor {
 
             if (currentCourse.getCourseGroup() == CourseGroup.TE) teCount++;
 
-            if (teCount > 2 && student.getCurrentSemester() % 2 == 1) {
+            if (teCount > 2 && student.getCurrentSemester() % 2 == 1 && currentCourse.getCourseGroup() == CourseGroup.TE) {
 
                 Logger.addNewLog("ADVISOR-REJECT-TE FALL-" + student.getId()
                     , "Student couldn't take the course " + currentCourse.getCourseName() 
