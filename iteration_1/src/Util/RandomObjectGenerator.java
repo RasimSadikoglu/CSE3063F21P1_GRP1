@@ -2,9 +2,6 @@ package Util;
 
 import java.util.ArrayList;
 
-import javax.xml.crypto.Data;
-import javax.xml.stream.events.Namespace;
-
 import Student.*;
 
 public class RandomObjectGenerator {
@@ -16,9 +13,9 @@ public class RandomObjectGenerator {
     private ArrayList<ArrayList<String>> firstNames_F;
     private ArrayList<ArrayList<String>> firstNames_M;
     private ArrayList<ArrayList<String>> lastNames;
-    private ArrayList<Double> firstNameProbabilityDistrubituon_F;
-    private ArrayList<Double> firstNameProbabilityDistrubituon_M;
-    private ArrayList<Double> lastNameProbabilityDistrubituon;
+    private ArrayList<Double> firstNameProbabilityDistribution_F;
+    private ArrayList<Double> firstNameProbabilityDistribution_M;
+    private ArrayList<Double> lastNameProbabilityDistribution;
 
     public RandomObjectGenerator(int numOfStudents) {
         this.numOfStudents = numOfStudents;
@@ -26,16 +23,12 @@ public class RandomObjectGenerator {
         this.sharpness = 2.5;
         this.genderDistribution = 0.5f;
 
-        generateDistrubituons();
+        generateDistributions();
         generateStudentName();
     }
 
     public RandomObjectGenerator() {
         this(0);
-    }
-
-    public void setGenderDistribution(double distribution){
-        this.genderDistribution = distribution;
     }
 
     public void setBell(double shift, double sharpness) {
@@ -127,13 +120,13 @@ public class RandomObjectGenerator {
         return studentIds;
     }
 
-    private void generateDistrubituons(){
+    private void generateDistributions(){
         firstNames_F = new ArrayList<ArrayList<String>>();
         firstNames_M = new ArrayList<ArrayList<String>>();
 
-        firstNameProbabilityDistrubituon_F = new ArrayList<Double>();
-        firstNameProbabilityDistrubituon_M = new ArrayList<Double>();
-        lastNameProbabilityDistrubituon = new ArrayList<Double>();
+        firstNameProbabilityDistribution_F = new ArrayList<Double>();
+        firstNameProbabilityDistribution_M = new ArrayList<Double>();
+        lastNameProbabilityDistribution = new ArrayList<Double>();
 
         ArrayList<ArrayList<String>> firstNames = DataIOHandler.readCsv("data/firstNames.csv", ',');
         for (int i = 0; i < firstNames.size(); i++){
@@ -163,7 +156,7 @@ public class RandomObjectGenerator {
             double nameCount = Double.parseDouble(firstNames_F.get(i).get(2));
             double prob = nameCount / firstNameCountSum_F;
             probSum += prob;
-            firstNameProbabilityDistrubituon_F.add(probSum + prob);
+            firstNameProbabilityDistribution_F.add(probSum + prob);
         }
         
         probSum = 0.0;
@@ -171,7 +164,7 @@ public class RandomObjectGenerator {
             double nameCount = Double.parseDouble(firstNames_M.get(i).get(2));
             double prob = nameCount / firstNameCountSum_M;
             probSum += prob;
-            firstNameProbabilityDistrubituon_M.add(probSum + prob);
+            firstNameProbabilityDistribution_M.add(probSum + prob);
         }
 
         probSum = 0.0;
@@ -179,7 +172,7 @@ public class RandomObjectGenerator {
             double nameCount = Double.parseDouble(lastNames.get(i).get(1));
             double prob = nameCount / lastNameCountSum;
             probSum += prob;
-            lastNameProbabilityDistrubituon.add(probSum + prob);
+            lastNameProbabilityDistribution.add(probSum + prob);
         }
     }
 
@@ -192,11 +185,11 @@ public class RandomObjectGenerator {
         ArrayList<Double> firstNameProbabilityDistrubition;
         if (randVal > genderDistribution) {
             firstNames = firstNames_F;
-            firstNameProbabilityDistrubition = firstNameProbabilityDistrubituon_F;
+            firstNameProbabilityDistrubition = firstNameProbabilityDistribution_F;
         }
         else {
             firstNames = firstNames_M;
-            firstNameProbabilityDistrubition = firstNameProbabilityDistrubituon_M;
+            firstNameProbabilityDistrubition = firstNameProbabilityDistribution_M;
         }
 
         randVal = Math.random();

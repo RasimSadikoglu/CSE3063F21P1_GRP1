@@ -14,7 +14,7 @@ public class ManagementSystem {
 
     int currentSemester;
 
-    private final int[][] electiveCourses = {
+    private final int[][] ELECTIVE_COURSES = {
         /*  NTE TE FTE*/
             {0, 0, 0},
             {1, 0, 0},
@@ -111,9 +111,9 @@ public class ManagementSystem {
             addableCourses.addAll(getAllCourses(CourseGroup.values()[i - 1]));
         }
         
-        int nteCount = electiveCourses[currentSemester - 1][0] - student.getCourseCount(CourseGroup.NTE);
-        int teCount = electiveCourses[currentSemester - 1][1] - student.getCourseCount(CourseGroup.TE);
-        int fteCount = electiveCourses[currentSemester - 1][2] - student.getCourseCount(CourseGroup.FTE);
+        int nteCount = ELECTIVE_COURSES[currentSemester - 1][0] - student.getCourseCount(CourseGroup.NTE);
+        int teCount = ELECTIVE_COURSES[currentSemester - 1][1] - student.getCourseCount(CourseGroup.TE);
+        int fteCount = ELECTIVE_COURSES[currentSemester - 1][2] - student.getCourseCount(CourseGroup.FTE);
 
         addableCourses.addAll(getRandomCourses(CourseGroup.NTE, student, addableCourses, nteCount, randomObjectGenerator));
         addableCourses.addAll(getRandomCourses(CourseGroup.TE, student, addableCourses, teCount, randomObjectGenerator));
