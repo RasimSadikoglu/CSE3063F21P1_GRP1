@@ -429,7 +429,7 @@
         "courseName": "CSE4298",
         "courseGroup": "SME8",
         "requiredCredits": 165,
-        "prerequisiteCourse": "",
+        "prerequisiteCourse": "CSE4297",
         "courseCredits": 5.0,
         "courseQuota": 0,
         "courseSchedule": {

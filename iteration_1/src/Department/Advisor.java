@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Course.Course;
 import Course.Schedule;
+import Course.Course.CourseGroup;
 import Student.Student;
 import Util.Logger;
 
@@ -12,23 +13,52 @@ public class Advisor {
     public Advisor() {}
 
     public void advisorCheck(ArrayList<Course> currentCourses, Student student) {
+
+        int teCount = 0;
     	
     	for(int i=0; i<currentCourses.size(); i++) {
-            float requiredCredit = currentCourses.get(i).getRequiredCredits();
+            Course currentCourse = currentCourses.get(i);
+
+            if (currentCourse.getCourseGroup() == CourseGroup.TE) teCount++;
+
+            if (teCount > 2 && student.getCurrentSemester() % 2 == 1) {
+
+                Logger.addNewLog("ADVISOR-REJECT-TE FALL-" + student.getId()
+                    , "Student couldn't take the course " + currentCourse.getCourseName() 
+                    + " due to he/she already took 2 TE in this fall semester.");
+
+                Logger.addNewSummary(String.format("%s-already took maximum number of technical electives in fall semester", currentCourse.getCourseName()));
+
+                currentCourses.remove(i--);
+                continue;
+            }
+
+            if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 335) {
+                
+                Logger.addNewLog("ADVISOR-REJECT-FTE FALL-" + student.getId()
+                    , "Student couldn't take the course " + currentCourse.getCourseName() 
+                    + " due to he/she is not graduating in fall semester.");
+
+                Logger.addNewSummary(String.format("%s-they are not graduating in this fall semester", currentCourse.getCourseName()));
+                
+                currentCourses.remove(i--);
+                continue;
+            }
+
+            float requiredCredit = currentCourse.getRequiredCredits();
             if(student.getGPA()[2] < requiredCredit) {
                 Logger.addNewLog("ADVISOR-REJECT-CREDITS-" + student.getId(), 
-                    "Student couldn't take the course " + currentCourses.get(i).getCourseName()
-                     + " because student's completed credits < " + currentCourses.get(i).getRequiredCredits());
+                    "Student couldn't take the course " + currentCourse.getCourseName()
+                     + " because student's completed credits < " + currentCourse.getRequiredCredits());
 
-                Logger.addNewStatus(String.format("%s-not enough credits", currentCourses.get(i).getCourseName()));
+                Logger.addNewSummary(String.format("%s-not enough credits", currentCourse.getCourseName()));
 
-                currentCourses.remove(currentCourses.get(i--));
+                currentCourses.remove(i--);
+                continue;
             }
         }
 
         collisionCheck(currentCourses, student);
-
-        // Logger.addNewLog("ADVISOR-APPROVE-" + student.getId(), "Student's course registration is completed.");
 
     }
 
@@ -90,9 +120,9 @@ public class Advisor {
         for (int i = 0; i < currentCourses.size(); i++) {
             
             // Exclude NTE courses
-            if (currentCourses.get(i).getCourseGroup().equals("NTE")) continue;
+            if (currentCourses.get(i).getCourseGroup() == CourseGroup.NTE) continue;
 
-            // There is no 
+            // Attending the course is not mandatory when taking the course again if student didn't fail the course with DZ.
             if (student.getCourseNote(currentCourses.get(i).getCourseName()) >= 0) continue;
 
             for (int j = i + 1; j < currentCourses.size(); j++) {
@@ -105,7 +135,7 @@ public class Advisor {
                         "Student couldn't take the course " + currentCourses.get(j).getCourseName() + " because "
                             + totalCollisionMinute / 50 + " hour collision with " + currentCourses.get(i).getCourseName() + ".");
 
-                    Logger.addNewStatus(String.format("%s-collision", currentCourses.get(j).getCourseName()));
+                    Logger.addNewSummary(String.format("%s-collision", currentCourses.get(j).getCourseName()));
 
                     currentCourses.remove(currentCourses.get(j--));
                 }

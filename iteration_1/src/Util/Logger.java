@@ -30,7 +30,7 @@ public class Logger {
         DataIOHandler.writeFile(PATH, formattedLog + "\n", true);
     }
 
-    static public void addNewStatus(String cause) {
+    static public void addNewSummary(String cause) {
 
         if (!write) return;
 
