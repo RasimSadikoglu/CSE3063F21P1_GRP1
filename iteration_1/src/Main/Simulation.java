@@ -38,7 +38,7 @@ public class Simulation {
     public void setup() {
 
         this.randomObjectGenerator = new RandomObjectGenerator(yearlyStudentCount);
-        managementSystem = new ManagementSystem(randomObjectGenerator);
+        managementSystem = new ManagementSystem();
 
         if (recreationLoopCount != 0) return;
 
@@ -82,7 +82,7 @@ public class Simulation {
         this.students.forEach(student -> { // iterate through students
             if (student.getIsGraduate()) return;
 
-            TreeSet<Course> addableCourses = managementSystem.getAddebleCourses(student);
+            TreeSet<Course> addableCourses = managementSystem.getAddebleCourses(student, this.randomObjectGenerator);
 
             ArrayList<Course> validCourses = managementSystem.submitCourseList(student, addableCourses);
             

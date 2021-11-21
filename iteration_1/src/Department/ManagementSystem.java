@@ -9,7 +9,6 @@ import Util.*;
 
 public class ManagementSystem {
 
-    RandomObjectGenerator randomObjectGenerator;
     int currentSemester;
 
     private final int[][] electiveCourses = {
@@ -25,12 +24,6 @@ public class ManagementSystem {
         };
     
     public ManagementSystem() {
-        randomObjectGenerator = new RandomObjectGenerator();
-        currentSemester = 1;
-    }
-
-    public ManagementSystem(RandomObjectGenerator rog) {
-        randomObjectGenerator = rog;
         currentSemester = 1;
     }
 
@@ -86,7 +79,7 @@ public class ManagementSystem {
 
     }
 
-    public TreeSet<Course> getAddebleCourses(Student student) {
+    public TreeSet<Course> getAddebleCourses(Student student, RandomObjectGenerator randomObjectGenerator) {
 
         // Logger.addNewLog("SYSTEM-GET COURSE-" + student.getId(), "Get available courses.");
 
@@ -103,14 +96,14 @@ public class ManagementSystem {
         int teCount = electiveCourses[currentSemester - 1][1] - student.getCourseCount("TE");
         int fteCount = electiveCourses[currentSemester - 1][2] - student.getCourseCount("FTE");
 
-        addableCourses.addAll(getRandomCourses("NTE", student, addableCourses, nteCount));
-        addableCourses.addAll(getRandomCourses("TE", student, addableCourses, teCount));
-        addableCourses.addAll(getRandomCourses("FTE", student, addableCourses, fteCount));
+        addableCourses.addAll(getRandomCourses("NTE", student, addableCourses, nteCount, randomObjectGenerator));
+        addableCourses.addAll(getRandomCourses("TE", student, addableCourses, teCount, randomObjectGenerator));
+        addableCourses.addAll(getRandomCourses("FTE", student, addableCourses, fteCount, randomObjectGenerator));
 
         return addableCourses;
     }
 
-    private TreeSet<Course> getRandomCourses(String courseCode, Student student, TreeSet<Course> currentCourses, int count) {
+    private TreeSet<Course> getRandomCourses(String courseCode, Student student, TreeSet<Course> currentCourses, int count, RandomObjectGenerator randomObjectGenerator) {
 
 		ArrayList<Course> courses = getAllCourses(courseCode);
 
@@ -119,7 +112,7 @@ public class ManagementSystem {
 
 		while (!courses.isEmpty() && randomCourses.size() < count) {
 
-			int randomIndex = this.randomObjectGenerator.getLinearRandom(0, courses.size());
+			int randomIndex = randomObjectGenerator.getLinearRandom(0, courses.size());
 
 			if (student.getCourseNote(courses.get(randomIndex).getCourseName()) >= 1) {
 				courses.remove(randomIndex);
