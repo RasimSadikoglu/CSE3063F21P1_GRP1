@@ -153,8 +153,11 @@ public class Transcript {
 
                 if (note.getValue().getNote() < 1) continue;
 
-                if (course.getCourseGroup().equals(courseGroup)) count++;
-
+                if (course.getCourseGroup().equals(courseGroup)){ 
+                    allCourses.add(course);
+                    count++;
+                }
+                
             }
 
         }
