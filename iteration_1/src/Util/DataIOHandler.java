@@ -1,11 +1,14 @@
 package Util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -121,4 +124,34 @@ public class DataIOHandler {
 		}
 	}
 
+	static public ArrayList<ArrayList<String>> readCsv(String path, char splitChar) {
+		ArrayList<ArrayList<String>> returnData = new ArrayList<ArrayList<String>>();
+        try {
+            File file = new File(currentPath + path);
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+				ArrayList<String> lineWords = new ArrayList<String>();
+                String data = scanner.nextLine();
+				
+				int lastSplitPosition = 0;
+				int i = 0;
+				for (; i < data.length(); i++){
+					if (data.charAt(i) == splitChar) {
+						lineWords.add(data.substring(lastSplitPosition, i));
+						lastSplitPosition = i + 1;
+					}
+				}
+				lineWords.add(data.substring(lastSplitPosition, i));
+
+                returnData.add(lineWords);
+            }
+            scanner.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Could not read file");
+            e.printStackTrace();
+        }
+
+        return returnData;
+	}	
 }

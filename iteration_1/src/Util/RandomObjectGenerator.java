@@ -1,6 +1,10 @@
 package Util;
 
 import java.util.ArrayList;
+
+import javax.xml.crypto.Data;
+import javax.xml.stream.events.Namespace;
+
 import Student.*;
 
 public class RandomObjectGenerator {
@@ -8,16 +12,30 @@ public class RandomObjectGenerator {
     private int numOfStudents;
     private double shift;
     private double sharpness;
-    ArrayList<Double> bellShape;
+    private double genderDistribution; // numOfFemaleStudents / numOfMaleStudents
+    private ArrayList<ArrayList<String>> firstNames_F;
+    private ArrayList<ArrayList<String>> firstNames_M;
+    private ArrayList<ArrayList<String>> lastNames;
+    private ArrayList<Double> firstNameProbabilityDistrubituon_F;
+    private ArrayList<Double> firstNameProbabilityDistrubituon_M;
+    private ArrayList<Double> lastNameProbabilityDistrubituon;
 
     public RandomObjectGenerator(int numOfStudents) {
         this.numOfStudents = numOfStudents;
-        shift = 0.0;
-        sharpness = 2.5;
+        this.shift = 0.0;
+        this.sharpness = 2.5;
+        this.genderDistribution = 0.5f;
+
+        generateDistrubituons();
+        generateStudentName();
     }
 
     public RandomObjectGenerator() {
         this(0);
+    }
+
+    public void setGenderDistribution(double distribution){
+        this.genderDistribution = distribution;
     }
 
     public void setBell(double shift, double sharpness) {
@@ -34,7 +52,9 @@ public class RandomObjectGenerator {
         ArrayList<String> studentIds = generateStudentIds(entranceYear);
 
         for (int i = 0; i < numOfStudents; i++){
-            studentList.add(new Student(studentIds.get(i)));
+            String studentName = generateStudentName();
+            Student student = new Student(studentName, studentIds.get(i));
+            studentList.add(student);
         }
 
         return studentList;
@@ -87,6 +107,7 @@ public class RandomObjectGenerator {
 
         // creates id array with increasing ids
         StringBuilder s = new StringBuilder("1501");
+        if (entranceYear >= 0 && entranceYear < 10) s.append('0');
         s.append(String.valueOf(entranceYear));
         for (int i = 1; i <= numOfStudents; i++){
             s.append(String.format("%03d", i));
@@ -104,5 +125,97 @@ public class RandomObjectGenerator {
         }
 
         return studentIds;
+    }
+
+    private void generateDistrubituons(){
+        firstNames_F = new ArrayList<ArrayList<String>>();
+        firstNames_M = new ArrayList<ArrayList<String>>();
+
+        firstNameProbabilityDistrubituon_F = new ArrayList<Double>();
+        firstNameProbabilityDistrubituon_M = new ArrayList<Double>();
+        lastNameProbabilityDistrubituon = new ArrayList<Double>();
+
+        ArrayList<ArrayList<String>> firstNames = DataIOHandler.readCsv("data/firstNames.csv", ',');
+        for (int i = 0; i < firstNames.size(); i++){
+            if (firstNames.get(i).get(1).equals("F")) firstNames_F.add(firstNames.get(i));
+            else if (firstNames.get(i).get(1).equals("M")) firstNames_M.add(firstNames.get(i));
+        }
+
+        lastNames = DataIOHandler.readCsv("data/lastNames.csv", ',');
+
+        long firstNameCountSum_F = 0;
+        for (int i = 0; i < firstNames_F.size(); i++) {
+            firstNameCountSum_F += Integer.parseInt(firstNames_F.get(i).get(2));
+        }
+
+        long firstNameCountSum_M = 0;
+        for (int i = 0; i < firstNames_M.size(); i++) {
+            firstNameCountSum_M += Integer.parseInt(firstNames_M.get(i).get(2));
+        }
+
+        long lastNameCountSum = 0;
+        for (int i = 0; i < lastNames.size(); i++) {
+            lastNameCountSum += Integer.parseInt(lastNames.get(i).get(1));
+        }
+
+        double probSum = 0.0;
+        for (int i = 0; i < firstNames_F.size(); i++) {
+            double nameCount = Double.parseDouble(firstNames_F.get(i).get(2));
+            double prob = nameCount / firstNameCountSum_F;
+            probSum += prob;
+            firstNameProbabilityDistrubituon_F.add(probSum + prob);
+        }
+        
+        probSum = 0.0;
+        for (int i = 0; i < firstNames_M.size(); i++) {
+            double nameCount = Double.parseDouble(firstNames_M.get(i).get(2));
+            double prob = nameCount / firstNameCountSum_M;
+            probSum += prob;
+            firstNameProbabilityDistrubituon_M.add(probSum + prob);
+        }
+
+        probSum = 0.0;
+        for (int i = 0; i < lastNames.size(); i++) {
+            double nameCount = Double.parseDouble(lastNames.get(i).get(1));
+            double prob = nameCount / lastNameCountSum;
+            probSum += prob;
+            lastNameProbabilityDistrubituon.add(probSum + prob);
+        }
+    }
+
+    private String generateStudentName() {
+        StringBuilder returnName = new StringBuilder();
+
+        Double randVal = Math.random();
+
+        ArrayList<ArrayList<String>> firstNames;
+        ArrayList<Double> firstNameProbabilityDistrubition;
+        if (randVal > genderDistribution) {
+            firstNames = firstNames_F;
+            firstNameProbabilityDistrubition = firstNameProbabilityDistrubituon_F;
+        }
+        else {
+            firstNames = firstNames_M;
+            firstNameProbabilityDistrubition = firstNameProbabilityDistrubituon_M;
+        }
+
+        randVal = Math.random();
+        int firstNameIndex = findIntervalIndex(randVal, firstNameProbabilityDistrubition);
+        returnName.append(firstNames.get(firstNameIndex).get(0));
+
+        returnName.append(" ");
+
+        randVal = Math.random();
+        int lastNameIndex = findIntervalIndex(randVal, firstNameProbabilityDistrubition);
+        returnName.append(firstNames.get(lastNameIndex).get(0));
+
+        return returnName.toString();
+    }
+
+    private int findIntervalIndex(double searchDouble, ArrayList<Double> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (searchDouble > list.get(i) && searchDouble < list.get(i + 1)) return i;
+        }
+        return list.size() - 1;
     }
 }
