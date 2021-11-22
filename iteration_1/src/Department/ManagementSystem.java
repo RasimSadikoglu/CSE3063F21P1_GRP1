@@ -112,8 +112,6 @@ public class ManagementSystem {
 
     public TreeSet<Course> getAddebleCourses(Student student, RandomObjectGenerator randomObjectGenerator) {
 
-        // Logger.addNewLog("SYSTEM-GET COURSE-" + student.getId(), "Get available courses.");
-
         TreeSet<Course> addableCourses = new TreeSet<Course>();
 
         int currentSemester = Math.min(student.getCurrentSemester(), 8);
@@ -193,8 +191,6 @@ public class ManagementSystem {
     }
 
     public void resetCourseQuotas() {
-
-        // Logger.addNewLog("SYSTEM-RESET-QUOTA", "Resetting course quotas.");
 
         for (Course course: DataIOHandler.fallCourses) course.setNumberOfStudent(0);
         for (Course course: DataIOHandler.springCourses) course.setNumberOfStudent(0);

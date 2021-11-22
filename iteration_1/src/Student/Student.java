@@ -69,15 +69,13 @@ public class Student {
         return transcript.getConditionalCourses();
     }
 
-    public boolean getIsGraduate() {
+    public boolean getIsGraduated() {
         return isGraduated;
     }
 
-    public boolean setIsGradute() {
+    public boolean setIsGraduted() {
 
-        if (gpa < 2) return false;
-
-        if (completedCredits < 240) return false;
+        if (gpa < 2 || completedCredits < 240) return false;
 
         return isGraduated = true;
     }

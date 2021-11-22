@@ -12,7 +12,7 @@ import Student.Semester.LetterNote;
 import Util.*;
 
 public class Simulation {
-    private enum semesterName {Fall, Spring} 
+    private enum SemesterName {Fall, Spring} 
 
     private RandomObjectGenerator randomObjectGenerator;
     private Advisor advisor;
@@ -20,7 +20,7 @@ public class Simulation {
 
     private ArrayList<Student> students;
     private int currentSemester;
-    private semesterName simulatedSemester;
+    private SemesterName simulatedSemester;
     private int recreationLoopCount;
     private int yearlyStudentCount;
 
@@ -38,7 +38,6 @@ public class Simulation {
     public void setup() {
 
         this.randomObjectGenerator = new RandomObjectGenerator(yearlyStudentCount);
-        managementSystem = new ManagementSystem();
 
         DataIOHandler.resetStudentData(recreationLoopCount != 0);
 
@@ -55,9 +54,9 @@ public class Simulation {
 
     public void start() {
 
-        if (simulatedSemester == semesterName.Fall) {
+        if (simulatedSemester == SemesterName.Fall) {
             recreationLoopCount += ((currentSemester + recreationLoopCount + 1) % 2);
-        } else if (simulatedSemester == semesterName.Spring) {
+        } else if (simulatedSemester == SemesterName.Spring) {
             recreationLoopCount += ((currentSemester + recreationLoopCount) % 2);
         } else {
             System.out.println("There is no such semester!");
@@ -82,7 +81,7 @@ public class Simulation {
 
     private void courseRegistration() {
         this.students.forEach(student -> { // iterate through students
-            if (student.getIsGraduate()) return;
+            if (student.getIsGraduated()) return;
 
             TreeSet<Course> addableCourses = managementSystem.getAddebleCourses(student, this.randomObjectGenerator);
 
@@ -100,17 +99,16 @@ public class Simulation {
 
         for (Student student: students) {
 
-            if (student.getIsGraduate()) continue;
+            if (student.getIsGraduated()) continue;
 
             TreeMap<String, LetterNote> notes = student.getTranscript().getCurrentSemester().getNotes();
 
             for (Map.Entry<String, LetterNote> note: notes.entrySet()){
                 note.setValue(LetterNote.values()[randomObjectGenerator.getBellRandom(0, 10)]);
-                // Logger.addNewLog("SIMULATION-SET NOTE-" + student.getId(), "Generated random note for course " + note.getKey() + ".");
             }
 
             student.updateGPA();
-            student.setIsGradute();
+            student.setIsGraduted();
         }         
     }
 
