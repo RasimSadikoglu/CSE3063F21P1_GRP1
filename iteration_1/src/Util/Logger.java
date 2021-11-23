@@ -5,11 +5,19 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Logger {
+    static private DataIOHandler instance = null;
 
     static private final String PATH = DataIOHandler.currentPath + "src/logs.txt";
     static private boolean write = false;
 
     static private TreeMap<String, Integer> summary;
+
+    static private Logger(){}
+    
+    static public DataIOHandler getInstance() {
+		if (instance == null) instance = new DataIOHandler();
+		return instance;
+	}
 
     static public void setup() {
         summary = new TreeMap<String, Integer>();

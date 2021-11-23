@@ -39,11 +39,11 @@ public class Simulation {
 
         this.randomObjectGenerator = new RandomObjectGenerator(yearlyStudentCount);
 
-        DataIOHandler.resetStudentData(recreationLoopCount != 0);
+        DataIOHandler.getInstance().resetStudentData(recreationLoopCount != 0);
 
         if (recreationLoopCount != 0) return;
 
-        students = DataIOHandler.readStudentsData("jsonDocs/students/before/");
+        students = DataIOHandler.getInstance().readStudentsData("jsonDocs/students/before/");
 
         if (!students.isEmpty()) {
             Student lastStudent = this.students.get(this.students.size() - 1);
@@ -69,14 +69,14 @@ public class Simulation {
         }
 
         // Save student data before simulation
-        DataIOHandler.writeStudentsData(students, "jsonDocs/students/before/");
+        DataIOHandler.getInstance().writeStudentsData(students, "jsonDocs/students/before/");
 
-        Logger.setup();
+        Logger.getInstance().setup();
 
         simulationLoop();
 
         // Save student data after simulation
-        DataIOHandler.writeStudentsData(students, "jsonDocs/students/after/");
+        DataIOHandler.getInstance().writeStudentsData(students, "jsonDocs/students/after/");
     }
 
     private void courseRegistration() {
@@ -133,6 +133,6 @@ public class Simulation {
     }
 
     public void end() {
-        Logger.end();
+        Logger.getInstance().end();
     }
 }

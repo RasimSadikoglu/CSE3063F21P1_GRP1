@@ -23,11 +23,11 @@ public class Advisor {
 
             if (teCount > 2 && student.getCurrentSemester() % 2 == 1 && currentCourse.getCourseGroup() == CourseGroup.TE) {
 
-                Logger.addNewLog("ADVISOR-REJECT-TE FALL-" + student.getId()
+                Logger.getInstance().addNewLog("ADVISOR-REJECT-TE FALL-" + student.getId()
                     , "Student couldn't take the course " + currentCourse.getCourseName() 
                     + " due to he/she already took 2 TE in this fall semester.");
 
-                Logger.addNewSummary(String.format("%s-already took maximum number of technical electives in fall semester", currentCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-already took maximum number of technical electives in fall semester", currentCourse.getCourseName()));
 
                 currentCourses.remove(i--);
                 continue;
@@ -35,11 +35,11 @@ public class Advisor {
 
             if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 335) {
                 
-                Logger.addNewLog("ADVISOR-REJECT-FTE FALL-" + student.getId()
+                Logger.getInstance().addNewLog("ADVISOR-REJECT-FTE FALL-" + student.getId()
                     , "Student couldn't take the course " + currentCourse.getCourseName() 
                     + " due to he/she is not graduating in fall semester.");
 
-                Logger.addNewSummary(String.format("%s-they are not graduating in this fall semester", currentCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-they are not graduating in this fall semester", currentCourse.getCourseName()));
                 
                 currentCourses.remove(i--);
                 continue;
@@ -47,11 +47,11 @@ public class Advisor {
 
             float requiredCredit = currentCourse.getRequiredCredits();
             if(student.getGPA()[2] < requiredCredit) {
-                Logger.addNewLog("ADVISOR-REJECT-CREDITS-" + student.getId(), 
+                Logger.getInstance().addNewLog("ADVISOR-REJECT-CREDITS-" + student.getId(), 
                     "Student couldn't take the course " + currentCourse.getCourseName()
                      + " because student's completed credits < " + currentCourse.getRequiredCredits());
 
-                Logger.addNewSummary(String.format("%s-not enough credits", currentCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-not enough credits", currentCourse.getCourseName()));
 
                 currentCourses.remove(i--);
                 continue;
@@ -131,11 +131,11 @@ public class Advisor {
 
                 // if there is any collision remove the course
                 if (totalCollisionMinute > 99) {
-                    Logger.addNewLog("ADVISOR-REJECT-COLLISION-" + student.getId(), 
+                    Logger.getInstance().addNewLog("ADVISOR-REJECT-COLLISION-" + student.getId(), 
                         "Student couldn't take the course " + currentCourses.get(j).getCourseName() + " because "
                             + totalCollisionMinute / 50 + " hour collision with " + currentCourses.get(i).getCourseName() + ".");
 
-                    Logger.addNewSummary(String.format("%s-collision", currentCourses.get(j).getCourseName()));
+                    Logger.getInstance().addNewSummary(String.format("%s-collision", currentCourses.get(j).getCourseName()));
 
                     currentCourses.remove(currentCourses.get(j--));
                 }

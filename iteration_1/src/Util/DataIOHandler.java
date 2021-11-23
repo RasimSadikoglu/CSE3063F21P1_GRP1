@@ -18,13 +18,19 @@ import Student.Student;
 
 public class DataIOHandler {
 
-	static private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	static public Course[] fallCourses;
-	static public Course[] springCourses;
-	static public String currentPath; // relative path to current directory
-	static {
+	static private DataIOHandler instance = null;
+
+	private final String PROJECT_PATH = "./iteration_1";
+
+	private Gson gson;
+	private Course[] fallCourses;
+	private Course[] springCourses;
+	private String currentPath;
+
+	static private DataIOHandler() {
+		gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
-			currentPath = new File("./iteration_1").getCanonicalPath() + "/";
+			currentPath = new File(PROJECT_PATH).getCanonicalPath() + "/";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -32,54 +38,59 @@ public class DataIOHandler {
 		springCourses = readCourseInfo("jsonDocs/springCourses.json");
 	}
 
-	static public Course[] readCourseInfo(String path) {
+	static public DataIOHandler getInstance() {
+		if (instance == null) instance = new DataIOHandler();
+		return instance;
+	}
+
+	private Course[] readCourseInfo(String path) {
 		String coursesStr = readFile(path);
 		Course[] courses = gson.fromJson(coursesStr, Course[].class);
 		return courses;
 	}
 
-	static public Course getCourse(String courseName) {
+	public Course getCourse(String courseName) {
 
-        for (Course course: DataIOHandler.fallCourses) {
+        for (Course course: fallCourses) {
             if (course.getCourseName().equals(courseName)) return course;
         }
 
-        for (Course course: DataIOHandler.springCourses) {
+        for (Course course: springCourses) {
             if (course.getCourseName().equals(courseName)) return course;
         }
 
         return null;
     }
 
-	static public Student readStudentInfo(String studentName) {
+	private Student readStudentInfo(String studentName) {
 		String studentStr = readFile(studentName);
 		return gson.fromJson(studentStr, Student.class);
 	}
 
-	static public Simulation readSimulationParameters(String path) {
+	public Simulation readSimulationParameters(String path) {
 		String simulation = readFile(path);
 		return gson.fromJson(simulation, Simulation.class);
 	}
 
-	static public void exportStudentInfo(Student student, String path) {
+	private void exportStudentInfo(Student student, String path) {
 		String studentData = gson.toJson(student);
 		writeStudentInfo(path, studentData);
 	}
 
-	static private void writeStudentInfo(String path, String studentData) {
+	private void writeStudentInfo(String path, String studentData) {
 		writeFile(path, studentData, false);
 	}
 
-	static public ArrayList<Student> readStudentsData(String path) {
+	public ArrayList<Student> readStudentsData(String path) {
 
 		ArrayList<Student> students = new ArrayList<Student>();
 
-		File[] studentFiles = new File(DataIOHandler.currentPath + path).listFiles();
+		File[] studentFiles = new File(currentPath + path).listFiles();
 
         if (students == null || studentFiles.length == 0) return students;
 
         for (File student: studentFiles) {
-            Student newStudent = DataIOHandler.readStudentInfo(path + student.getName());
+            Student newStudent = readStudentInfo(path + student.getName());
 
             newStudent.updateCurrentSemester();
 
@@ -90,7 +101,7 @@ public class DataIOHandler {
 
 	}
 
-	static public void writeStudentsData(ArrayList<Student> students, String path) {
+	public void writeStudentsData(ArrayList<Student> students, String path) {
 
 		try {
 			for (Student student : students) {
@@ -102,7 +113,7 @@ public class DataIOHandler {
 
 	}
 
-	static private String readFile(String path) {
+	private String readFile(String path) {
 		try {
 			Path filePath = Paths.get(currentPath + path);
 			byte[] data = Files.readAllBytes(filePath);
@@ -114,7 +125,7 @@ public class DataIOHandler {
 		return null;
 	}
 
-	static public void writeFile(String path, String data, boolean append) {
+	public void writeFile(String path, String data, boolean append) {
 		try {
 			Path filePath = Paths.get(path);
 			Files.write(filePath, data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, append ? StandardOpenOption.APPEND : StandardOpenOption.TRUNCATE_EXISTING);
@@ -123,7 +134,7 @@ public class DataIOHandler {
 		}
 	}
 
-	static public ArrayList<ArrayList<String>> readCsv(String path, char splitChar) {
+	public ArrayList<ArrayList<String>> readCsv(String path, char splitChar) {
 		ArrayList<ArrayList<String>> returnData = new ArrayList<ArrayList<String>>();
         try {
             File file = new File(currentPath + path);
@@ -152,27 +163,40 @@ public class DataIOHandler {
         }
 
         return returnData;
-	}	
-	static public void resetStudentData(boolean deleteBefore) {
+	}
 
-		if (new File(DataIOHandler.currentPath + "jsonDocs/students/").listFiles() == null) {
-			new File(DataIOHandler.currentPath + "jsonDocs/students/").mkdir();
+	public void resetStudentData(boolean deleteBefore) {
+
+		if (new File(currentPath + "jsonDocs/students/").listFiles() == null) {
+			new File(currentPath + "jsonDocs/students/").mkdir();
 		}
 
-		File[] afterDirectory = new File(DataIOHandler.currentPath + "jsonDocs/students/after/").listFiles();
+		File[] afterDirectory = new File(currentPath + "jsonDocs/students/after/").listFiles();
 
-		if (afterDirectory == null) new File(DataIOHandler.currentPath + "jsonDocs/students/after/").mkdir();
+		if (afterDirectory == null) new File(currentPath + "jsonDocs/students/after/").mkdir();
 		else for (File student: afterDirectory) {
 			student.delete();
 		}
 
-		File[] beforeDirectory = new File(DataIOHandler.currentPath + "jsonDocs/students/before/").listFiles();
+		File[] beforeDirectory = new File(currentPath + "jsonDocs/students/before/").listFiles();
 
-		if (beforeDirectory == null) new File(DataIOHandler.currentPath + "jsonDocs/students/before/").mkdir();
+		if (beforeDirectory == null) new File(currentPath + "jsonDocs/students/before/").mkdir();
 		else if (deleteBefore) for (File student: beforeDirectory) {
 			student.delete();
 		}
 
+	}
+
+	public Course[] getFallCourses() {
+		return fallCourses;
+	}
+
+	public Course[] getSpringCourses() {
+		return springCourses;
+	}
+
+	public String getCurrentPath() {
+		return currentPath;
 	}
 
 }

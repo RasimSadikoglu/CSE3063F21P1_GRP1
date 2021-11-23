@@ -56,22 +56,22 @@ public class ManagementSystem {
             Course currentCourse = validCourses.get(i);
 
             if (i > 9) {
-                Logger.addNewLog("SYSTEM-FAIL-MAX COURSE-" + student.getId(), 
+                Logger.getInstance().addNewLog("SYSTEM-FAIL-MAX COURSE-" + student.getId(), 
                     "Student couldn't take the course " + currentCourse.getCourseName() + 
                     " beacuse he/she already took 10 course in this semester.");
 
-                Logger.addNewSummary(String.format("%s-they already took maximum number of courses can be taken in a semester", currentCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-they already took maximum number of courses can be taken in a semester", currentCourse.getCourseName()));
 
                 validCourses.remove(i--);
                 continue;
             }
 
             if (totalCredits + currentCourse.getCourseCredits() > 40) {
-                Logger.addNewLog("SYSTEM-FAIL-MAX CREDITS-" + student.getId(), 
+                Logger.getInstance().addNewLog("SYSTEM-FAIL-MAX CREDITS-" + student.getId(), 
                     "Student couldn't take the course " + currentCourse.getCourseName() + 
                     " beacuse total of the credits of courses that he/she took exceeds 40.");
 
-                Logger.addNewSummary(String.format("%s-they already took total of 40 credits worth courses in a semester", currentCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-they already took total of 40 credits worth courses in a semester", currentCourse.getCourseName()));
 
                 validCourses.remove(i--);
                 continue;
@@ -91,17 +91,17 @@ public class ManagementSystem {
 
         if (!prerequisiteCourse.equals("")) { // if there is a prerequisite course
             if (student.getTranscript().getCourseNote(prerequisiteCourse) < 1) { // if student could not pass prerequisite course
-                Logger.addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
+                Logger.getInstance().addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
                     newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse + ".");
 
-                Logger.addNewSummary(String.format("%s-prerequisite course", newCourse.getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-prerequisite course", newCourse.getCourseName()));
                 return false;
             }
         }
         if (newCourse.getCourseQuota() != 0 && newCourse.getCourseQuota() <= newCourse.getNumberOfStudent()) { // if quota is not full
-            Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
+            Logger.getInstance().addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + newCourse.getCourseName() + ".");
 
-            Logger.addNewSummary(String.format("%s-quota problem", newCourse.getCourseName()));
+            Logger.getInstance().addNewSummary(String.format("%s-quota problem", newCourse.getCourseName()));
 
             return false;
         }
@@ -163,10 +163,10 @@ public class ManagementSystem {
                 randomCourses.add(courses.get(randomIndex));
                 courses.remove(randomIndex);
 			} else {
-                Logger.addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + 
+                Logger.getInstance().addNewLog("SYSTEM-FAIL-QUOTA-" + student.getId(), "Student couldn't take the course " + 
                     courses.get(randomIndex).getCourseName() + " because of the quota.");
 
-                Logger.addNewSummary(String.format("%s-quota problem", courses.get(randomIndex).getCourseName()));
+                Logger.getInstance().addNewSummary(String.format("%s-quota problem", courses.get(randomIndex).getCourseName()));
 
 				courses.remove(randomIndex);
 			}
@@ -179,8 +179,8 @@ public class ManagementSystem {
     private ArrayList<Course> getAllCourses(CourseGroup courseGroup) {
         Course[] courses;
         
-        if (currentSemester % 2 == 1) courses = DataIOHandler.fallCourses;
-        else courses = DataIOHandler.springCourses;
+        if (currentSemester % 2 == 1) courses = DataIOHandler.getInstance().fallCourses;
+        else courses = DataIOHandler.getInstance().springCourses;
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
@@ -192,8 +192,8 @@ public class ManagementSystem {
 
     public void resetCourseQuotas() {
 
-        for (Course course: DataIOHandler.fallCourses) course.setNumberOfStudent(0);
-        for (Course course: DataIOHandler.springCourses) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.getInstance().fallCourses) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.getInstance().springCourses) course.setNumberOfStudent(0);
 
     }
 

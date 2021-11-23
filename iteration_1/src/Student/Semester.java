@@ -64,7 +64,7 @@ public class Semester {
 
         for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
             
-            float courseCredits = DataIOHandler.getCourse(note.getKey()).getCourseCredits();
+            float courseCredits = DataIOHandler.getInstance().getCourse(note.getKey()).getCourseCredits();
 
             if (note.getValue().getNote() >= 1) completedCredits += courseCredits;
 

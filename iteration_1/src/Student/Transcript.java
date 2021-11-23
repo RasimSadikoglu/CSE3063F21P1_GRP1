@@ -63,7 +63,7 @@ public class Transcript {
 
                 completedCourses.add(courseName);
 
-                float courseCredits = DataIOHandler.getCourse(courseName).getCourseCredits();
+                float courseCredits = DataIOHandler.getInstance().getCourse(courseName).getCourseCredits();
 
                 if (courseNote >= 1) completedCredits += courseCredits;
 
@@ -94,8 +94,8 @@ public class Transcript {
 
         Course[] courses;
 
-        if (semesters.size() % 2 == 1) courses = DataIOHandler.fallCourses;
-        else courses = DataIOHandler.springCourses;
+        if (semesters.size() % 2 == 1) courses = DataIOHandler.getInstance().fallCourses;
+        else courses = DataIOHandler.getInstance().springCourses;
 
         ArrayList<Course> conditionalCourses = new ArrayList<Course>();
         
@@ -124,7 +124,7 @@ public class Transcript {
 
                 if (!isOpen) continue;
 
-                if (courseNote == LetterNote.DC || courseNote == LetterNote.DD) conditionalCourses.add(DataIOHandler.getCourse(courseName));
+                if (courseNote == LetterNote.DC || courseNote == LetterNote.DD) conditionalCourses.add(DataIOHandler.getInstance().getCourse(courseName));
 
                 allCourses.add(courseName);
 
@@ -148,7 +148,7 @@ public class Transcript {
 
             for (Map.Entry<String, LetterNote> note: notes.entrySet()) {
 
-                Course course = DataIOHandler.getCourse(note.getKey());
+                Course course = DataIOHandler.getInstance().getCourse(note.getKey());
 
                 if (allCourses.contains(course)) continue;
 

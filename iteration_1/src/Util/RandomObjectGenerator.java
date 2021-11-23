@@ -128,13 +128,13 @@ public class RandomObjectGenerator {
         firstNameProbabilityDistribution_M = new ArrayList<Double>();
         lastNameProbabilityDistribution = new ArrayList<Double>();
 
-        ArrayList<ArrayList<String>> firstNames = DataIOHandler.readCsv("data/firstNames.csv", ',');
+        ArrayList<ArrayList<String>> firstNames = DataIOHandler.getInstance().readCsv("data/firstNames.csv", ',');
         for (int i = 0; i < firstNames.size(); i++){
             if (firstNames.get(i).get(1).equals("F")) firstNames_F.add(firstNames.get(i));
             else if (firstNames.get(i).get(1).equals("M")) firstNames_M.add(firstNames.get(i));
         }
 
-        lastNames = DataIOHandler.readCsv("data/lastNames.csv", ',');
+        lastNames = DataIOHandler.getInstance().readCsv("data/lastNames.csv", ',');
 
         long firstNameCountSum_F = 0;
         for (int i = 0; i < firstNames_F.size(); i++) {
