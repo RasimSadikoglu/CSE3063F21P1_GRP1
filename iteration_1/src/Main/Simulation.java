@@ -71,7 +71,7 @@ public class Simulation {
         // Save student data before simulation
         DataIOHandler.getInstance().writeStudentsData(students, "jsonDocs/students/before/");
 
-        Logger.getInstance().setup();
+        Logger.getInstance().enableWriting();
 
         simulationLoop();
 

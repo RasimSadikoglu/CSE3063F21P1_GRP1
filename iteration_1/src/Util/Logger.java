@@ -5,28 +5,29 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Logger {
-    static private DataIOHandler instance = null;
+    static private Logger instance;
 
-    private final String PATH = DataIOHandler.currentPath + "src/logs.txt";
-    private boolean write = false;
-
+    private final String PATH = DataIOHandler.getInstance().getCurrentPath() + "src/logs.txt";
+    private DataIOHandler dataIOHandler;
+    private boolean write;
     private TreeMap<String, Integer> summary;
 
-    private Logger(){}
+    private Logger() {
+        dataIOHandler = DataIOHandler.getInstance();
+        write = false;
+        summary = new TreeMap<>();
+        new File(PATH).delete();
+    }
     
     static public Logger getInstance() {
 		if (instance == null) instance = new Logger();
 		return instance;
 	}
 
-    public void setup() {
-        summary = new TreeMap<String, Integer>();
-
-        new File(PATH).delete();
-
-        System.out.println("---------- START ----------");
-        DataIOHandler.getInstance().writeFile(PATH, "---------- START ----------\n", true);
+    public void enableWriting() {
         write = true;
+        System.out.println("---------- START ----------");
+        dataIOHandler.writeFile(PATH, "---------- START ----------\n", true);
     }
 
     public void addNewLog(String action, String log) {
@@ -35,7 +36,7 @@ public class Logger {
         String formattedLog = formatLog(action, log);
 
         System.out.println(formattedLog);
-        DataIOHandler.getInstance().writeFile(PATH, formattedLog + "\n", true);
+        dataIOHandler.writeFile(PATH, formattedLog + "\n", true);
     }
 
     public void addNewSummary(String cause) {
@@ -60,7 +61,7 @@ public class Logger {
     public void end() {
 
         System.out.println("---------- SUMMARY ----------");
-        DataIOHandler.getInstance().writeFile(PATH, "---------- SUMMARY ----------\n", true);
+        dataIOHandler.writeFile(PATH, "---------- SUMMARY ----------\n", true);
 
         for (Map.Entry<String, Integer> entry: summary.entrySet()) {
             String[] actions = entry.getKey().split("-");
@@ -68,10 +69,10 @@ public class Logger {
             String formattedEntry = String.format("%d students couldn't register the course %s due to %s.", entry.getValue(), actions[0], actions[1]);
 
             System.out.println(formattedEntry);
-            DataIOHandler.getInstance().writeFile(PATH, formattedEntry + "\n", true);
+            dataIOHandler.writeFile(PATH, formattedEntry + "\n", true);
         }
 
         System.out.println("---------- END ----------");
-        DataIOHandler.getInstance().writeFile(PATH, "---------- END ----------\n", true);
+        dataIOHandler.writeFile(PATH, "---------- END ----------\n", true);
     }
 }

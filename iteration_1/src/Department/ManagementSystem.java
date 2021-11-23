@@ -179,8 +179,8 @@ public class ManagementSystem {
     private ArrayList<Course> getAllCourses(CourseGroup courseGroup) {
         Course[] courses;
         
-        if (currentSemester % 2 == 1) courses = DataIOHandler.getInstance().fallCourses;
-        else courses = DataIOHandler.getInstance().springCourses;
+        if (currentSemester % 2 == 1) courses = DataIOHandler.getInstance().getSpringCourses();
+        else courses = DataIOHandler.getInstance().getFallCourses();
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
@@ -192,8 +192,8 @@ public class ManagementSystem {
 
     public void resetCourseQuotas() {
 
-        for (Course course: DataIOHandler.getInstance().fallCourses) course.setNumberOfStudent(0);
-        for (Course course: DataIOHandler.getInstance().springCourses) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.getInstance().getFallCourses()) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.getInstance().getSpringCourses()) course.setNumberOfStudent(0);
 
     }
 

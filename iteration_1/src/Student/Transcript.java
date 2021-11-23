@@ -35,6 +35,8 @@ public class Transcript {
      */
     public float[] getGPA() {
 
+        DataIOHandler  dataIOHandler = DataIOHandler.getInstance();
+
         float points = 0, completedCredits = 0, totalCredits = 0;
         
         /* 
@@ -63,7 +65,7 @@ public class Transcript {
 
                 completedCourses.add(courseName);
 
-                float courseCredits = DataIOHandler.getInstance().getCourse(courseName).getCourseCredits();
+                float courseCredits = dataIOHandler.getCourse(courseName).getCourseCredits();
 
                 if (courseNote >= 1) completedCredits += courseCredits;
 
@@ -92,10 +94,12 @@ public class Transcript {
 
     public ArrayList<Course> getConditionalCourses() {
 
+        DataIOHandler dataIOHandler = DataIOHandler.getInstance();
+
         Course[] courses;
 
-        if (semesters.size() % 2 == 1) courses = DataIOHandler.getInstance().fallCourses;
-        else courses = DataIOHandler.getInstance().springCourses;
+        if (semesters.size() % 2 == 1) courses = dataIOHandler.getFallCourses();
+        else courses = dataIOHandler.getSpringCourses();
 
         ArrayList<Course> conditionalCourses = new ArrayList<Course>();
         
@@ -124,7 +128,7 @@ public class Transcript {
 
                 if (!isOpen) continue;
 
-                if (courseNote == LetterNote.DC || courseNote == LetterNote.DD) conditionalCourses.add(DataIOHandler.getInstance().getCourse(courseName));
+                if (courseNote == LetterNote.DC || courseNote == LetterNote.DD) conditionalCourses.add(dataIOHandler.getCourse(courseName));
 
                 allCourses.add(courseName);
 
