@@ -27,7 +27,7 @@ public class DataIOHandler {
 	private Course[] springCourses;
 	private String currentPath;
 
-	static private DataIOHandler() {
+	private DataIOHandler() {
 		gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			currentPath = new File(PROJECT_PATH).getCanonicalPath() + "/";
