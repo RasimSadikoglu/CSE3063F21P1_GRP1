@@ -179,8 +179,8 @@ public class ManagementSystem {
     private ArrayList<Course> getAllCourses(CourseGroup courseGroup) {
         Course[] courses;
         
-        if (currentSemester % 2 == 1) courses = DataIOHandler.getInstance().getSpringCourses();
-        else courses = DataIOHandler.getInstance().getFallCourses();
+        if (currentSemester % 2 == 1) courses = DataIOHandler.getInstance().getFallCourses();
+        else courses = DataIOHandler.getInstance().getSpringCourses();
         
         ArrayList<Course> matchedCourses = new ArrayList<>();
         for (Course course : courses) {
