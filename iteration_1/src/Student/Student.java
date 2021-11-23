@@ -14,6 +14,7 @@ public class Student {
     private float completedCredits;
     private float totalCredits;
     private boolean isGraduated;
+    private double successChance;
     private Transcript transcript;
     private transient int currentSemester;
 
@@ -24,6 +25,7 @@ public class Student {
         gpa = 0;
         isGraduated = false;
         currentSemester = 1;
+        successChance = -5;
     }
 
     public Student(String id) {
@@ -34,6 +36,11 @@ public class Student {
     public Student(String name, String id) {
         this(id);
         this.name = name;
+    }
+
+    public Student(String name, String id, double successChance) {
+        this(name, id);
+        this.successChance = successChance;
     }
 
     public String getId() {
@@ -94,5 +101,9 @@ public class Student {
      */
     public float[] getGPA() {
         return new float[] {gpa, points, completedCredits, totalCredits};
+    }
+
+    public double getSuccessChance() {
+        return successChance;
     }
 }

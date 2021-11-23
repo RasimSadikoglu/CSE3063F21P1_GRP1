@@ -15,9 +15,17 @@ public class Semester {
         CC(2f), DC(1.5f), DD(1f), FD(0.5f),
         FF(0f), DZ(-1f), NF(-2f); // NF = Not Finalized
 
+        static private final int[] MAP_TO_100 = {90, 85, 80, 75, 65, 55, 50, 45, 0};
+
 		private final float note;
 		private LetterNote(float note) { this.note = note; }
-		public float getNote() { return note; } 
+		public float getNote() { return note; }
+        static public LetterNote convertToLetter(double note) {
+            for (int i = 0; i < MAP_TO_100.length; i++) {
+                if (note > MAP_TO_100[i]) return LetterNote.values()[i];
+            }
+            return LetterNote.DZ;
+        }
 	}
 
     private TreeMap<String, LetterNote> notes;

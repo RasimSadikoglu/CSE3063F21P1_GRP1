@@ -104,7 +104,10 @@ public class Simulation {
             TreeMap<String, LetterNote> notes = student.getTranscript().getCurrentSemester().getNotes();
 
             for (Map.Entry<String, LetterNote> note: notes.entrySet()){
-                note.setValue(LetterNote.values()[randomObjectGenerator.getBellRandom(0, 10)]);
+
+                double randomNote = randomObjectGenerator.getBellRandom(student.getSuccessChance(), 100);
+
+                note.setValue(LetterNote.convertToLetter(randomNote));
             }
 
             student.updateGPA();

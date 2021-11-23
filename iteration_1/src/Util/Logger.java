@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Logger {
 
-    static private final String PATH = DataIOHandler.currentPath + "src/log.txt";
+    static private final String PATH = DataIOHandler.currentPath + "src/logs.txt";
     static private boolean write = false;
 
     static private TreeMap<String, Integer> summary;
