@@ -1,6 +1,5 @@
 package Util;
 
-import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -16,7 +15,6 @@ public class Logger {
         dataIOHandler = DataIOHandler.getInstance();
         write = false;
         summary = new TreeMap<>();
-        new File(PATH).delete();
     }
     
     static public Logger getInstance() {
@@ -27,7 +25,7 @@ public class Logger {
     public void enableWriting() {
         write = true;
         System.out.println("---------- START ----------");
-        dataIOHandler.writeFile(PATH, "---------- START ----------\n", true);
+        dataIOHandler.writeFile(PATH, "---------- START ----------\n", false);
     }
 
     public void addNewLog(String action, String log) {
