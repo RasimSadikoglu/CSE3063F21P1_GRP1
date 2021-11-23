@@ -14,7 +14,7 @@ public class Student {
     private float completedCredits;
     private float totalCredits;
     private boolean isGraduated;
-    private double successChance;
+    private transient double successChance;
     private Transcript transcript;
     private transient int currentSemester;
 
