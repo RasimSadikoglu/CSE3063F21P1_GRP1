@@ -18,7 +18,7 @@ import Student.Student;
 
 public class DataIOHandler {
 
-	static private DataIOHandler instance = null;
+	static private DataIOHandler instance;
 
 	private final String PROJECT_PATH = "./iteration_1";
 
