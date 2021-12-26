@@ -1,4 +1,4 @@
-# Project 1
+# Group 1
 
 1- 150118009, Rasim Sadıkoğlu
 
