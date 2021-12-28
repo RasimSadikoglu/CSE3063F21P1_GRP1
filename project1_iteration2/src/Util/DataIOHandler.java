@@ -20,7 +20,7 @@ public class DataIOHandler {
 
 	static private DataIOHandler instance;
 
-	private final String PROJECT_PATH = "./iteration_1";
+	private final String PROJECT_PATH = "./";
 
 	private Gson gson;
 	private Course[] fallCourses;
