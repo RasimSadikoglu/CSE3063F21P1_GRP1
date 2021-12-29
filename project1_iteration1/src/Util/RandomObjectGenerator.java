@@ -24,7 +24,6 @@ public class RandomObjectGenerator {
         this.genderDistribution = 0.5f;
 
         generateDistributions();
-        generateStudentName();
     }
 
     public RandomObjectGenerator() {
