@@ -41,7 +41,6 @@ public class ManagementSystem {
         for (Course course: courses) {
             if (check(course, student)) { // student parameter added
                 validCourses.add(course);
-                course.setNumberOfStudent(course.getNumberOfStudent() + 1);
             }
         }
 
@@ -85,12 +84,12 @@ public class ManagementSystem {
 
     private boolean check(Course newCourse, Student student) {
 
-        if (student.getCourseNote(newCourse.getCourseName()) >= 1) return false;
+        if (student.getCourseNote(newCourse) >= 1) return false;
         
         String prerequisiteCourse = newCourse.getPrerequisiteCourse();
 
         if (!prerequisiteCourse.equals("")) { // if there is a prerequisite course
-            if (student.getTranscript().getCourseNote(prerequisiteCourse) < 1) { // if student could not pass prerequisite course
+            if (student.getTranscript().getCourseNote(DataIOHandler.getInstance().getCourse(prerequisiteCourse)) < 1) { // if student could not pass prerequisite course
                 Logger.getInstance().addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
                     newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse + ".");
 
@@ -143,7 +142,7 @@ public class ManagementSystem {
 
 			int randomIndex = randomObjectGenerator.getLinearRandom(0, courses.size());
 
-			if (student.getCourseNote(courses.get(randomIndex).getCourseName()) >= 1) {
+			if (student.getCourseNote(courses.get(randomIndex)) >= 1) {
 				courses.remove(randomIndex);
 				continue;
 			}
@@ -192,8 +191,8 @@ public class ManagementSystem {
 
     public void resetCourseQuotas() {
 
-        for (Course course: DataIOHandler.getInstance().getFallCourses()) course.setNumberOfStudent(0);
-        for (Course course: DataIOHandler.getInstance().getSpringCourses()) course.setNumberOfStudent(0);
+        for (Course course: DataIOHandler.getInstance().getFallCourses()) course.clearStudents();
+        for (Course course: DataIOHandler.getInstance().getSpringCourses()) course.clearStudents();
 
     }
 

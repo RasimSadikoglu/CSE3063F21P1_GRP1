@@ -45,7 +45,7 @@ public class RandomObjectGenerator {
 
         for (int i = 0; i < numOfStudents; i++){
             String studentName = generateStudentName();
-            Student student = new Student(studentName, studentIds.get(i), getBellRandom(-100, 90));
+            Student student = new Student(studentName, studentIds.get(i), getBellRandom(-30, 90));
             studentList.add(student);
         }
 

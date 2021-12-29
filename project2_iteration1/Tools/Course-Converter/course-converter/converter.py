@@ -7,18 +7,15 @@ def parseCourses(filePath: str) -> list:
     courses = []
 
     for row in excelFile:
-        courses.append(
-            {
-                'courseCode': str(row[0]),
-                'courseGroup': '',
-                'courseName': str(row[1]),
-                'lecturer': str(row[2]),
-                'credit': float(row[5]),
-                'quota': int(row[7]),
-                'schedule': parseTime(str(row[8])),
-                'prerequisite': []
-            }
-        )
+        courses.append({
+            'courseCode': str(row[0]),
+            'courseName': str(row[1]),
+            'lecturer': str(row[2]),
+            'credit': float(row[5]),
+            'quota': int(row[7]),
+            'schedule': parseTime(str(row[8])),
+            'prerequisite': []
+        })
 
     for course in courses:
         course['courseCode'] = updateCourseCode(course)
@@ -39,7 +36,7 @@ def mergeCourses(courses: list) -> list:
         if len(parentCourse) == 0:
             mergedCourses.append({
                 'courseCode': courseCode,
-                'courseGroup': course['courseGroup'],
+                'courseGroup': '',
                 'courseName': course['courseName'],
                 'credit': course['credit'],
                 'prerequisite': course['prerequisite'],

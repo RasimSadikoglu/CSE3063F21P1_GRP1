@@ -33,7 +33,7 @@ public class Advisor {
                 continue;
             }
 
-            if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 335) {
+            if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 235) {
                 
                 Logger.getInstance().addNewLog("ADVISOR-REJECT-FTE FALL-" + student.getId()
                     , "Student couldn't take the course " + currentCourse.getCourseName() 

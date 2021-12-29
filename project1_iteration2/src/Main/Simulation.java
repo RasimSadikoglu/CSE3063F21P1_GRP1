@@ -101,9 +101,9 @@ public class Simulation {
 
             if (student.getIsGraduated()) continue;
 
-            TreeMap<String, LetterNote> notes = student.getTranscript().getCurrentSemester().getNotes();
+            TreeMap<Course, LetterNote> notes = student.getTranscript().getCurrentSemester().getNotes();
 
-            for (Map.Entry<String, LetterNote> note: notes.entrySet()){
+            for (Map.Entry<Course, LetterNote> note: notes.entrySet()){
 
                 double randomNote = randomObjectGenerator.getBellRandom(student.getSuccessChance(), 100);
 

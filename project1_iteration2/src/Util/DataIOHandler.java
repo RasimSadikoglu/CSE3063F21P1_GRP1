@@ -20,7 +20,7 @@ public class DataIOHandler {
 
 	static private DataIOHandler instance;
 
-	private final String PROJECT_PATH = "./";
+	private final String PROJECT_PATH = "./project1_iteration2";
 
 	private Gson gson;
 	private Course[] fallCourses;
@@ -28,7 +28,10 @@ public class DataIOHandler {
 	private String currentPath;
 
 	private DataIOHandler() {
-		gson = new GsonBuilder().setPrettyPrinting().create();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.setPrettyPrinting();
+
+		gson = gsonBuilder.create();
 		try {
 			currentPath = new File(PROJECT_PATH).getCanonicalPath() + "/";
 		} catch (Exception e) {
@@ -93,6 +96,8 @@ public class DataIOHandler {
             Student newStudent = readStudentInfo(path + student.getName());
 
             newStudent.updateCurrentSemester();
+
+			newStudent.updateSemesters();
 
             students.add(newStudent);
         }

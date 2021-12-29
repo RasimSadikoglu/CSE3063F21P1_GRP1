@@ -1,5 +1,9 @@
 package Course;
 
+import java.util.ArrayList;
+
+import Student.Student;
+
 public class Course implements Comparable<Course> {
 
     public enum CourseGroup {
@@ -18,7 +22,7 @@ public class Course implements Comparable<Course> {
     private String prerequisiteCourse;
     private float courseCredits;
     private int courseQuota;
-    private int numberOfStudent;
+    private ArrayList<Student> students;
     private Schedule courseSchedule;
 
     public Course() {
@@ -28,7 +32,7 @@ public class Course implements Comparable<Course> {
         prerequisiteCourse = "";
         courseCredits = 0;
         courseQuota = 0;
-        numberOfStudent = 0;
+        students = new ArrayList<Student>();
         courseSchedule = new Schedule();
     }
 
@@ -57,11 +61,19 @@ public class Course implements Comparable<Course> {
     }
 
     public int getNumberOfStudent() {
-        return numberOfStudent;
+        return students.size();
     }
 
-    public void setNumberOfStudent(int numberOfStudent) {
-        this.numberOfStudent = numberOfStudent;
+    public void clearStudents() {
+        students.clear();
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
     }
 
     public Schedule getCourseSchedule() {

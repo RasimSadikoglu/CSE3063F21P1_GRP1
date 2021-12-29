@@ -51,8 +51,8 @@ public class Student {
         return transcript;
     }
     
-    public float getCourseNote(String courseName) {
-        return transcript.getCourseNote(courseName);
+    public float getCourseNote(Course course) {
+        return transcript.getCourseNote(course);
     }
 
     public int getCurrentSemester() {
@@ -105,5 +105,9 @@ public class Student {
 
     public double getSuccessChance() {
         return successChance;
+    }
+
+    public void updateSemesters() {
+        transcript.updateSemesters();
     }
 }

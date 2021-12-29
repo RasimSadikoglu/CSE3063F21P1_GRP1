@@ -33,7 +33,7 @@ public class Advisor {
                 continue;
             }
 
-            if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 335) {
+            if (currentCourse.getCourseGroup() == CourseGroup.FTE && student.getCurrentSemester() % 2 == 1 && student.getGPA()[2] != 235) {
                 
                 Logger.getInstance().addNewLog("ADVISOR-REJECT-FTE FALL-" + student.getId()
                     , "Student couldn't take the course " + currentCourse.getCourseName() 
@@ -56,6 +56,8 @@ public class Advisor {
                 currentCourses.remove(i--);
                 continue;
             }
+
+            currentCourses.get(i).addStudent(student); 
         }
 
         collisionCheck(currentCourses, student);
@@ -118,12 +120,9 @@ public class Advisor {
 
     private void collisionCheck(ArrayList<Course> currentCourses, Student student) {
         for (int i = 0; i < currentCourses.size(); i++) {
-            
-            // Exclude NTE courses
-            if (currentCourses.get(i).getCourseGroup() == CourseGroup.NTE) continue;
 
             // Attending the course is not mandatory when taking the course again if student didn't fail the course with DZ.
-            if (student.getCourseNote(currentCourses.get(i).getCourseName()) >= 0) continue;
+            if (student.getCourseNote(currentCourses.get(i)) >= 0) continue;
 
             for (int j = i + 1; j < currentCourses.size(); j++) {
                 int totalCollisionMinute = getTotalCollisionMinutes(currentCourses.get(i).getCourseSchedule(),
@@ -136,7 +135,8 @@ public class Advisor {
                             + totalCollisionMinute / 50 + " hour collision with " + currentCourses.get(i).getCourseName() + ".");
 
                     Logger.getInstance().addNewSummary(String.format("%s-collision", currentCourses.get(j).getCourseName()));
-
+                    
+                    currentCourses.get(j).removeStudent(student);
                     currentCourses.remove(currentCourses.get(j--));
                 }
             }
