@@ -16,6 +16,7 @@ import Student.Student;
 import Util.DataIOHandler;
 import Util.RandomObjectGenerator;
 
+@SuppressWarnings("unused")
 public class Tests {
 
 	private static int successCount = 0;
@@ -257,13 +258,6 @@ public class Tests {
 	}
 
 	// ------------ Helper Methods ------------
-
-	private static boolean assertEquals(Object input1, Object input2) {
-		if (input1 != input2) {
-			return false;
-		}
-		return true;
-	}
 
 	private static boolean assertEquals(int input1, int input2) {
 		if (input1 != input2) {
