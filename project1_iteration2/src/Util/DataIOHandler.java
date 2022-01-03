@@ -20,7 +20,7 @@ public class DataIOHandler {
 
 	static private DataIOHandler instance;
 
-	private final String PROJECT_PATH = "./project1_iteration2";
+	private final String PROJECT_PATH = ".";
 
 	private Gson gson;
 	private Course[] fallCourses;
@@ -42,7 +42,8 @@ public class DataIOHandler {
 	}
 
 	static public DataIOHandler getInstance() {
-		if (instance == null) instance = new DataIOHandler();
+		if (instance == null)
+			instance = new DataIOHandler();
 		return instance;
 	}
 
@@ -54,16 +55,18 @@ public class DataIOHandler {
 
 	public Course getCourse(String courseName) {
 
-        for (Course course: fallCourses) {
-            if (course.getCourseName().equals(courseName)) return course;
-        }
+		for (Course course : fallCourses) {
+			if (course.getCourseName().equals(courseName))
+				return course;
+		}
 
-        for (Course course: springCourses) {
-            if (course.getCourseName().equals(courseName)) return course;
-        }
+		for (Course course : springCourses) {
+			if (course.getCourseName().equals(courseName))
+				return course;
+		}
 
-        return null;
-    }
+		return null;
+	}
 
 	private Student readStudentInfo(String studentName) {
 		String studentStr = readFile(studentName);
@@ -90,17 +93,18 @@ public class DataIOHandler {
 
 		File[] studentFiles = new File(currentPath + path).listFiles();
 
-        if (students == null || studentFiles.length == 0) return students;
+		if (students == null || studentFiles.length == 0)
+			return students;
 
-        for (File student: studentFiles) {
-            Student newStudent = readStudentInfo(path + student.getName());
+		for (File student : studentFiles) {
+			Student newStudent = readStudentInfo(path + student.getName());
 
-            newStudent.updateCurrentSemester();
+			newStudent.updateCurrentSemester();
 
 			newStudent.updateSemesters();
 
-            students.add(newStudent);
-        }
+			students.add(newStudent);
+		}
 
 		return students;
 
@@ -133,7 +137,8 @@ public class DataIOHandler {
 	public void writeFile(String path, String data, boolean append) {
 		try {
 			Path filePath = Paths.get(path);
-			Files.write(filePath, data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, append ? StandardOpenOption.APPEND : StandardOpenOption.TRUNCATE_EXISTING);
+			Files.write(filePath, data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE,
+					append ? StandardOpenOption.APPEND : StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
 		}
@@ -141,16 +146,16 @@ public class DataIOHandler {
 
 	public ArrayList<ArrayList<String>> readCsv(String path, char splitChar) {
 		ArrayList<ArrayList<String>> returnData = new ArrayList<ArrayList<String>>();
-        try {
-            File file = new File(currentPath + path);
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
+		try {
+			File file = new File(currentPath + path);
+			Scanner scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
 				ArrayList<String> lineWords = new ArrayList<String>();
-                String data = scanner.nextLine();
-				
+				String data = scanner.nextLine();
+
 				int lastSplitPosition = 0;
 				int i = 0;
-				for (; i < data.length(); i++){
+				for (; i < data.length(); i++) {
 					if (data.charAt(i) == splitChar) {
 						lineWords.add(data.substring(lastSplitPosition, i));
 						lastSplitPosition = i + 1;
@@ -158,16 +163,15 @@ public class DataIOHandler {
 				}
 				lineWords.add(data.substring(lastSplitPosition, i));
 
-                returnData.add(lineWords);
-            }
-            scanner.close();
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Could not read file");
-            e.printStackTrace();
-        }
+				returnData.add(lineWords);
+			}
+			scanner.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Could not read file");
+			e.printStackTrace();
+		}
 
-        return returnData;
+		return returnData;
 	}
 
 	public void resetStudentData(boolean deleteBefore) {
@@ -178,17 +182,21 @@ public class DataIOHandler {
 
 		File[] afterDirectory = new File(currentPath + "jsonDocs/students/after/").listFiles();
 
-		if (afterDirectory == null) new File(currentPath + "jsonDocs/students/after/").mkdir();
-		else for (File student: afterDirectory) {
-			student.delete();
-		}
+		if (afterDirectory == null)
+			new File(currentPath + "jsonDocs/students/after/").mkdir();
+		else
+			for (File student : afterDirectory) {
+				student.delete();
+			}
 
 		File[] beforeDirectory = new File(currentPath + "jsonDocs/students/before/").listFiles();
 
-		if (beforeDirectory == null) new File(currentPath + "jsonDocs/students/before/").mkdir();
-		else if (deleteBefore) for (File student: beforeDirectory) {
-			student.delete();
-		}
+		if (beforeDirectory == null)
+			new File(currentPath + "jsonDocs/students/before/").mkdir();
+		else if (deleteBefore)
+			for (File student : beforeDirectory) {
+				student.delete();
+			}
 
 	}
 
