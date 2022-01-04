@@ -112,7 +112,7 @@ public class Simulation {
 
             student.updateGPA();
             student.setIsGraduted();
-        }         
+        }
     }
 
     private void simulationLoop() {

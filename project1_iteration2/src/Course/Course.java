@@ -2,6 +2,8 @@ package Course;
 
 import java.util.ArrayList;
 
+import com.google.gson.annotations.SerializedName;
+
 import Student.Student;
 
 public class Course implements Comparable<Course> {
@@ -19,7 +21,9 @@ public class Course implements Comparable<Course> {
     private String courseName;
     private CourseGroup courseGroup;
     private float requiredCredits;
-    private String prerequisiteCourse;
+    private transient Course prerequisiteCourse;
+    @SerializedName("prerequisiteCourse")
+    private String prerequisiteCourseName;
     private float courseCredits;
     private int courseQuota;
     private ArrayList<Student> students;
@@ -29,7 +33,8 @@ public class Course implements Comparable<Course> {
         courseName = "";
         courseGroup = null;
         requiredCredits = 0;
-        prerequisiteCourse = "";
+        prerequisiteCourse = null;
+        prerequisiteCourseName = "";
         courseCredits = 0;
         courseQuota = 0;
         students = new ArrayList<Student>();
@@ -48,8 +53,16 @@ public class Course implements Comparable<Course> {
         return requiredCredits;
     }
 
-    public String getPrerequisiteCourse() {
+    public Course getPrerequisiteCourse() {
         return prerequisiteCourse;
+    }
+
+    public void setPrerequisiteCourse(Course prerequisiteCourse) {
+        this.prerequisiteCourse = prerequisiteCourse;
+    }
+
+    public String getPrerequisiteCourseName() {
+        return prerequisiteCourseName;
     }
 
     public float getCourseCredits() {

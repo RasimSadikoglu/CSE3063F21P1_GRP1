@@ -86,12 +86,12 @@ public class ManagementSystem {
 
         if (student.getCourseNote(newCourse) >= 1) return false;
         
-        String prerequisiteCourse = newCourse.getPrerequisiteCourse();
+        Course prerequisiteCourse = newCourse.getPrerequisiteCourse();
 
-        if (!prerequisiteCourse.equals("")) { // if there is a prerequisite course
-            if (student.getTranscript().getCourseNote(DataIOHandler.getInstance().getCourse(prerequisiteCourse)) < 1) { // if student could not pass prerequisite course
+        if (prerequisiteCourse != null) { // if there is a prerequisite course
+            if (student.getTranscript().getCourseNote(prerequisiteCourse) < 1) { // if student could not pass prerequisite course
                 Logger.getInstance().addNewLog("SYSTEM-FAIL-PREREQUISITE-" + student.getId(), "Student couldn't take the course " + 
-                    newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse + ".");
+                    newCourse.getCourseName() + " because of prerequisite " + prerequisiteCourse.getCourseName() + ".");
 
                 Logger.getInstance().addNewSummary(String.format("%s-prerequisite course", newCourse.getCourseName()));
                 return false;

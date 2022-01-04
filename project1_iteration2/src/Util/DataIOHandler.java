@@ -39,6 +39,20 @@ public class DataIOHandler {
 		}
 		fallCourses = readCourseInfo("jsonDocs/fallCourses.json");
 		springCourses = readCourseInfo("jsonDocs/springCourses.json");
+
+		for (Course course: fallCourses) {
+			String prerequisiteCourseName = course.getPrerequisiteCourseName();
+			if (!prerequisiteCourseName.equals("")) {
+				course.setPrerequisiteCourse(getCourse(prerequisiteCourseName));
+			}
+		}
+
+		for (Course course: springCourses) {
+			String prerequisiteCourseName = course.getPrerequisiteCourseName();
+			if (!prerequisiteCourseName.equals("")) {
+				course.setPrerequisiteCourse(getCourse(prerequisiteCourseName));
+			}
+		}
 	}
 
 	static public DataIOHandler getInstance() {
