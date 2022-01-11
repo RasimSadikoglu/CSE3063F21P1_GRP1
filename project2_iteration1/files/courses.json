@@ -1,0 +1,3507 @@
+[
+    {
+        "code": "BIOE4072",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Planning and Management of Research",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "BIOE4072.1",
+                "lecturer": "Doç.Dr. KAMİL ERKAN",
+                "quota": 48,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "0-15:00-15:50",
+                    "0-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CHE4060",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Cost Management in Chemical Industries",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CHE4060.1",
+                "lecturer": "Prof.Dr. EMİN ARCA",
+                "quota": 45,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50",
+                    "2-17:00-17:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4062",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Introduction to Data Science and Analytics",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4062.1",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 42,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "2-15:00-15:50",
+                    "2-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "EE4056",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Introduction to Information Systems Management",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "EE4056.1",
+                "lecturer": "Öğr.Gör. ŞAKİR BİNGÖL",
+                "quota": 40,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50",
+                    "2-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ENVE4062",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Energy and the Environment",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ENVE4062.1",
+                "lecturer": "Prof.Dr. SIDDIK SİNAN KESKİN",
+                "quota": 43,
+                "schedule": [
+                    "3-16:00-16:50",
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "ENVE4062.2",
+                "lecturer": "Prof.Dr. TANAY SIDKI UYAR",
+                "quota": 41,
+                "schedule": [
+                    "0-08:30-09:20",
+                    "0-09:30-10:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "IE4087",
+        "group": "FTE",
+        "semester": "Fall",
+        "name": "Introduction to Total Quality Management",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "IE4087.1",
+                "lecturer": "Dr. Öğr. Üyesi MAHMURE ÖVÜL ARIOĞLU",
+                "quota": 45,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20",
+                    "1-10:30-11:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MGT4084",
+        "group": "FTE",
+        "semester": "Fall",
+        "name": "Innovation and New Product Development Management",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MGT4084.1",
+                "lecturer": "Öğr.Gör. HÜLYA ASLANOĞLU",
+                "quota": 27,
+                "schedule": [
+                    "4-14:00-14:50",
+                    "4-15:00-15:50",
+                    "4-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MGT4084",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Innovation and New Product Development Management",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MGT4084.1",
+                "lecturer": "Öğr.Gör. HÜLYA ASLANOĞLU",
+                "quota": 28,
+                "schedule": [
+                    "4-14:00-14:50",
+                    "4-15:00-15:50",
+                    "4-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "MGT4084.2",
+                "lecturer": "Öğr.Gör. HÜLYA ASLANOĞLU",
+                "quota": 27,
+                "schedule": [
+                    "3-14:00-14:50",
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MGT4086",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Managing Engineering and Technology",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MGT4086.1",
+                "lecturer": "Öğr.Gör. HÜLYA ASLANOĞLU",
+                "quota": 28,
+                "schedule": [
+                    "0-14:00-14:50",
+                    "0-15:00-15:50",
+                    "0-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MGT4088",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Project Management for Engineers ",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MGT4088.1",
+                "lecturer": "Öğr.Gör. EMRAH GENÇALP",
+                "quota": 50,
+                "schedule": [
+                    "4-09:30-10:20",
+                    "4-10:30-11:20",
+                    "4-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MSE4073",
+        "group": "FTE",
+        "semester": "Spring",
+        "name": "Materials Engineering Economics and Plant Design",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MSE4073.1",
+                "lecturer": "Dr. Öğr. Üyesi GÖRKEM YUMUŞAK",
+                "quota": 45,
+                "schedule": [
+                    "3-08:30-09:20",
+                    "3-09:30-10:20",
+                    "4-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "BUS1003",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Entrepreneurship and Innovation",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "BUS1003.1",
+                "lecturer": "Prof.Dr. HANDE SİNEM ERGUN",
+                "quota": 42,
+                "schedule": [
+                    "3-08:30-09:20",
+                    "3-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "BUS1004",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Strategic Entrepreneurship",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "BUS1004.1",
+                "lecturer": "Prof.Dr. HANDE SİNEM ERGUN",
+                "quota": 45,
+                "schedule": [
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "COMM2060",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Communication Models and Techniques",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "COMM2060.1",
+                "lecturer": "Öğr.Gör. FATMA FEYZA BAŞARAN",
+                "quota": 38,
+                "schedule": [
+                    "4-17:00-17:50",
+                    "4-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "COMM2060",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Communication Models and Techniques",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "COMM2060.1",
+                "lecturer": "Öğr.Gör. FATMA FEYZA BAŞARAN",
+                "quota": 42,
+                "schedule": [
+                    "4-17:00-17:50",
+                    "4-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "HR1013",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Career Development",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "HR1013.1",
+                "lecturer": "Prof.Dr. HANDE SİNEM ERGUN",
+                "quota": 36,
+                "schedule": [
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "IKT1054",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Industrial and Economic Sociology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "IKT1054.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 35,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "IKT1054",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Industrial and Economic Sociology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "IKT1054.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 36,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MRK3084",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Brand Creation/Branding",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MRK3084.1",
+                "lecturer": "Öğr.Gör. AYTÜN ALAKUŞ",
+                "quota": 40,
+                "schedule": [
+                    "4-15:00-15:50",
+                    "4-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MRK3084",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Brand Creation/Branding",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MRK3084.1",
+                "lecturer": "Öğr.Gör. AYTÜN ALAKUŞ",
+                "quota": 46,
+                "schedule": [
+                    "4-15:00-15:50",
+                    "4-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "MRK3084.2",
+                "lecturer": "Öğr.Gör. ÖZGE KANAT",
+                "quota": 43,
+                "schedule": [
+                    "2-15:00-15:50",
+                    "2-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1003",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "The Culture of Radiation Safety",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1003.1",
+                "lecturer": "Dr. DENİZ ÖNER",
+                "quota": 60,
+                "schedule": [
+                    "3-17:00-17:50",
+                    "3-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1003",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "The Culture of Radiation Safety",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1003.1",
+                "lecturer": "Dr. DENİZ ÖNER",
+                "quota": 55,
+                "schedule": [
+                    "3-17:00-17:50",
+                    "3-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1006",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Basic Principles of Accessibility in Informatics and Technology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1006.1",
+                "lecturer": "Dr. ENGİN YILMAZ",
+                "quota": 41,
+                "schedule": [
+                    "4-14:00-14:50",
+                    "4-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1010",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Introduction to Finance for Engineers",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1010.1",
+                "lecturer": "Öğr.Gör. TURGAY ÖZBEK",
+                "quota": 40,
+                "schedule": [
+                    "2-15:00-15:50",
+                    "2-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "NTE1010.2",
+                "lecturer": "Dr. HAYRİYE EBRU OYDAĞ",
+                "quota": 17,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1010",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Introduction to Finance for Engineers",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1010.1",
+                "lecturer": "Öğr.Gör. TURGAY ÖZBEK",
+                "quota": 43,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "2-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1012",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Introduction to Corporate Governance for Engineers\t\t",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1012.1",
+                "lecturer": "Öğr.Gör. TURGAY ÖZBEK",
+                "quota": 43,
+                "schedule": [
+                    "2-15:00-15:50",
+                    "2-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "NTE1014",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Introduction to Strategic Human Resources Management\t\t",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "NTE1014.1",
+                "lecturer": "Öğr.Gör. ÖZLEM YILMAZ",
+                "quota": 43,
+                "schedule": [
+                    "2-13:00-13:50",
+                    "2-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB2040",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Industrial Psychology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB2040.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 34,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB2040",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Industrial Psychology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB2040.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 37,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB2041",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Behavioral Sciences for Engineers",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB2041.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 34,
+                "schedule": [
+                    "0-08:30-09:20",
+                    "0-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB2041",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Behavioral Sciences for Engineers",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB2041.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 35,
+                "schedule": [
+                    "0-08:30-09:20",
+                    "0-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB3043",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Organizational Behaviour",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB3043.1",
+                "lecturer": "Öğr.Gör. SEDA TUNOĞLU",
+                "quota": 39,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "OB3043",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Organizational Behaviour",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "OB3043.1",
+                "lecturer": "Öğr.Gör. SEDA TUNOĞLU",
+                "quota": 42,
+                "schedule": [
+                    "2-08:30-09:20",
+                    "2-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "SOC3082",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Environmental Sociology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "SOC3082.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 35,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "SOC3082",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Environmental Sociology",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "SOC3082.1",
+                "lecturer": "Doç.Dr. SİNAN ÇAYA",
+                "quota": 40,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1001",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "German for Beginners",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1001.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.2",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.3",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.4",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-08:30-09:20",
+                    "2-09:30-10:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.5",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-13:00-13:50",
+                    "2-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.6",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.7",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1001",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "German for Beginners",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1001.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 45,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.2",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.3",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.4",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-08:30-09:20",
+                    "2-09:30-10:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.5",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-13:00-13:50",
+                    "2-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.6",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1001.7",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1002",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "German",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1002.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1002.2",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "1-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1002.3",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "2-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1002",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "German",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1002.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1002.2",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "1-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDA1002.3",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "2-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1003",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "German Communication",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1003.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDA1003",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "German Communication",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDA1003.1",
+                "lecturer": "Öğr.Gör. GÜLİZAR SEMRA ÖZKURT",
+                "quota": 40,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDF1001",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "French for Beginners",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDF1001.1",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 39,
+                "schedule": [
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1001.2",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 39,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1001.3",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 39,
+                "schedule": [
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDF1001",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "French for Beginners",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDF1001.1",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 40,
+                "schedule": [
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1001.2",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 40,
+                "schedule": [
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1001.3",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 40,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "1-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1001.4",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 27,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDF1002",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "French\t\t",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDF1002.1",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 40,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDF1002.2",
+                "lecturer": "Dr. Öğr. Üyesi NİHAT ÖZMEN",
+                "quota": 40,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDI1004",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Report Writing in English",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDI1004.1",
+                "lecturer": "Dr. Öğr. Üyesi LALE ÖZDEMİR ŞAHİN",
+                "quota": 39,
+                "schedule": [
+                    "1-14:00-14:50",
+                    "1-15:00-15:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "YDI1004.2",
+                "lecturer": "Dr. Öğr. Üyesi LALE ÖZDEMİR ŞAHİN",
+                "quota": 34,
+                "schedule": [
+                    "2-14:00-14:50",
+                    "2-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDIS1001",
+        "group": "NTE-UE",
+        "semester": "Fall",
+        "name": "Spanish for Beginners",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDIS1001.1",
+                "lecturer": "Dr. Öğr. Üyesi ROSA MARIA FLORES RANGEL",
+                "quota": 39,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "YDIS1002",
+        "group": "NTE-UE",
+        "semester": "Spring",
+        "name": "Spanish",
+        "credits": 3.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "YDIS1002.1",
+                "lecturer": "Dr. Öğr. Üyesi ROSA MARIA FLORES RANGEL",
+                "quota": 40,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ATA121",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Atatürk İlkeleri ve İnkılap Tarihi I",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ATA121.1",
+                "lecturer": "Dr. Öğr. Üyesi OYA AYHAN GİRİT",
+                "quota": 0,
+                "schedule": [
+                    "5-10:30-11:20",
+                    "5-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CHEM1007",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Basic Chemistry",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CHEM1007.1",
+                "lecturer": "Doç.Dr. SEVGİ POLAT",
+                "quota": 0,
+                "schedule": [
+                    "4-10:30-11:20",
+                    "4-11:30-12:20",
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE1100",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Introduction to Computer Engineering",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE1100.1",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "2-15:00-15:50",
+                    "4-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE1141",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Computer Programming I",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE1141.1",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE1141.1.1",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 32,
+                        "schedule": [
+                            "1-13:00-13:50",
+                            "1-14:00-14:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1141.1.2",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 41,
+                        "schedule": [
+                            "2-13:00-13:50",
+                            "2-14:00-14:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1141.1.3",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 31,
+                        "schedule": [
+                            "2-16:00-16:50",
+                            "2-17:00-17:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1141.1.4",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 34,
+                        "schedule": [
+                            "3-10:30-11:20",
+                            "3-11:30-12:20"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "MATH1001",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Calculus I",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MATH1001.1",
+                "lecturer": "Doç.Dr. MUSTAFA TAYLAN ŞENGÜL",
+                "quota": 0,
+                "schedule": [
+                    "0-15:00-15:50",
+                    "0-16:00-16:50",
+                    "1-16:00-16:50",
+                    "1-17:00-17:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MATH1001",
+        "group": "SME1",
+        "semester": "Spring",
+        "name": "Calculus I",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MATH1001.1",
+                "lecturer": "Arş.Gör.Dr. MUSTAFA CEM ÇELİK",
+                "quota": 120,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50",
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "MATH1001.2",
+                "lecturer": "Doç.Dr. YEŞİM GÜRTUĞ",
+                "quota": 120,
+                "schedule": [
+                    "0-08:30-09:20",
+                    "0-09:30-10:20",
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1101",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Physics I",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1101.1",
+                "lecturer": "Prof.Dr. MUSTAFA ALEVLİ",
+                "quota": 0,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1101",
+        "group": "SME1",
+        "semester": "Spring",
+        "name": "Physics I",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1101.1",
+                "lecturer": "Prof.Dr. MUSTAFA ALEVLİ",
+                "quota": 253,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50",
+                    "0-15:00-15:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1101.2",
+                "lecturer": "Dr. Öğr. Üyesi TAYFUN AKYÜREK",
+                "quota": 250,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50",
+                    "3-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1103",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Physics Lab I",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1103.1",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "0-08:30-09:20",
+                    "0-09:30-10:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1103.3",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1103.6",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1103.21",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "TRD121",
+        "group": "SME1",
+        "semester": "Fall",
+        "name": "Türk Dili I",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "TRD121.1",
+                "lecturer": "Öğr.Gör.Dr. YASEMİN BULUT",
+                "quota": 0,
+                "schedule": [
+                    "5-13:00-13:50",
+                    "5-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ATA122",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Atatürk İlkeleri ve İnkılap Tarihi II",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ATA122.1",
+                "lecturer": "Dr. Öğr. Üyesi OYA AYHAN GİRİT",
+                "quota": 0,
+                "schedule": [
+                    "5-10:30-11:20",
+                    "5-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE1142",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Computer Programming II",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE1141-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE1142.1",
+                "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "1-10:30-11:20",
+                    "1-11:30-12:20",
+                    "2-13:00-13:50"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE1142.1.1",
+                        "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                        "quota": 31,
+                        "schedule": [
+                            "3-08:30-09:20",
+                            "3-09:30-10:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1142.1.2",
+                        "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                        "quota": 32,
+                        "schedule": [
+                            "0-15:00-15:50",
+                            "0-16:00-16:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1142.1.3",
+                        "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                        "quota": 31,
+                        "schedule": [
+                            "2-10:30-11:20",
+                            "2-11:30-12:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE1142.1.4",
+                        "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                        "quota": 31,
+                        "schedule": [
+                            "3-10:30-11:20",
+                            "3-11:30-12:20"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "MATH1002",
+        "group": "SME2",
+        "semester": "Fall",
+        "name": "Calculus II",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MATH1002.1",
+                "lecturer": "Arş.Gör.Dr. MUSTAFA CEM ÇELİK",
+                "quota": 0,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50",
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MATH1002",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Calculus II",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MATH1002.1",
+                "lecturer": "Arş.Gör.Dr. AYŞE BERNA ALTINEL GİRGİN",
+                "quota": 0,
+                "schedule": [
+                    "1-14:00-14:50",
+                    "1-15:00-15:50",
+                    "2-08:30-09:20",
+                    "2-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MATH2056",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Linear Algebra",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "MATH2056.1",
+                "lecturer": "Doç.Dr. MUSTAFA TAYLAN ŞENGÜL",
+                "quota": 0,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50",
+                    "1-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1102",
+        "group": "SME2",
+        "semester": "Fall",
+        "name": "Physics II",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1102.1",
+                "lecturer": "Prof.Dr. MUSTAFA ALEVLİ",
+                "quota": 0,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50",
+                    "0-15:00-15:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1102.2",
+                "lecturer": "Dr. Öğr. Üyesi TAYFUN AKYÜREK",
+                "quota": 0,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50",
+                    "0-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1102",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Physics II",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1102.1",
+                "lecturer": "Prof.Dr. MUSTAFA ALEVLİ",
+                "quota": 0,
+                "schedule": [
+                    "3-13:00-13:50",
+                    "3-14:00-14:50",
+                    "3-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "PHYS1104",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Physics Lab II",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "PHYS1104.2",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1104.4",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "0-15:00-15:50",
+                    "0-16:00-16:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1104.5",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1104.21",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "0-17:00-17:50",
+                    "0-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "PHYS1104.22",
+                "lecturer": "Arş.Gör. HÜSEYİN YALTIRIK",
+                "quota": 30,
+                "schedule": [
+                    "3-17:00-17:50",
+                    "3-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "TRD122",
+        "group": "SME2",
+        "semester": "Spring",
+        "name": "Türk Dili II",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "TRD122.1",
+                "lecturer": "Öğr.Gör.Dr. YASEMİN BULUT",
+                "quota": 0,
+                "schedule": [
+                    "5-13:00-13:50",
+                    "5-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE2023",
+        "group": "SME3",
+        "semester": "Fall",
+        "name": "Discrete Computational Structures",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE2023.1",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "2-11:30-12:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE2025",
+        "group": "SME3",
+        "semester": "Fall",
+        "name": "Data Structures",
+        "credits": 8.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE1142-P"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE2025.1",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "1-09:30-10:20",
+                    "1-10:30-11:20",
+                    "3-10:30-11:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE2025.1.1",
+                        "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                        "quota": 0,
+                        "schedule": [
+                            "2-13:00-13:50",
+                            "2-14:00-14:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "ECON2003",
+        "group": "SME3",
+        "semester": "Fall",
+        "name": "Introduction to Economics",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ECON2003.1",
+                "lecturer": "Dr. EREN YILDIZ GEYHAN",
+                "quota": 0,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50",
+                    "0-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "EE2031",
+        "group": "SME3",
+        "semester": "Fall",
+        "name": "Electric Circuits",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "PHYS1102-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "EE2031.1",
+                "lecturer": "Doç.Dr. FULYA ÇALLIALP",
+                "quota": 0,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "3-08:30-09:20",
+                    "3-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MATH2055",
+        "group": "SME3",
+        "semester": "Fall",
+        "name": "Differential Equations",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "MATH1001-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "MATH2055.1",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "1-14:00-14:50",
+                    "2-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "MATH2055",
+        "group": "SME3",
+        "semester": "Spring",
+        "name": "Differential Equations",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "MATH1001-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "MATH2055.1",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 130,
+                "schedule": [
+                    "0-15:00-15:50",
+                    "0-16:00-16:50",
+                    "0-17:00-17:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "MATH2055.2",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 90,
+                "schedule": [
+                    "1-08:30-09:20",
+                    "1-09:30-10:20",
+                    "1-10:30-11:20"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "MATH2055.3",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 80,
+                "schedule": [
+                    "3-08:30-09:20",
+                    "3-09:30-10:20",
+                    "3-10:30-11:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE2046",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Analysis of Algorithms",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE2025-P"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE2046.1",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "3-09:30-10:20",
+                    "4-14:00-14:50",
+                    "4-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE2138",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Systems Programming",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE2138.1",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "2-11:30-12:20",
+                    "3-10:30-11:20",
+                    "3-11:30-12:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE2138.1.1",
+                        "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                        "quota": 33,
+                        "schedule": [
+                            "1-08:30-09:20",
+                            "1-09:30-10:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE2138.1.2",
+                        "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                        "quota": 33,
+                        "schedule": [
+                            "1-10:30-11:20",
+                            "1-11:30-12:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE2138.1.3",
+                        "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                        "quota": 33,
+                        "schedule": [
+                            "2-15:00-15:50",
+                            "2-16:00-16:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE2138.1.4",
+                        "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                        "quota": 33,
+                        "schedule": [
+                            "3-13:00-13:50",
+                            "3-14:00-14:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "ECON2004",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Engineering Economy",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ECON2004.1",
+                "lecturer": "Öğr.Gör.Dr. SEBAHATTİN SERHAT TEMİZKAN",
+                "quota": 0,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "0-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "EE2032",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Electronics",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "EE2031-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "EE2032.1",
+                "lecturer": "Prof.Dr. MURAT DOĞRUEL",
+                "quota": 0,
+                "schedule": [
+                    "2-13:00-13:50",
+                    "2-14:00-14:50"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "EE2032.1.1",
+                        "lecturer": "Prof.Dr. MURAT DOĞRUEL",
+                        "quota": 22,
+                        "schedule": [
+                            "1-08:30-09:20",
+                            "1-09:30-10:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "EE2032.1.2",
+                        "lecturer": "Prof.Dr. MURAT DOĞRUEL",
+                        "quota": 22,
+                        "schedule": [
+                            "1-10:30-11:20",
+                            "1-11:30-12:20"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "EE2032.1.3",
+                        "lecturer": "Prof.Dr. MURAT DOĞRUEL",
+                        "quota": 22,
+                        "schedule": [
+                            "1-14:00-14:50",
+                            "1-15:00-15:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "EE2032.1.4",
+                        "lecturer": "Prof.Dr. MURAT DOĞRUEL",
+                        "quota": 23,
+                        "schedule": [
+                            "2-15:00-15:50",
+                            "2-16:00-16:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "MATH2059",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Numerical Methods",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "MATH1001-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "MATH2059.1",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 0,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20",
+                    "1-13:00-13:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "STAT2053",
+        "group": "SME4",
+        "semester": "Spring",
+        "name": "Introduction to Probability and Statistics",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "STAT2053.1",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "0-09:30-10:20",
+                    "4-10:30-11:20",
+                    "4-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE3015",
+        "group": "SME5",
+        "semester": "Fall",
+        "name": "Digital Logic Design",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE3015.1",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "0-09:30-10:20",
+                    "2-10:30-11:20",
+                    "2-11:30-12:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE3015.1.1",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 58,
+                        "schedule": [
+                            "1-15:00-15:50",
+                            "1-16:00-16:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE3015.1.2",
+                        "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                        "quota": 58,
+                        "schedule": [
+                            "3-13:00-13:50",
+                            "3-14:00-14:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE3033",
+        "group": "SME5",
+        "semester": "Fall",
+        "name": "Operating Systems",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE2025-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3033.1",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 0,
+                "schedule": [
+                    "2-09:30-10:20",
+                    "4-09:30-10:20",
+                    "4-10:30-11:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE3033.1.1",
+                        "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                        "quota": 47,
+                        "schedule": [
+                            "2-13:00-13:50",
+                            "2-14:00-14:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE3033.1.2",
+                        "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                        "quota": 45,
+                        "schedule": [
+                            "3-15:00-15:50",
+                            "3-16:00-16:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE3055",
+        "group": "SME5",
+        "semester": "Fall",
+        "name": "Database Systems",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE2025-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3055.1",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "1-09:30-10:20",
+                    "1-10:30-11:20",
+                    "3-10:30-11:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE3055.1.1",
+                        "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                        "quota": 41,
+                        "schedule": [
+                            "1-13:00-13:50",
+                            "1-14:00-14:50"
+                        ],
+                        "labSections": []
+                    },
+                    {
+                        "sectionCode": "CSE3055.1.2",
+                        "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                        "quota": 40,
+                        "schedule": [
+                            "2-15:00-15:50",
+                            "2-16:00-16:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE3063",
+        "group": "SME5",
+        "semester": "Fall",
+        "name": "Object-Oriented Software Design",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE1142-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3063.1",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20",
+                    "1-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "IE3081",
+        "group": "SME5",
+        "semester": "Fall",
+        "name": "Modeling and Discrete Simulation",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "STAT2053-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "IE3081.1",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "4-11:30-12:20",
+                    "3-08:30-09:20",
+                    "3-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE3038",
+        "group": "SME6",
+        "semester": "Spring",
+        "name": "Computer Organization",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE2138-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3038.1",
+                "lecturer": "Prof.Dr. HALUK RAHMİ TOPCUOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "2-11:30-12:20",
+                    "3-10:30-11:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE3038.1.1",
+                        "lecturer": "Prof.Dr. HALUK RAHMİ TOPCUOĞLU",
+                        "quota": 0,
+                        "schedule": [
+                            "1-15:00-15:50",
+                            "1-16:00-16:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE3044",
+        "group": "SME6",
+        "semester": "Spring",
+        "name": "Software Engineering",
+        "credits": 7.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE3055-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3044.1",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "1-11:30-12:20",
+                    "2-08:30-09:20",
+                    "2-09:30-10:20"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE3044.1.1",
+                        "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                        "quota": 0,
+                        "schedule": [
+                            "4-10:30-11:20",
+                            "4-11:30-12:20"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE3048",
+        "group": "SME6",
+        "semester": "Spring",
+        "name": "Introduction to Signals and Systems",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "MATH2055-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3048.1",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "1-09:30-10:20",
+                    "1-10:30-11:20",
+                    "2-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE3064",
+        "group": "SME6",
+        "semester": "Spring",
+        "name": "Formal Languages and Automata Theory",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE2023-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE3064.1",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 10,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20",
+                    "4-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "IE3035",
+        "group": "SME6",
+        "semester": "Spring",
+        "name": "Operations Research",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "MATH2056-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "IE3035.1",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "1-14:00-14:50",
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4074",
+        "group": "SME7",
+        "semester": "Fall",
+        "name": "Computer Networks",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4074.1",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "1-14:00-14:50",
+                    "3-13:00-13:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4117",
+        "group": "SME7",
+        "semester": "Fall",
+        "name": "Microprocessors",
+        "credits": 6.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE3038-C"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE4117.1",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "2-13:00-13:50",
+                    "2-14:00-14:50",
+                    "3-18:00-18:50"
+                ],
+                "labSections": [
+                    {
+                        "sectionCode": "CSE4117.1.1",
+                        "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                        "quota": 0,
+                        "schedule": [
+                            "0-16:00-16:50",
+                            "0-17:00-17:50"
+                        ],
+                        "labSections": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "CSE4197",
+        "group": "SME7",
+        "semester": "Fall",
+        "name": "Engineering Project I",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4197.1",
+                "lecturer": "Prof.Dr. HALUK RAHMİ TOPCUOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.2",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.3",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.4",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.5",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.6",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.7",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "0-19:00-19:50",
+                    "0-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.8",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "3-19:00-19:50",
+                    "3-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.9",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 0,
+                "schedule": [
+                    "3-19:00-19:50",
+                    "3-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.10",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "3-19:00-19:50",
+                    "3-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.11",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "3-19:00-19:50",
+                    "3-20:00-20:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4197",
+        "group": "SME7",
+        "semester": "Spring",
+        "name": "Engineering Project I",
+        "credits": 4.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4197.1",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "0-18:00-18:50",
+                    "0-19:00-19:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.2",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "0-18:00-18:50",
+                    "0-19:00-19:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.3",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "0-18:00-18:50",
+                    "0-19:00-19:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.4",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 0,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.5",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.6",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "1-17:00-17:50",
+                    "1-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.7",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.8",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.9",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.10",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "2-17:00-17:50",
+                    "2-18:00-18:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4197.11",
+                "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "3-17:00-17:50",
+                    "3-18:00-18:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ISG121",
+        "group": "SME7",
+        "semester": "Fall",
+        "name": "İş Sağlığı ve Güvenliği I",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ISG121.1",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 0,
+                "schedule": [
+                    "5-15:00-15:50",
+                    "5-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ISG121",
+        "group": "SME7",
+        "semester": "Spring",
+        "name": "İş Sağlığı ve Güvenliği I",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ISG121.1",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 0,
+                "schedule": [
+                    "5-08:30-09:20",
+                    "5-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4198",
+        "group": "SME8",
+        "semester": "Fall",
+        "name": "Engineering Project II",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE4197-P"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE4198.1",
+                "lecturer": "Prof.Dr. HALUK RAHMİ TOPCUOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "1-21:00-21:50",
+                    "1-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.2",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "1-21:00-21:50",
+                    "1-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.3",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "1-21:00-21:50",
+                    "1-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.4",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "1-21:00-21:50",
+                    "1-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.5",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 0,
+                "schedule": [
+                    "2-21:00-21:50",
+                    "2-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.6",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "2-21:00-21:50",
+                    "2-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.7",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "0-21:00-21:50",
+                    "0-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.8",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "3-21:00-21:50",
+                    "3-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.9",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 0,
+                "schedule": [
+                    "3-21:00-21:50",
+                    "3-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.10",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "3-21:00-21:50",
+                    "3-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.11",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "3-21:00-21:50",
+                    "3-22:00-22:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4198",
+        "group": "SME8",
+        "semester": "Spring",
+        "name": "Engineering Project II",
+        "credits": 5.0,
+        "requiredCredits": 0,
+        "prerequisites": [
+            "CSE4197-P"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE4198.1",
+                "lecturer": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+                "quota": 0,
+                "schedule": [
+                    "0-20:00-20:50",
+                    "0-21:00-21:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.2",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 0,
+                "schedule": [
+                    "0-20:00-20:50",
+                    "0-21:00-21:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.3",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 0,
+                "schedule": [
+                    "0-20:00-20:50",
+                    "0-21:00-21:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.4",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.5",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.6",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 0,
+                "schedule": [
+                    "1-19:00-19:50",
+                    "1-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.7",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.8",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 0,
+                "schedule": [
+                    "2-21:00-21:50",
+                    "2-22:00-22:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.9",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.10",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 0,
+                "schedule": [
+                    "2-19:00-19:50",
+                    "2-20:00-20:50"
+                ],
+                "labSections": []
+            },
+            {
+                "sectionCode": "CSE4198.11",
+                "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                "quota": 0,
+                "schedule": [
+                    "3-19:00-19:50",
+                    "3-20:00-20:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ISG122",
+        "group": "SME8",
+        "semester": "Fall",
+        "name": "İş Sağlığı ve Güvenliği II",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ISG122.1",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 0,
+                "schedule": [
+                    "5-08:30-09:20",
+                    "5-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "ISG122",
+        "group": "SME8",
+        "semester": "Spring",
+        "name": "İş Sağlığı ve Güvenliği II",
+        "credits": 2.0,
+        "requiredCredits": 0,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "ISG122.1",
+                "lecturer": "Doç.Dr. MUSTAFA YILMAZ",
+                "quota": 0,
+                "schedule": [
+                    "5-15:00-15:50",
+                    "5-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4026",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Introduction to Robotics and Control Theory",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4026.1",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 23,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50",
+                    "2-13:00-13:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4057",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Information Systems Security",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4057.1",
+                "lecturer": "Doç.Dr. ÖMER KORÇAK",
+                "quota": 41,
+                "schedule": [
+                    "3-11:30-12:20",
+                    "4-10:30-11:20",
+                    "4-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4060",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Principles of Programming Languages",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4060.1",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 30,
+                "schedule": [
+                    "1-09:30-10:20",
+                    "1-10:30-11:20",
+                    "2-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4062",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Introduction to Data Science and Analytics",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4062.1",
+                "lecturer": "Doç.Dr. MURAT CAN GANİZ",
+                "quota": 42,
+                "schedule": [
+                    "1-13:00-13:50",
+                    "2-15:00-15:50",
+                    "2-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4063",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Fundamentals of Data Mining",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4063.1",
+                "lecturer": "Doç.Dr. MUSTAFA AĞAOĞLU",
+                "quota": 30,
+                "schedule": [
+                    "0-10:30-11:20",
+                    "0-11:30-12:20",
+                    "1-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4065",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Introduction to Computational Genomics",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4065.1",
+                "lecturer": "Dr. Öğr. Üyesi BETÜL BOZ",
+                "quota": 47,
+                "schedule": [
+                    "2-14:00-14:50",
+                    "3-13:00-13:50",
+                    "3-14:00-14:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4075",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Wireless and Mobile Networks",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [
+            "CSE4074-P"
+        ],
+        "sections": [
+            {
+                "sectionCode": "CSE4075.1",
+                "lecturer": "Doç.Dr. MÜJDAT SOYTÜRK",
+                "quota": 38,
+                "schedule": [
+                    "3-08:30-09:20",
+                    "3-09:30-10:20",
+                    "4-09:30-10:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4082",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Artificial Intelligence",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4082.1",
+                "lecturer": "Doç.Dr. ALİ HAYDAR ÖZER",
+                "quota": 42,
+                "schedule": [
+                    "0-13:00-13:50",
+                    "2-16:00-16:50",
+                    "2-17:00-17:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4083",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Computer Graphics",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4083.1",
+                "lecturer": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+                "quota": 15,
+                "schedule": [
+                    "0-11:30-12:20",
+                    "4-10:30-11:20",
+                    "4-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4084",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Multimedia Systems",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4084.1",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 35,
+                "schedule": [
+                    "2-15:00-15:50",
+                    "3-14:00-14:50",
+                    "3-15:00-15:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4086",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Mobile Device Programming",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4086.1",
+                "lecturer": "Prof.Dr. ALİ FUAT ALKAYA",
+                "quota": 35,
+                "schedule": [
+                    "2-09:30-10:20",
+                    "3-16:00-16:50",
+                    "3-17:00-17:50"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4088",
+        "group": "TE",
+        "semester": "Fall",
+        "name": "Introduction to Machine Learning",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4088.1",
+                "lecturer": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+                "quota": 42,
+                "schedule": [
+                    "1-15:00-15:50",
+                    "1-16:00-16:50",
+                    "3-11:30-12:20"
+                ],
+                "labSections": []
+            }
+        ]
+    },
+    {
+        "code": "CSE4094",
+        "group": "TE",
+        "semester": "Spring",
+        "name": "Special Topics in Computer Engineering II",
+        "credits": 5.0,
+        "requiredCredits": 165,
+        "prerequisites": [],
+        "sections": [
+            {
+                "sectionCode": "CSE4094.1",
+                "lecturer": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+                "quota": 44,
+                "schedule": [
+                    "2-10:30-11:20",
+                    "3-15:00-15:50",
+                    "3-16:00-16:50"
+                ],
+                "labSections": []
+            }
+        ]
+    }
+]

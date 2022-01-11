@@ -1,8 +1,6 @@
-import pandas, sys, json, re, functools
+import pandas, json, re
 
-def parseCourses(filePath: str) -> list:
-
-    excelFile = pandas.read_excel(filePath).iloc()
+def parseCourses(excelFile) -> list:
 
     courses = []
 
@@ -17,29 +15,26 @@ def parseCourses(filePath: str) -> list:
             'prerequisite': []
         })
 
-    for course in courses:
-        course['courseCode'] = updateCourseCode(course)
-        course['credit'] = updateCourseCredit(course)
-        course['prerequisite'] = updateCoursePrerequisite(course)
-
     return courses
 
-def mergeCourses(courses: list) -> list:
+def mergeCourses(courses: list, semester: str) -> list:
     
     mergedCourses = []
 
     for course in filter(lambda x: re.match('^\\w+\\.\\d+$', x['courseCode']) != None, courses):
         courseCode = course['courseCode'].split('.')[0]
 
-        parentCourse = list(filter(lambda x: x['courseCode'] == courseCode, mergedCourses))
+        parentCourse = list(filter(lambda x: x['code'] == courseCode, mergedCourses))
 
         if len(parentCourse) == 0:
             mergedCourses.append({
-                'courseCode': courseCode,
-                'courseGroup': '',
-                'courseName': course['courseName'],
-                'credit': course['credit'],
-                'prerequisite': course['prerequisite'],
+                'code': courseCode,
+                'group': '',
+                'semester': semester,
+                'name': course['courseName'],
+                'credits': course['credit'],
+                'requiredCredits': 0,
+                'prerequisites': course['prerequisite'],
                 'sections': []
             })
             parentCourse = mergedCourses[-1]
@@ -47,7 +42,7 @@ def mergeCourses(courses: list) -> list:
             parentCourse = parentCourse[0]
 
         parentCourse['sections'].append({
-            'courseSection': course['courseCode'],
+            'sectionCode': course['courseCode'],
             'lecturer': course['lecturer'],
             'quota': course['quota'],
             'schedule': course['schedule'],
@@ -58,99 +53,68 @@ def mergeCourses(courses: list) -> list:
         courseCode = course['courseCode'].split('.')[0]
         courseSection = course['courseCode'].rsplit('.', maxsplit=1)[0]
 
-        parentCourse = list(filter(lambda x: x['courseCode'] == courseCode, mergedCourses))[0]['sections']
-        parentSection = list(filter(lambda x: x['courseSection'] == courseSection, parentCourse))[0]
+        parentCourse = list(filter(lambda x: x['code'] == courseCode, mergedCourses))[0]['sections']
+        parentSection = list(filter(lambda x: x['sectionCode'] == courseSection, parentCourse))[0]
 
         parentSection['labSections'].append({
-            'labSection': course['courseCode'],
+            'sectionCode': course['courseCode'],
             'lecturer': course['lecturer'],
             'quota': course['quota'],
             'schedule': course['schedule'],
+            'labSections': []
         })
 
     return mergedCourses
 
 def filterCourses(courses: list) -> list:
-    curriculumPath = __file__.rsplit('\\', maxsplit=2)[0] + '/files/curriculum.json'
-
     curriculum = {}
 
-    with open(curriculumPath, 'r') as curFile:
+    with open('files/curriculum.json', 'r') as curFile:
         curriculum = json.load(curFile)
 
     filteredCourses = []
 
     for course in courses:
         for courseGroup in curriculum:
-            if course['courseCode'] in curriculum[courseGroup]:
+            if course['code'] in curriculum[courseGroup]:
                 filteredCourses.append(course.copy())
-                filteredCourses[-1]['courseGroup'] = courseGroup
+                filteredCourses[-1]['group'] = courseGroup
 
-    return sorted(filteredCourses, key=lambda x: (x['courseGroup'], x['courseCode']))
+    return filteredCourses
 
-def updateCourseCode(course: dict) -> str:
-    renameList = {
-        'CSE2046': 'CSE2246',
-        'STAT2053': 'STAT2253',
-        'CSE3015': 'CSE3215',
-        'CSE3064': 'CSE3264',
-        'IE3035': 'IE3235',
-        'CSE4197': 'CSE4297',
-        'CSE4198': 'CSE4298'
-    }
-
-    courseCode = course['courseCode'].split('.', maxsplit=1)
-
-    if courseCode[0] in renameList:
-        return renameList[courseCode[0]] + '.' + courseCode[1]
-    else:
-        return course['courseCode']
-
-def updateCourseCredit(course: dict) -> float:
-    newCredits = {
-        'STAT2253': 5.0,
-        'CSE3215': 6.0,
-        'CSE4297': 5.0,
-        'CSE4298': 5.0
-    }
-
-    courseCode = course['courseCode'].split('.', maxsplit=1)
-
-    if courseCode[0] in newCredits:
-        return newCredits[courseCode[0]]
-    else:
-        return course['credit']
-
-def updateCoursePrerequisite(course: dict) -> list:
+def updateCoursePrerequisite(courses: list):
     prerequisites = {
-        'CSE1241': ['CSE1241-C'],
-        'MATH2059': ['MATH1001-C'],
-        'CSE2225': ['CSE1242-P'],
+        'CSE1142': ['CSE1141-C'],
+        'MATH2055': ['MATH1001-C'],
+        'CSE2025': ['CSE1142-P'],
         'EE2031': ['PHYS1102-C'],
-        'CSE2246': ['CSE2225-P'],
-        'CSE2260': ['CSE1242-C'],
+        'MATH2059': ['MATH1001-C'],
+        'CSE2046': ['CSE2025-P'],
         'EE2032': ['EE2031-C'],
-        'CSE3055': ['CSE2225-C'],
-        'CSE3033': ['CSE2225-C'],
-        'CSE3063': ['CSE1242-C'],
-        'IE3081': ['STAT2253-C'],
-        'CSE3044': ['CSE3055-C'],
-        'CSE3264': ['CSE2023-C'],
-        'CSE3038': ['CSE3215-C'],
+        'CSE3055': ['CSE2025-C'],
+        'CSE3033': ['CSE2025-C'],
+        'CSE3063': ['CSE1142-C'],
+        'IE3081': ['STAT2053-C'],
         'CSE3048': ['MATH2055-C'],
-        'IE3235': ['MATH2256-C'],
-        'CSE4219': ['CSE3038-C'],
-        'CSE4288': ['MATH2256-C', 'STAT2253-C'],
-        'CSE4298': ['CSE4297-P'],
+        'CSE3044': ['CSE3055-C'],
+        'CSE3064': ['CSE2023-C'],
+        'CSE3038': ['CSE2138-C'],
+        'IE3035': ['MATH2056-C'],
+        'CSE4117': ['CSE3038-C'],
+        'CSE4198': ['CSE4197-P'],
         'CSE4075': ['CSE4074-P'],
+        'CSE4054': ['CSE3055-P'],
         'CSE4034': ['CSE3033-P'],
-        'CSE4061': ['CSE3264-P'],
-        'CSE4217': ['CSE3038-C']
+        'CSE4061': ['CSE3064-P'],
+        'CSE4087': ['CSE3015-P']
     }
 
-    courseCode = course['courseCode'].split('.')[0]
+    for course in courses:
+        if course['code'] in prerequisites:
+            course['prerequisites'] = prerequisites[course['code']]
 
-    return prerequisites[courseCode] if courseCode in prerequisites else []
+        if course['group'] == 'TE':
+            course['requiredCredits'] = 165
 
 def parseTime(schedule: str) -> list:
     days = [u'Pazartesi', u'Salı', u'Çarşamba', u'Perşembe', u'Cuma', u'Cumartesi', u'Pazar']
@@ -172,16 +136,28 @@ def writeFile(filePath: str, courses: list):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Error!')
-        exit(1)
 
-    filePath = sys.argv[1]
+    excel_file = pandas.read_excel('files/fall.xlsx').iloc()
 
-    courses = parseCourses(filePath)
+    fallParsedCourses = parseCourses(excel_file)
 
-    courses = mergeCourses(courses)
+    fallMergedCourses = mergeCourses(fallParsedCourses, 'Fall')
 
-    courses = filterCourses(courses)
+    fallFilteredCourses = filterCourses(fallMergedCourses)
 
-    writeFile(filePath.rsplit('.', maxsplit=1)[0] + '.json', courses)
+    updateCoursePrerequisite(fallFilteredCourses)
+
+    excel_file = pandas.read_excel('files/spring.xlsx').iloc()
+
+    springParsedCourses = parseCourses(excel_file)
+
+    springMergedCourses = mergeCourses(springParsedCourses, 'Spring')
+
+    springFilteredCourses = filterCourses(springMergedCourses)
+
+    updateCoursePrerequisite(springFilteredCourses)
+
+    courses = sorted(fallFilteredCourses + springFilteredCourses, key=lambda x: (x['group'], x['code']))
+
+    with open('files/courses.json', 'w', encoding='utf-8') as spring:
+        json.dump(courses, spring, indent=4, ensure_ascii=False)
