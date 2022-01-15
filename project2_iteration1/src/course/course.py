@@ -1,4 +1,17 @@
 from .course_section import CourseSection
+import random
+
+notes = {
+    4.0: 'AA',
+    3.5: 'BA',
+    3.0: 'BB',
+    2.5: 'CB',
+    2.0: 'CC',
+    1.5: 'DC',
+    1.0: 'DD',
+    0.5: 'FD',
+    0.0: 'FF'
+}
 
 class Course:
 
@@ -41,7 +54,7 @@ class Course:
 
         # Random exam note generating
         for student in students:
-            student.updateCourseNote(self, 4)
+            student.updateCourseNote(self, random.choice(list(notes.keys())))
         #
 
     def clear(self):

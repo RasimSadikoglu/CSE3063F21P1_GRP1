@@ -1,6 +1,5 @@
-from math import e
 from system.advisor import Advisor
-from course.course_registration import CourseRegistration, RegistrationStatus
+from course.course_registration import CourseRegistration
 from .transcript import Transcript
 import random
 
@@ -31,34 +30,32 @@ class Student:
     def registration(self, managementSystem):
         courseRegistration: CourseRegistration = managementSystem.getCatalog(self)
 
-        # Registration Loop
-        while courseRegistration.status != RegistrationStatus.COMPLETE:
+        for courseList in courseRegistration.catalog:
+
+            courseList = list(filter(lambda c: c['course'] not in courseRegistration.blacklist, courseList))
+
+            if len(courseList) == 0:
+                continue
+
+            random.shuffle(courseList)
+
+            course = courseList[0]['course']
             
-            for courseList in courseRegistration.catalog:
+            availableSections = course.getAvailableCourseSections(courseRegistration.blacklist)
 
-                courseList = list(filter(lambda c: c['course'] not in courseRegistration.blacklist, courseList))
-
-                if len(courseList) == 0:
-                    continue
-
-                random.shuffle(courseList)
-
-                course = courseList[0]['course']
-                
-                availableSections = course.getAvailableCourseSections(courseRegistration.blacklist)
-
-                if len(availableSections) == 0:
-                    courseRegistration.blacklist.append(course)
-                    continue
-
-                randomCourseSection = random.randint(0, len(availableSections) - 1)
-
+            if len(availableSections) == 0:
+                print('quota')
                 courseRegistration.blacklist.append(course)
+                continue
 
-                courseRegistration.courses.append(course)
-                courseRegistration.studentSchedule.append(availableSections[randomCourseSection])
+            randomCourseSection = random.randint(0, len(availableSections) - 1)
 
-            managementSystem.checkRegistration(courseRegistration)
+            courseRegistration.blacklist.append(course)
+
+            courseRegistration.courses.append(course)
+            courseRegistration.studentSchedule.append(availableSections[randomCourseSection])
+
+        managementSystem.checkRegistration(courseRegistration)
 
     def completeRegistration(self, semester: list):
         self.transcript.completeRegistration(semester)
@@ -73,9 +70,13 @@ class Student:
         self.transcript.updateCourseNote(course, note)
 
     def __dict__(self) -> dict:
+        self.transcript.updateGPA()
+
         return {
             'ID': self.id,
             'Name': self.fullName,
             'Advisor': self.advisor.fullName,
+            'GPA': self.transcript.GPA,
+            'Completed Credits': self.transcript.completedCredits,
             'transcript': self.transcript.__dict__()
         }

@@ -44,7 +44,7 @@ class ManagementSystem:
 
             studentCourseInfos = [[student.getCourseInfo(course)] for course in self.courses if course.group == courseGroup and course.semester == self.semesters[self.currentSemester % 2]]
 
-            catalog.extend(list(filter(lambda courseInfo: courseInfo[0]['lastNote'] == None or courseInfo[0]['lastNote'] < 2, studentCourseInfos)))
+            catalog.extend(list(filter(lambda courseInfo: courseInfo[0]['lastNote'] == None or courseInfo[0]['lastNote'] < 1, studentCourseInfos)))
 
         for courseGroup in self.electiveCurriculum[currentSemesterOfStudent]:
             
@@ -60,10 +60,10 @@ class ManagementSystem:
 
     def checkRegistration(self, courseRegistration: CourseRegistration):
 
-        isChangesMade = False
-
         student = courseRegistration.student
         advisorOfStudent = student.advisor
+
+        courseRegistration.courses = courseRegistration.courses[:10]
 
         courses = courseRegistration.courses
         schedule = courseRegistration.studentSchedule
@@ -83,12 +83,8 @@ class ManagementSystem:
             if satisfy:
                 i += 1
             else:
-                isChangesMade = True
                 del courses[i]
                 del schedule[i]
-
-        if isChangesMade:
-            return
 
         advisorOfStudent.checkRegistration(courseRegistration)
 
@@ -97,5 +93,8 @@ class ManagementSystem:
         for course in self.courses:
             course.generateExamScores()
             course.clear()
+
+        for student in self.students:
+            student.transcript.updateGPA()
 
         self.currentSemester += 1

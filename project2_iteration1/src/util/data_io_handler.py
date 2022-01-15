@@ -35,7 +35,7 @@ def saveStudentFiles(students: list):
         shutil.rmtree(f'{sys.path[0]}/../files/students')
 
     os.mkdir(f'{sys.path[0]}/../files/students')
-    
+
     for s in students:
         with open(f'{sys.path[0]}/../files/students/{s.id}.json', 'w') as studentFile:
             json.dump(s.__dict__(), studentFile, ensure_ascii=False, indent=4)

@@ -17,5 +17,12 @@ class CourseRegistration:
         self.blacklist = []
 
     def completeRegistration(self):
+        self.status = RegistrationStatus.COMPLETE
+
+        for section, labSection in self.studentSchedule:
+            section.addStudent(self.student)
+            if labSection != None:
+                labSection.addStudent(self.student)
+
         self.student.currentSchedule = self.studentSchedule
         self.student.completeRegistration([(course, None) for course in self.courses])
