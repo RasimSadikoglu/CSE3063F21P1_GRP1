@@ -1,12 +1,18 @@
-import sys
-import json
-import os
-import shutil
+import sys, json, os, shutil
 from course.course import Course
 
+def getPath() -> str:
+
+    if os.path.exists(f'{sys.path[0]}/../files'):
+        return f'{sys.path[0]}/../files'
+    else:
+        return f'{sys.path[0]}/files'
 
 def readCourseFile():
-    with open(f'{sys.path[0]}/../files/courses.json', 'r', encoding='utf-8') as coursesFile:
+
+    path = getPath()
+
+    with open(f'{path}/courses.json', 'r', encoding='utf-8') as coursesFile:
         courses = json.load(coursesFile)
 
         courses = [Course(**c) for c in courses]
@@ -31,23 +37,21 @@ def readCourseFile():
 
         return courses
 
-
-def readStudentFiles():  # will be implemented later.
-    return []
-
-
 def saveStudentFiles(students: list):
 
-    if os.path.exists(f'{sys.path[0]}/../files/students'):
-        shutil.rmtree(f'{sys.path[0]}/../files/students')
+    path = getPath()
 
-    os.mkdir(f'{sys.path[0]}/../files/students')
+    if os.path.exists(f'{path}/students'):
+        shutil.rmtree(f'{path}/students')
+
+    os.mkdir(f'{path}/students')
 
     for s in students:
-        with open(f'{sys.path[0]}/../files/students/{s.id}.json', 'w') as studentFile:
+        with open(f'{path}/students/{s.id}.json', 'w') as studentFile:
             json.dump(s.__dict__(), studentFile, ensure_ascii=False, indent=4)
 
-
 def readsimulationParameters():
-    with open(f'{sys.path[0]}/../files/simulationParameters.json', 'r', encoding='utf-8') as coursesFile:
+    path = getPath()
+
+    with open(f'{path}/simulationParameters.json', 'r', encoding='utf-8') as coursesFile:
         return json.load(coursesFile)

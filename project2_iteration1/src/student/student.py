@@ -75,13 +75,11 @@ class Student:
         self.transcript.updateCourseNote(course, note)
 
     def __dict__(self) -> dict:
-        self.transcript.updateGPA()
-
         return {
             'ID': self.id,
             'Name': self.fullName,
             'Advisor': self.advisor.fullName,
-            'GPA': self.transcript.GPA,
+            'GPA': self.transcript.gpa,
             'Completed Credits': min(self.transcript.completedCredits, 240),
             'transcript': self.transcript.__dict__()
         }

@@ -12,7 +12,7 @@ class Transcript:
     def currentSemester(self) -> int:
         return len(self.semesters) + 1
 
-    def updateGPA(self) -> float:
+    def updateGPA(self):
         self.completedCredits = 0
         self.totalCredits = 0
 
@@ -28,7 +28,7 @@ class Transcript:
                    
                 self.totalCredits += takenCourse.credits
                 points += 0 if note == -1 else takenCourse.credits * note
-        self.GPA = points / self.totalCredits
+        self.gpa = points / self.totalCredits
 
     def completeRegistration(self, semester: list):
         self.semesters.append(semester)
@@ -70,4 +70,4 @@ class Transcript:
         return count
 
     def __dict__(self):
-        return [{c.code: notes[note] for c, note in semester} for semester in self.semesters]
+        return [{c.code: notes[note] if note != None else None for c, note in semester} for semester in self.semesters]

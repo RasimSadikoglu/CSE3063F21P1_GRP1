@@ -1,5 +1,5 @@
 from util.person_generator import createRandomAdvisors, createRandomStudents
-from util.data_io_handler import readCourseFile, readStudentFiles, readsimulationParameters, saveStudentFiles
+from util.data_io_handler import readCourseFile, readsimulationParameters, saveStudentFiles
 from system.management_system import ManagementSystem
 import logging
 
@@ -16,9 +16,6 @@ class Simulation:
         self.currentYear = self.parameters['startYear']
 
         self.managementSystem = ManagementSystem(self.courses, self.advisors, self.currentSemester, self.students)
-
-        if not self.parameters['ignoreOldStudentData']:
-            self.students = readStudentFiles()
 
     def start(self):
         
