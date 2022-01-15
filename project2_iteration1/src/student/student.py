@@ -3,8 +3,9 @@ from course.course_registration import CourseRegistration
 from .transcript import Transcript
 import random
 
+
 class Student:
-    
+
     def __init__(self, id: str, name: str, surname: str, successChance: float, advisor: Advisor, transcript: Transcript = None):
 
         self.id = id
@@ -28,11 +29,13 @@ class Student:
         return f'{self.name.lower()}.{self.surname.lower()}@marun.edu.tr'
 
     def registration(self, managementSystem):
-        courseRegistration: CourseRegistration = managementSystem.getCatalog(self)
+        courseRegistration: CourseRegistration = managementSystem.getCatalog(
+            self)
 
         for courseList in courseRegistration.catalog:
 
-            courseList = list(filter(lambda c: c['course'] not in courseRegistration.blacklist, courseList))
+            courseList = list(
+                filter(lambda c: c['course'] not in courseRegistration.blacklist, courseList))
 
             if len(courseList) == 0:
                 continue
@@ -40,8 +43,9 @@ class Student:
             random.shuffle(courseList)
 
             course = courseList[0]['course']
-            
-            availableSections = course.getAvailableCourseSections(courseRegistration.blacklist)
+
+            availableSections = course.getAvailableCourseSections(
+                courseRegistration.blacklist)
 
             if len(availableSections) == 0:
                 print('quota')
@@ -53,7 +57,8 @@ class Student:
             courseRegistration.blacklist.append(course)
 
             courseRegistration.courses.append(course)
-            courseRegistration.studentSchedule.append(availableSections[randomCourseSection])
+            courseRegistration.studentSchedule.append(
+                availableSections[randomCourseSection])
 
         managementSystem.checkRegistration(courseRegistration)
 
