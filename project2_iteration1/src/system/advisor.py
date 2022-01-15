@@ -1,5 +1,6 @@
 from course.course_registration import CourseRegistration, RegistrationStatus
 from course.course_section import CourseSection
+import logging
 
 class Advisor:
 
@@ -13,6 +14,8 @@ class Advisor:
         return self.name + ' ' + self.surname
     
     def checkRegistration(self, courseRegistration: CourseRegistration):
+        student = courseRegistration.student
+        courses = courseRegistration.courses
 
         teCount = 0
         courseSizes = len(courseRegistration.courses)
@@ -22,8 +25,8 @@ class Advisor:
             if currentCourse.group == "TE": teCount += 1
 
             if  teCount > 2 and courseRegistration.student.transcript.currentSemester % 2 == 1 and currentCourse.group == "TE":
-                print('te count')
-                # TODO : log here
+                logging.warning(f'[ADVISOR] [TE COUNT] [{student.id}] Student couldn\'t register course {courses[i].code} due to he/she already took 2 TE in this fall semester.')
+
                 courseRegistration.courses.pop(i)
                 courseSizes -= 1
                 continue
@@ -31,17 +34,17 @@ class Advisor:
             if (currentCourse.group == "FTE" and courseRegistration.student.transcript.currentSemester % 2 == 1 and \
                 courseRegistration.student.transcript.completedCredits != 235):
 
-                print('fte count')                
-                # TODO : log here
+                logging.warning(f'[ADVISOR] [FALL FTE] [{student.id}] Student couldn\'t register course {courses[i].code} due to taking a FTE course in fall semester without graduating.')               
+
                 courseRegistration.courses.pop(i)
                 courseSizes -= 1
                 continue
 
-            requiredCredit = currentCourse.requieredCredits
-            if courseRegistration.student.transcript.completedCredits < requiredCredit:
+            requiredCredits = currentCourse.requiredCredits
+            if courseRegistration.student.transcript.completedCredits < requiredCredits:
                 
-                print('req credit')
-                # TODO : log here
+                logging.warning(f'[ADVISOR] [TE CREDIT] [{student.id}] Student couldn\'t register course {courses[i].code} due to not enough completed credits for a TE course. {student.transcript.completedCredits} < {requiredCredits}')
+
                 courseRegistration.courses.pop(i)
                 courseSizes -= 1
                 continue
@@ -98,6 +101,8 @@ class Advisor:
         return totalCollisionMinute
 
     def collisionCheck(self, courseRegistration: CourseRegistration):
+        student = courseRegistration.student
+        courses = courseRegistration.courses
 
         courseSizes = len(courseRegistration.courses)
         i = 0
@@ -108,7 +113,7 @@ class Advisor:
                         courseRegistration.studentSchedule[j][0].schedule)
 
                 if (totalCollisionMinute > 59):
-                    print('collision')
+                    logging.warning(f'[ADVISOR] [COLLISION] [{student.id}] Student couldn\'t register course {courses[j].code} because of the {totalCollisionMinute // 60 + 1} hours collision with {courses[j].code}.')
                     # TODO : log here
                     courseRegistration.courses.pop(j)
                     courseSizes -= 1

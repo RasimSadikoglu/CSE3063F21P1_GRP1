@@ -1,22 +1,6 @@
 import pytest
 from student.student import Student
 from util.person_generator import createRandomStudents, createRandomAdvisors
-import logging
-
-
-def initializeLogger():
-    logging.basicConfig(level=logging.DEBUG,
-                        filename='logs.log',
-                        filemode='w')
-    console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
-    logging.getLogger().addHandler(console)
-
-
-initializeLogger()
-
-logging.info('Tests')
-
 
 def test_managementSystemMustNotDropCourse():
     advisors = createRandomAdvisors(10)

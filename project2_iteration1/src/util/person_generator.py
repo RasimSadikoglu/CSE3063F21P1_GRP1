@@ -7,14 +7,14 @@ from system.advisor import Advisor
 def getNames():
     firstNames = []
 
-    with open(f'{sys.path[0]}/files/firstNames.csv', 'r') as firstNamesFile:
+    with open(f'{sys.path[0]}/../files/firstNames.csv', 'r') as firstNamesFile:
         firstNames = firstNamesFile.read()
 
         firstNames = [name.split(',')[0] for name in firstNames.split('\n')]
 
     lastNames = []
 
-    with open(f'{sys.path[0]}/files/lastNames.csv', 'r') as lastNamesFile:
+    with open(f'{sys.path[0]}/../files/lastNames.csv', 'r') as lastNamesFile:
         lastNames = lastNamesFile.read()
 
         lastNames = [name.split(',')[0] for name in lastNames.split('\n')]

@@ -22,7 +22,7 @@ class Course:
         self.semester = semester
         self.name = name
         self.credits = credits
-        self.requieredCredits = requiredCredits
+        self.requiredCredits = requiredCredits
         self.prerequisites = prerequisites
         self.sections = [CourseSection(**section) for section in sections]
 

@@ -2,6 +2,7 @@ from .advisor import Advisor
 from course.course import Course
 from course.course_registration import CourseRegistration
 from student.student import Student
+import logging
 
 class ManagementSystem:
 
@@ -77,6 +78,7 @@ class ManagementSystem:
                 studentCourseInfo = student.getCourseInfo(preq)
 
                 if studentCourseInfo['lastNote'] == None or studentCourseInfo['lastNote'] < reqNote:
+                    logging.warning(f'[SYSTEM] [PREREQUISITE] [{student.id}] Student couldn\'t register course {courses[i].code} because of the prerequisite {preq.code}.')
                     satisfy = False
                     break
 

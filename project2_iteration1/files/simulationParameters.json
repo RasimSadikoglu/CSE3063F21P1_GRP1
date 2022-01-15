@@ -1,7 +1,7 @@
 {
     "ignoreOldStudentData": true,
     "loopCount": 16,
-    "yearlyStudentAmount": 70,
+    "yearlyStudentAmount": 10,
     "advisorAmount": 30,
     "startYear": 2020
 }

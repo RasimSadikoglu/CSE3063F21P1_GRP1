@@ -2,7 +2,7 @@ from system.advisor import Advisor
 from course.course_registration import CourseRegistration
 from .transcript import Transcript
 import random
-
+import logging
 
 class Student:
 
@@ -48,7 +48,7 @@ class Student:
                 courseRegistration.blacklist)
 
             if len(availableSections) == 0:
-                print('quota')
+                logging.warning(f'[SYSTEM] [QUOTA] [{self.id}] Student couldn\'t register course {course.code} because of the quota problems.')
                 courseRegistration.blacklist.append(course)
                 continue
 
@@ -82,6 +82,6 @@ class Student:
             'Name': self.fullName,
             'Advisor': self.advisor.fullName,
             'GPA': self.transcript.GPA,
-            'Completed Credits': self.transcript.completedCredits,
+            'Completed Credits': min(self.transcript.completedCredits, 240),
             'transcript': self.transcript.__dict__()
         }

@@ -1,6 +1,7 @@
 from util.person_generator import createRandomAdvisors, createRandomStudents
 from util.data_io_handler import readCourseFile, readStudentFiles, readsimulationParameters, saveStudentFiles
 from system.management_system import ManagementSystem
+import logging
 
 class Simulation:
     
@@ -37,6 +38,16 @@ class Simulation:
 
         saveStudentFiles(self.students)
 
+def initializeLogger():
+    logging.basicConfig(level=logging.DEBUG,
+                        filename='logs.log',
+                        filemode='w')
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    logging.getLogger().addHandler(console)
+
 if __name__ == '__main__':
+    initializeLogger()
+
     simulation = Simulation()
     simulation.start()
