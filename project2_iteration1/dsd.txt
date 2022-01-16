@@ -1,0 +1,105 @@
+title Design Sequence Diagram of Project 2
+
+Simulation->DataIOHandler:readSimulationParameters()
+
+activate Simulation
+activate DataIOHandler
+
+DataIOHandler-->Simulation:parameters
+
+Simulation->DataIOHandler:readCourseFiles()
+DataIOHandler-->*Course:<<create>>
+Course-->*CourseSection:<<create>>
+activate Course
+DataIOHandler-->Simulation:courses
+
+Simulation->PersonGenerator:createRandomAdvisors(amount)
+activate PersonGenerator
+
+PersonGenerator-->Advisor:<<create>>
+
+PersonGenerator-->Simulation:advisors
+
+Simulation-->*ManagementSystem:<<create>>
+
+loop Simulation Loop
+
+alt Semester == 'Fall'
+
+Simulation->PersonGenerator:createRandomStudents(advisors, currentYear, amount)
+
+PersonGenerator-->*Student:<<create>>
+Student-->*Transcript:<<create>>
+
+PersonGenerator-->Simulation:students
+deactivate PersonGenerator
+
+Simulation->ManagementSystem:registerNewStudents(newStudents)
+activate ManagementSystem
+
+end
+
+Simulation->ManagementSystem:startRegistration()
+
+loop For Every Student
+
+ManagementSystem->Student:registration(managenentSystem)
+activate Student
+
+Student->ManagementSystem:getCatalog(student)
+
+ManagementSystem-->*CourseRegistration:<<create>>
+
+ManagementSystem-->Student:courseRegistration
+
+Student->Course:getAvailableCourseSections(blacklist)
+Course-->Student:courseSections
+
+Student->ManagementSystem:checkRegistration(courseRegistration)
+ManagementSystem->Advisor:checkRegistration(courseRegistration)
+activate Advisor
+
+Advisor->CourseRegistration:completeRegistration()
+deactivate Advisor
+activate CourseRegistration
+CourseRegistration->CourseSection:addStudent(student)
+activate CourseSection
+
+CourseRegistration->Student:completeRegistration(semester)
+deactivate CourseRegistration
+destroy CourseRegistration
+
+Student->Transcript:completeRegistration(semester)
+activate Transcript
+
+end
+
+Simulation->ManagementSystem:endSemester()
+
+loop For Every Course
+
+ManagementSystem->Course:generateExamScores()
+Course->Student:updateCourseNote(course, note)
+ManagementSystem->Course:clear()
+Course->CourseSection:clear()
+deactivate Course
+deactivate CourseSection
+
+end 
+
+loop For Every Student
+
+ManagementSystem->Student:updateGPA()
+Student->Transcript:updateGPA()
+deactivate Transcript
+deactivate Student
+
+end
+
+end
+deactivate ManagementSystem
+
+Simulation->DataIOHandler:saveStudentFiles(stduents)
+
+deactivate Simulation
+deactivate DataIOHandler

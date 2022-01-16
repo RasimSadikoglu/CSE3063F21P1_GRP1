@@ -28,7 +28,7 @@ class Simulation:
 
             self.managementSystem.startRegistration()
 
-            self.managementSystem.endRegistration()
+            self.managementSystem.endSemester()
             
             self.currentSemester += 1
             self.currentYear += self.currentSemester % 2

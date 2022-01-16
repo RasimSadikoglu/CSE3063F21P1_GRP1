@@ -90,7 +90,7 @@ class ManagementSystem:
 
         advisorOfStudent.checkRegistration(courseRegistration)
 
-    def endRegistration(self):
+    def endSemester(self):
         
         for course in self.courses:
             course.generateExamScores()
